@@ -1,0 +1,14 @@
+country: China
+province: beijing
+city: beijing
+area: haidian
+
+user:
+  -
+    name: cuiwei
+    age: 21
+
+likes:
+  - game
+  - music
+  - woman
