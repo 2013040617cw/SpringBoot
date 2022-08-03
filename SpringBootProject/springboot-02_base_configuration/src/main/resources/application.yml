@@ -12,3 +12,13 @@ likes:
   - game
   - music
   - woman
+
+datasource:
+  driver: com.mysql.jdbc.Driver
+  url: loclalhost://///
+  username: root
+  password: 123456
+
+  #端口配置
+server:
+  port: 80

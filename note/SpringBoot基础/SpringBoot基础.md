@@ -1246,9 +1246,14 @@ private  String likes1;
 
 ​	读取单一数据可以解决读取数据的问题，但是如果定义的数据量过大，这么一个一个书写肯定会累死人的，SpringBoot提供了一个对象，能够把所有的数据都封装到这一个对象中，这个对象叫做Environment，使用自动装配注解可以将所有的yaml数据封装到这个对象中
 
-<img src="img\image-20211126180738569.png" alt="image-20211126180738569" style="zoom:80%;" />
-
 ​	数据封装到了Environment对象中，获取属性时，通过Environment的接口操作进行，具体方法时getProperties（String），参数填写属性名即可
+
+```java
+@Autowired
+private Environment env;
+System.out.println(env.getProperty("server.port"));
+System.out.println(env.getProperty("user.name"));
+```
 
 **总结**
 
@@ -1259,19 +1264,78 @@ private  String likes1;
 
 #### 读取对象数据
 
-​	单一数据读取书写比较繁琐，全数据封装又封装的太厉害了，每次拿数据还要一个一个的getProperties（）,总之用起来都不是很舒服。由于Java是一个面向对象的语言，很多情况下，我们会将一组数据封装成一个对象。SpringBoot也提供了可以将一组yaml对象数据封装一个Java对象的操作
+​	SpringBoot也提供了可以将一组yaml对象数据封装一个Java对象的操作
 
 ​	首先定义一个对象，并将该对象纳入Spring管控的范围，也就是定义成一个bean，然后使用注解@ConfigurationProperties指定该对象加载哪一组yaml中配置的信息。
 
-<img src="img\image-20211126181126382.png" alt="image-20211126181126382" style="zoom:80%;" />
+```java
+//定义数据模型封装yaml文件对应的数据
+//定义为Spring管控的bean
+@Component
+//指定加载的数据
+@ConfigurationProperties(prefix = "datasource")
+public class DataSource {
 
-​	这个@ConfigurationProperties必须告诉他加载的数据前缀是什么，这样当前前缀下的所有属性就封装到这个对象中。记得数据属性名要与对象的变量名一一对应啊，不然没法封装。其实以后如果你要定义一组数据自己使用，就可以先写一个对象，然后定义好属性，下面到配置中根据这个格式书写即可。
+   private String driver;
+    private String url;
+    private String username;
+    private String password;
 
-​	<img src="img\image-20211126181423432.png" alt="image-20211126181423432" style="zoom:80%;" />
+    public String getDriver() {
+        return driver;
+    }
 
-​	<font color="#f0f"><b>温馨提示</b></font>
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
 
-​		细心的小伙伴会发现一个问题，自定义的这种数据在yaml文件中书写时没有弹出提示，是这样的，咱们到原理篇再揭秘如何弹出提示。
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public DataSource() {
+    }
+
+    public DataSource(String driver, String url, String username, String password) {
+        this.driver = driver;
+        this.url = url;
+        this.username = username;
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "DataSource{" +
+                "driver='" + driver + '\'' +
+                ", url='" + url + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+}
+```
+
+​	这个@ConfigurationProperties必须告诉他加载的数据前缀是什么，这样当前前缀下的所有属性就封装到这个对象中。**记得数据属性名要与对象的变量名一一对应啊**，不然没法封装。其实以后如果你要定义一组数据自己使用，就可以先写一个对象，然后定义好属性，下面到配置中根据这个格式书写即可。
 
 **总结**
 
@@ -1332,15 +1396,10 @@ lesson: "Spring\tboot\nlesson"
 
 ## JC-3.基于SpringBoot实现SSMP整合
 
-​	重头戏来了，SpringBoot之所以好用，就是它能方便快捷的整合其他技术，这一部分咱们就来聊聊一些技术的整合方式，通过这一章的学习，大家能够感受到SpringBoot到底有多酷炫。这一章咱们学习如下技术的整合方式
-
 - 整合JUnit
 - 整合MyBatis
 - 整合MyBatis-Plus
 - 整合Druid
-
-   上面这些技术都整合完毕后，我们做一个小案例，也算是学有所用吧。涉及的技术比较多，综合运用一下。
-
 
 
 ### JC-3-1.整合JUnit
@@ -1367,28 +1426,31 @@ public class AccountServiceTestCase {
 
 ```
 
-​	其中核心代码是前两个注解，第一个注解@RunWith是设置Spring专用于测试的类运行器，简单说就是Spring程序执行程序有自己的一套独立的运行程序的方式，不能使用JUnit提供的类运行方式了，必须指定一下，但是格式是固定的，琢磨一下，<font color="#ff0000"><b>每次都指定一样的东西，这个东西写起来没有技术含量啊</b></font>，第二个注解@ContextConfiguration是用来设置Spring核心配置文件或配置类的，简单说就是加载Spring的环境你要告诉Spring具体的环境配置是在哪里写的，虽然每次加载的文件都有可能不同，但是仔细想想，如果文件名是固定的，这个貌似也是一个固定格式。似然<font color="#ff0000"><b>有可能是固定格式，那就有可能每次都写一样的东西，也是一个没有技术含量的内容书写</b></font>
+​	其中核心代码是前两个注解，第一个注解@RunWith是设置Spring专用于测试的类运行器，简单说就是Spring程序执行程序有自己的一套独立的运行程序的方式，不能使用JUnit提供的类运行方式了，必须指定一下，但是格式是固定的，每次都指定一样的东西，这个东西写起来没有技术含量啊，第二个注解@ContextConfiguration是用来设置Spring核心配置文件或配置类的，简单说就是加载Spring的环境你要告诉Spring具体的环境配置是在哪里写的，虽然每次加载的文件都有可能不同，但是仔细想想，如果文件名是固定的，这个貌似也是一个固定格式。似然<font color="#ff0000"><b>有可能是固定格式，那就有可能每次都写一样的东西，也是一个没有技术含量的内容书写</b></font>
 
 ​	SpringBoot就抓住上述两条没有技术含量的内容书写进行开发简化，能走默认值的走默认值，能不写的就不写，具体格式如下
 
 ```JAVA
 @SpringBootTest
-class Springboot04JunitApplicationTests {
+class Springboot03JunitApplicationTests {
+
     //注入你要测试的对象
     @Autowired
-    private BookDao bookDao;
+    private BootDao bootDao;
     @Test
     void contextLoads() {
-        //执行要测试的对象对应的方法
-        bookDao.save();
-        System.out.println("two...");
+        bootDao.save();
     }
 }
 ```
 
-​	看看这次简化成什么样了，一个注解就搞定了，而且还没有参数，再体会SpringBoot整合其他技术的优势在哪里，就两个字——<font color="#ff0000"><b>简化</b></font>。使用一个注解@SpringBootTest替换了前面两个注解。至于内部是怎么回事？和之前一样，只不过都走默认值。
+​	@SpringBootTest替换了前面两个注解。
 
-​	这个时候有人就问了，你加载的配置类或者配置文件是哪一个？就是我们前面启动程序使用的引导类。如果想手工指定引导类有两种方式，第一种方式使用属性的形式进行，在注解@SpringBootTest中添加classes属性指定配置类
+SrpingbootJunitApplication和SrpingbootJunitApplicationTest要保持在相同的目录结构下，Test才能扫描到引导类，如果不在相同的目录结构下，则使用下面两种方法。
+
+![image-20220803103641243](SpringBoot基础.assets/image-20220803103641243.png)
+
+第一种：在注解@SpringBootTest中添加classes属性指定配置类
 
 ```JAVA
 @SpringBootTest(classes = Springboot04JunitApplication.class)
@@ -1423,10 +1485,6 @@ class Springboot04JunitApplicationTests {
 }
 ```
 
-​	<font color="#f0f"><b>温馨提示</b></font>
-
-​		使用SpringBoot整合JUnit需要保障导入test对应的starter，由于初始化项目时此项是默认导入的，所以此处没有提及，其实和之前学习的内容一样，用什么技术导入对应的starter即可。
-
 **总结**
 
 1. 导入测试对应的starter
@@ -1435,11 +1493,7 @@ class Springboot04JunitApplicationTests {
 4. 测试类如果存在于引导类所在包或子包中无需指定引导类
 5. 测试类如果不存在于引导类所在的包或子包中需要通过classes属性指定引导类
 
-
-
 ### JC-3-2.整合MyBatis
-
-​	整合完JUnit下面再来说一下整合MyBatis，这个技术是大部分公司都要使用的技术，务必掌握。如果对Spring整合MyBatis不熟悉的小伙伴好好复习一下，下面列举出原始整合的全部内容，以配置类的形式为例进行
 
 - 导入坐标，MyBatis坐标不能少，Spring整合MyBatis还有自己专用的坐标，此外Spring进行数据库操作的jdbc坐标是必须的，剩下还有mysql驱动坐标，本例中使用了Druid数据源，这个倒是可以不要
 
@@ -1552,9 +1606,7 @@ class Springboot04JunitApplicationTests {
 
 **步骤①**：创建模块时勾选要使用的技术，MyBatis，由于要操作数据库，还要勾选对应数据库
 
-![image-20211129092156020](img\image-20211129092156020.png)
-
-![image-20211129092210993](img\image-20211129092210993.png)
+![image-20220803110641130](SpringBoot基础.assets/image-20220803110641130.png)
 
 ​	或者手工导入对应技术的starter，和对应数据库的坐标
 
@@ -1578,25 +1630,75 @@ class Springboot04JunitApplicationTests {
 **步骤②**：配置数据源相关信息，没有这个信息你连接哪个数据库都不知道
 
 ```yaml
-#2.配置相关信息
+#配置相关的信息
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ssm_db
     username: root
-    password: root
+    password: 123456
 ```
-
-​	完了，就这么多，没了。有人就很纳闷，这就结束了？对，这就结束了，SpringBoot把配置中所有可能出现的通用配置都简化了。下面就可以写一下MyBatis程序运行需要的Dao（或者Mapper）就可以运行了
 
 **实体类**
 
 ```JAVA
 public class Book {
-    private Integer id;
+    private int id;
     private String type;
     private String name;
     private String description;
+
+    public Book() {
+    }
+
+    public Book(int id, String type, String name, String description) {
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
 ```
 
@@ -1604,8 +1706,9 @@ public class Book {
 
 ```JAVA
 @Mapper
+@Repository
 public interface BookDao {
-    @Select("select * from tbl_book where id = #{id}")
+    @Select("select * from tb1_book where id = #{id}")
     public Book getById(Integer id);
 }
 ```
@@ -1624,9 +1727,7 @@ class Springboot05MybatisApplicationTests {
 }
 ```
 
-​	完美，开发从此变的就这么简单。再体会一下SpringBoot如何进行第三方技术整合的，是不是很优秀？具体内部的原理到原理篇再展开讲解
-
-​	<font color="#ff0000"><b>注意</b></font>：当前使用的SpringBoot版本是2.5.4，对应的坐标设置中Mysql驱动使用的是8x版本。当SpringBoot2.4.3（不含）版本之前会出现一个小BUG，就是MySQL驱动升级到8以后要求强制配置时区，如果不设置会出问题。解决方案很简单，驱动url上面添加上对应设置就行了
+​	<font color="#ff0000"><b>注意</b></font>：当前使用的SpringBoot版本是2.7.2，对应的坐标设置中Mysql驱动使用的是8x版本。当SpringBoot2.4.3（不含）版本之前会出现一个小BUG，就是MySQL驱动升级到8以后要求强制配置时区，如果不设置会出问题。解决方案很简单，驱动url上面添加上对应设置就行了
 
 ```YAML
 #2.配置相关信息
@@ -1635,7 +1736,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
     username: root
-    password: root
+    password: 123456
 ```
 
 ​	这里设置的UTC是全球标准时间，你也可以理解为是英国时间，中国处在东八区，需要在这个基础上加上8小时，这样才能和中国地区的时间对应的，也可以修改配置不写UTC，写Asia/Shanghai也可以解决这个问题。
@@ -1650,9 +1751,9 @@ spring:
     password: root
 ```
 
-​	如果不想每次都设置这个东西，也可以去修改mysql中的配置文件mysql.ini，在mysqld项中添加default-time-zone=+8:00也可以解决这个问题。其实方式方法很多，这里就说这么多吧。
+​	如果不想每次都设置这个东西，也可以去修改mysql中的配置文件mysql.ini，在mysqld项中添加default-time-zone=+8:00也可以解决这个问题。
 
-​	此外在运行程序时还会给出一个提示，说数据库驱动过时的警告，根据提示修改配置即可，弃用**com.mysql.jdbc.Driver**，换用<font color="#ff0000"><b>com.mysql.cj.jdbc.Driver</b></font>。前面的例子中已经更换了驱动了，在此说明一下。
+​	此外在运行程序时还会给出一个提示，说数据库驱动过时的警告，根据提示修改配置即可，弃用**com.mysql.jdbc.Driver**，换用<font color="#ff0000"><b>com.mysql.cj.jdbc.Driver</b></font>。
 
 ```tex
 Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
@@ -1673,18 +1774,15 @@ Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class 
 
 5. 驱动类过时，提醒更换为com.mysql.cj.jdbc.Driver
 
-   
 
 ### JC-3-3.整合MyBatis-Plus
 
-​	做完了两种技术的整合了，各位小伙伴要学会总结，我们做这个整合究竟哪些是核心？总结下来就两句话
+​	总结下来就两句话
 
 - 导入对应技术的starter坐标
-- 根据对应技术的要求做配置
+- 根据对应技术的要求做配置。
 
-​    虽然看起来有点虚，但是确实是这个理儿，下面趁热打铁，再换一个技术，看看是不是上面这两步。
-
-​	接下来在MyBatis的基础上再升级一下，整合MyBaitsPlus（简称MP），国人开发的技术，符合中国人开发习惯，谁用谁知道。来吧，一起做整合
+整合MyBaitsPlus（简称MP）
 
 **步骤①**：导入对应的starter
 
@@ -1710,9 +1808,25 @@ Spring-boot-start-***
 | 第三方提供  | 第三方技术名称-spring-boot-starter                          | druid-spring-boot-starter                             |
 | 第三方提供  | 第三方技术名称-boot-starter（第三方技术名称过长，简化命名） | mybatis-plus-boot-starter                             |
 
-<font color="#f0f"><b>温馨提示</b></font>
+因为mybatis-plus是国人开发的所以在官方的创建springboot工程时，你找不到相应的依赖进行导入，你只能找到MySql。
 
-​	有些小伙伴在创建项目时想通过勾选的形式找到这个名字，别翻了，没有。截止目前，SpringBoot官网还未收录此坐标，而我们Idea创建模块时读取的是SpringBoot官网的Spring Initializr，所以也没有。如果换用阿里云的url创建项目可以找到对应的坐标
+所以有两种方式：
+
+第一种：官方的创建(里面找不到mybatis-plus)，然后选择驱动依赖自动导入，最后在pom.xml中手动的添加下面的starter
+
+```xml
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.4.3</version>
+</dependency>
+```
+
+第二种：选择使用阿里创建，里面有mybatis-plus.
+
+![image-20220803115418889](SpringBoot基础.assets/image-20220803115418889.png)
+
+
 
 **步骤②**：配置数据源相关信息
 
@@ -1726,8 +1840,6 @@ spring:
     password: root
 ```
 
-​	没了，就这么多，剩下的就是写MyBaitsPlus的程序了
-
 **映射接口（Dao）**
 
 ```JAVA
@@ -1738,13 +1850,24 @@ public interface BookDao extends BaseMapper<Book> {
 
 ​	核心在于Dao接口继承了一个BaseMapper的接口，这个接口中帮助开发者预定了若干个常用的API接口，简化了通用API接口的开发工作。
 
-<img src="img\image-20211129100313919.png" alt="image-20211129100313919" style="zoom:80%;" />
+测试类：
 
-​	下面就可以写一个测试类进行测试了，此处省略。
+```JAVA
+@SpringBootTest
+class Springboot05MybatisPlusApplicationTests {
+    @Autowired
+    private BookDao bookDao;
 
-<font color="#f0f"><b>温馨提示</b></font>
+    @Test
+    void contextLoads() {
+        System.out.println(bookDao.selectById(1));
+    }
+}
+```
 
-​	目前数据库的表名定义规则是tbl_模块名称，为了能和实体类相对应，需要做一个配置，相关知识各位小伙伴可以到MyBatisPlus课程中去学习，此处仅给出解决方案。配置application.yml文件，添加如下配置即可，设置所有表名的通用前缀名
+注意：
+
+​	目前数据库的表名定义规则是tbl_模块名称，为了能和实体类相对应，需要做一个配置，相配置application.yml文件，添加如下配置即可，设置所有表名的通用前缀名
 
 ```yaml
 mybatis-plus:
@@ -1758,8 +1881,6 @@ mybatis-plus:
 1. 手工添加MyBatis-Plus对应的starter
 2. 数据层接口使用BaseMapper简化开发
 3. 需要使用的第三方技术无法通过勾选确定时，需要手工添加坐标
-
-
 
 ### JC-3-4.整合Druid
 
