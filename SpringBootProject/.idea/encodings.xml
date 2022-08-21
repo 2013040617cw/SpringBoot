@@ -8,6 +8,13 @@
     <file url="file://$PROJECT_DIR$/springboot_01_04_quickstart" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot_03_junit" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot_04_mybatis" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springboot_05_mybatis_plus" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot_06_druid" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot_07_profiles" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot_07_profiles/src/main/resources/application-dev.yml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/springboot_07_profiles/src/main/resources/application-pro.yml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/springboot_07_profiles/src/main/resources/application-test.yml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/springboot_08_hot_deploy" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot_09_configration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot_09_ssmp" charset="UTF-8" />
   </component>
 </project>

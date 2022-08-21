@@ -10,6 +10,10 @@
       <module fileurl="file://$PROJECT_DIR$/springboot_03_junit/springboot_03_junit.iml" filepath="$PROJECT_DIR$/springboot_03_junit/springboot_03_junit.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_04_mybatis/springboot_04_mybatis.iml" filepath="$PROJECT_DIR$/springboot_04_mybatis/springboot_04_mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_05_mybatis_plus/springboot_05_mybatis_plus.iml" filepath="$PROJECT_DIR$/springboot_05_mybatis_plus/springboot_05_mybatis_plus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_06_druid/springboot_06_druid.iml" filepath="$PROJECT_DIR$/springboot_06_druid/springboot_06_druid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_07_profiles/springboot_07_profiles.iml" filepath="$PROJECT_DIR$/springboot_07_profiles/springboot_07_profiles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_08_hot_deploy/springboot_08_hot_deploy.iml" filepath="$PROJECT_DIR$/springboot_08_hot_deploy/springboot_08_hot_deploy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_09_configration/springboot_09_configration.iml" filepath="$PROJECT_DIR$/springboot_09_configration/springboot_09_configration.iml" />
     </modules>
   </component>
 </project>

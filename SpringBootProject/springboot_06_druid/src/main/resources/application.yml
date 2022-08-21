@@ -1,0 +1,12 @@
+#相关信息的配置
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+
+

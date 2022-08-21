@@ -9,11 +9,15 @@
         <module name="springboot_04_mybatis" />
         <module name="springboot-02_base_configuration" />
         <module name="springboot_01_02_quickstart" />
+        <module name="springboot_07_profiles" />
         <module name="springboot_01_01_quickstart" />
         <module name="springboot_05_mybatis_plus" />
         <module name="springboot_01_03-quickstart" />
-        <module name="springboot_03_junit" />
         <module name="springboot_01_04_quickstart" />
+        <module name="springboot_03_junit" />
+        <module name="springboot_09_configration" />
+        <module name="springboot_06_druid" />
+        <module name="springboot_08_hot_deploy" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +29,11 @@
       <module name="springboot_03_junit" target="11" />
       <module name="springboot_04_mybatis" target="11" />
       <module name="springboot_05_mybatis_plus" target="11" />
+      <module name="springboot_06_druid" target="11" />
+      <module name="springboot_07_profiles" target="11" />
+      <module name="springboot_08_hot_deploy" target="11" />
+      <module name="springboot_08_ssmp" target="1.8" />
+      <module name="springboot_09_configration" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -36,6 +45,11 @@
       <module name="springboot_03_junit" options="-parameters" />
       <module name="springboot_04_mybatis" options="-parameters" />
       <module name="springboot_05_mybatis_plus" options="-parameters" />
+      <module name="springboot_06_druid" options="-parameters" />
+      <module name="springboot_07_profiles" options="-parameters" />
+      <module name="springboot_08_hot_deploy" options="-parameters" />
+      <module name="springboot_08_ssmp" options="-parameters" />
+      <module name="springboot_09_configration" options="-parameters" />
     </option>
   </component>
 </project>
