@@ -6,18 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="springboot_03_junit" />
+        <module name="springboot_10_test" />
+        <module name="springboot_11_redis" />
+        <module name="springboot_06_druid" />
+        <module name="springboot_07_profiles" />
+        <module name="springboot_01_02_quickstart" />
+        <module name="springboot_05_mybatis_plus" />
+        <module name="springboot_01_01_quickstart" />
+        <module name="springboot_08_hot_deploy" />
         <module name="springboot_04_mybatis" />
         <module name="springboot-02_base_configuration" />
-        <module name="springboot_01_02_quickstart" />
-        <module name="springboot_07_profiles" />
-        <module name="springboot_01_01_quickstart" />
-        <module name="springboot_05_mybatis_plus" />
-        <module name="springboot_01_03-quickstart" />
-        <module name="springboot_01_04_quickstart" />
-        <module name="springboot_03_junit" />
         <module name="springboot_09_configration" />
-        <module name="springboot_06_druid" />
-        <module name="springboot_08_hot_deploy" />
+        <module name="springboot_01_04_quickstart" />
+        <module name="springboot_15_sql" />
+        <module name="springboot_01_03-quickstart" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,8 +35,10 @@
       <module name="springboot_06_druid" target="11" />
       <module name="springboot_07_profiles" target="11" />
       <module name="springboot_08_hot_deploy" target="11" />
-      <module name="springboot_08_ssmp" target="1.8" />
       <module name="springboot_09_configration" target="11" />
+      <module name="springboot_10_test" target="11" />
+      <module name="springboot_11_redis" target="11" />
+      <module name="springboot_15_sql" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -48,8 +53,10 @@
       <module name="springboot_06_druid" options="-parameters" />
       <module name="springboot_07_profiles" options="-parameters" />
       <module name="springboot_08_hot_deploy" options="-parameters" />
-      <module name="springboot_08_ssmp" options="-parameters" />
       <module name="springboot_09_configration" options="-parameters" />
+      <module name="springboot_10_test" options="-parameters" />
+      <module name="springboot_11_redis" options="-parameters" />
+      <module name="springboot_15_sql" options="-parameters" />
     </option>
   </component>
 </project>

@@ -1,0 +1,51 @@
+#spring:
+#  datasource:
+#      url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      username: root
+#      password: 123456
+##      type: com.alibaba.druid.pool.DruidDataSource
+#
+#
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      table-prefix: tb1_
+#      id-type: auto
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+ h2数据库
+server:
+    port: 80
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+#
+#  datasource:
+#    url: jdbc:h2:~/test
+#    hikari:
+##      driver-class-name: org.h2.Driver
+#      username: sa
+#      password: 123456
+#
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      table-prefix: tbl_
+#      id-type: auto
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+test:
+  prop: testValue
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ssmp
+    username: root
+    password: 123456
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+testcase:
+  book:
+    id: ${random.int}
+    name: ${random.value}
+    uuid: ${random.uuid}
+    publishTime: ${random.long}

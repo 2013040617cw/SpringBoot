@@ -16,5 +16,8 @@
     <file url="file://$PROJECT_DIR$/springboot_08_hot_deploy" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot_09_configration" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot_09_ssmp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot_10_test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot_11_redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot_15_sql" charset="UTF-8" />
   </component>
 </project>

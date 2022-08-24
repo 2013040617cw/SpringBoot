@@ -8,8 +8,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 class Springboot09ConfigrationApplicationTests {
     @Value("${servers.ipAddress}")
     private  String msg;
+    @Value("${datasource.password}")
+    private String password;
     @Test
     void contextLoads() {
-        System.out.println(msg);
+//        System.out.println(msg);
+        System.out.println(password);
     }
 }

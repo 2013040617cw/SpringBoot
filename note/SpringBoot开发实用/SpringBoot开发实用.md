@@ -1,6 +1,6 @@
 #                       SpringBoot开发实用
 
-## KF-1.热部署
+## 1.热部署
 
 ​		什么是热部署？简单说就是你程序改了，现在要重新启动服务器，嫌麻烦？不用重启，服务器会自己悄悄的把更新后的程序给重新加载一遍，这就是热部署。
 
@@ -16,7 +16,7 @@
 
 ​		基于springboot开发的web工程其实有一个显著的特征，就是tomcat服务器内置了，还记得内嵌服务器吗？服务器是以一个对象的形式在spring容器中运行的。本来我们期望于tomcat服务器加载程序后由tomcat服务器盯着程序，你变化后我就重新启动重新加载，但是现在tomcat和我们的程序是平级的了，都是spring容器中的组件,缺乏了一个直接的管理权.
 
-### KF-1-1.手动启动热部署
+### 1-1.手动启动热部署
 
 **步骤①**：导入开发者工具对应的坐标
 
@@ -47,7 +47,7 @@
 
 ​		当springboot项目启动时，base类加载器执行，加载jar包中的信息后，restart类加载器执行，加载开发者制作的内容。当执行构建项目后，由于jar中的信息不会变化，因此base类加载器无需再次执行，所以仅仅运行restart类加载即可，也就是将开发者自己制作的内容重新加载就行了，这就完成了一次热部署的过程，也可以说热部署的过程实际上是重新加载restart类加载器中的信息。	
 
-### KF-1-2.自动启动热部署
+### 1-2.自动启动热部署
 
 ​		自动热部署其实就是设计一个开关，打开这个开关后，IDE工具就可以自动热部署。因此这个操作和IDE工具有关，以下以idea为例设置idea中启动热部署
 
@@ -73,7 +73,7 @@
 
 <font color="#ff0000"><b>关注</b></font>：如果你每敲一个字母，服务器就重新构建一次，这未免有点太频繁了，所以idea设置当idea工具失去焦点5秒后进行热部署。其实就是你从idea工具中切换到其他工具时进行热部署，比如改完程序需要到浏览器上去调试，这个时候idea就自动进行热部署操作。
 
-### KF-1-3.参与热部署监控的文件范围配置
+### 1-3.参与热部署监控的文件范围配置
 
 ​		通过修改项目中的文件，你可以发现其实并不是所有的文件修改都会激活热部署的，原因在于在开发者工具中有一组配置，当满足了配置中的条件后，才会启动热部署，配置中默认不参与热部署的目录信息如下
 
@@ -94,7 +94,7 @@ spring:
       exclude: static/**,public/**,config/application.yml
 ```
 
-### KF-1-4.关闭热部署
+### 1-4.关闭热部署
 
 ​		线上环境运行时是不可能使用热部署功能的，所以需要强制关闭此功能，通过配置可以关闭此功能。
 
@@ -117,9 +117,9 @@ public class SSMPApplication {
 }
 ```
 
-## KF-2.配置高级
+## 2.配置高级
 
-### KF-2-1.@ConfigurationProperties
+### 2-1.@ConfigurationProperties
 
 ​		在基础篇学习了@ConfigurationProperties注解，此注解的作用是用来为bean绑定属性的。开发者可以在yml配置文件中以对象的格式添加若干属性
 
@@ -232,7 +232,7 @@ public class ServerConfig {
 1. 使用@ConfigurationProperties可以为使用@Bean声明的第三方bean绑定属性
 2. 当使用@EnableConfigurationProperties声明进行属性绑定的bean后，无需使用@Component注解再次进行bean声明
 
-### KF-2-2.宽松绑定/松散绑定
+### 2-2.宽松绑定/松散绑定
 
 ​		在进行属性绑定时，可能会遇到如下情况，为了进行标准命名，开发者会将属性名严格按照驼峰命名法书写，在yml配置文件中将datasource修改为dataSource，如下：
 
@@ -306,7 +306,7 @@ Modify 'dataSource' so that it conforms to the canonical names requirements.
 - 以上规则仅针对springboot中@ConfigurationProperties注解进行属性绑定时有效，对@Value注解进行属性映射无效。
 
 
-### KF-2-3.常用计量单位绑定
+### 2-3.常用计量单位绑定
 
 ​		在前面的配置中，我们书写了如下配置值，其中第三项超时时间timeout描述了服务器操作超时时间，当前值是-1表示永不超时。
 
@@ -344,7 +344,7 @@ public class ServerConfig {
 
 ​		使用上述两个单位就可以有效避免因沟通不同步或文档不健全导致的信息不对称问题，从根本上解决了问题，避免产生误读。
 
-### KF-2-4.校验
+### 2-4.校验
 
 ​		目前我们在进行属性绑定时可以通过松散绑定规则在书写时放飞自我了，但是在书写时由于无法感知模型类中的数据类型，就会出现类型不匹配的问题，比如代码中需要int类型，配置中给了非法的数值，例如写一个“a"，这种数据肯定无法有效的绑定，还会引发错误。		SpringBoot给出了强大的数据校验功能，可以有效的避免此类问题的发生。在JAVAEE的JSR303规范中给出了具体的数据校验标准，开发者可以根据自己的需要选择对应的校验框架，此处使用Hibernate提供的校验框架来作为实现进行数据校验。书写应用格式非常固定，话不多说，直接上步骤
 
@@ -406,9 +406,7 @@ public class ServerConfig {
 
    
 
-### KF-2-5.数据类型转换
-
-​		有关spring属性注入的问题到这里基本上就讲完了，但是最近一名开发者向我咨询了一个问题，我觉得需要给各位学习者分享一下。在学习阶段其实我们遇到的问题往往复杂度比较低，单一性比较强，但是到了线上开发时，都是综合性的问题，而这个开发者遇到的问题就是由于bean的属性注入引发的灾难。
+### 2-5.数据类型转换
 
 ​		先把问题描述一下，这位开发者连接数据库正常操作，但是运行程序后显示的信息是密码错误。
 
@@ -416,40 +414,29 @@ public class ServerConfig {
 java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
 ```
 
-​		其实看到这个报错，几乎所有的学习者都能分辨出来，这是用户名和密码不匹配，就就是密码输入错了，但是问题就在于密码并没有输入错误，这就比较讨厌了。给的报错信息无法帮助你有效的分析问题，甚至会给你带到沟里。如果是初学者，估计这会心态就崩了，我密码没错啊，你怎么能说我有错误呢？来看看用户名密码的配置是如何写的：
+​		其实看到这个报错，几乎所有的学习者都能分辨出来，这是用户名和密码不匹配，就就是密码输入错了，但是问题就在于密码并没有输入错误。
 
 ```YAML
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
-    username: root
-    password: 0127
+datasource:
+  driverClassName: com.mysql.jdbc.Driver123555
+  password: "0127"
 ```
 
-​		这名开发者的生日是1月27日，所以密码就使用了0127，其实问题就出在这里了。
+yml文件，**支持二进制，八进制，十六进制**
 
-​		之前在基础篇讲属性注入时，提到过类型相关的知识，在整数相关知识中有这么一句话，**支持二进制，八进制，十六进制**
+运行时出现了
 
-<img src="img\image-20220222225748370.png" alt="image-20220222225748370" style="zoom:80%;" />
+![image-20220822100405521](SpringBoot开发实用.assets/image-20220822100405521.png)
 
-​		这个问题就处在这里了，因为0127在开发者眼中是一个字符串“0127”，但是在springboot看来，这就是一个数字，而且是一个八进制的数字。当后台使用String类型接收数据时，如果配置文件中配置了一个整数值，他是先安装整数进行处理，读取后再转换成字符串。巧了，0127撞上了八进制的格式，所以最终以十进制数字87的结果存在了。
+​		
 
-​		这里提两个注意点，第一，字符串标准书写加上引号包裹，养成习惯，第二，遇到0开头的数据多注意吧。
+这个问题就处在这里了，因为0127在开发者眼中是一个字符串“0127”，但是在springboot看来，这就是一个数字，而且是一个八进制的数字。当后台使用String类型接收数据时，如果配置文件中配置了一个整数值，他是先安装整数进行处理，读取后再转换成字符串。巧了，0127撞上了八进制的格式，所以最终以十进制数字87的结果存在了。
 
-**总结**
+​		这里提两个注意点，第一，字符串标准书写加上引号包裹，第二，遇到0开头的数据多注意吧。
 
-1. yaml文件中对于数字的定义支持进制书写格式，如需使用字符串请使用引号明确标注
+## 3.测试
 
-
-
-## KF-3.测试
-
-​		说完bean配置相关的内容，下面要对前面讲过的一个知识做加强了，测试。测试是保障程序正确性的唯一屏障，在企业级开发中更是不可缺少，但是由于测试代码往往不产生实际效益，所以一些小型公司并不是很关注，导致一些开发者从小型公司进入中大型公司后，往往这一块比较短板，所以还是要拿出来把这一块知识好好说说，做一名专业的开发人员。
-
-
-
-### KF-3-1.加载测试专用属性
+### 3-1.加载测试专用属性
 
 ​		测试过程本身并不是一个复杂的过程，但是很多情况下测试时需要模拟一些线上情况，或者模拟一些特殊情况。如果当前环境按照线上环境已经设定好了，例如是下面的配置
 
@@ -467,11 +454,18 @@ env:
   minMemory: 8GB
 ```
 
-​		这个时候我们能不能每次测试的时候都去修改源码application.yml中的配置进行测试呢？显然是不行的。每次测试前改过来，每次测试后改回去，这太麻烦了。于是我们就想，需要在测试环境中创建一组临时属性，去覆盖我们源码中设定的属性，这样测试用例就相当于是一个独立的环境，能够独立测试，这样就方便多了。
+​		这个时候我们能不能每次测试的时候都去修改源码application.yml中的配置进行测试呢？显然是不行的。每次测试前改过来，每次测试后改回去，于是我们就想，需要在测试环境中创建一组临时属性，去覆盖我们源码中设定的属性，这样测试用例就相当于是一个独立的环境，能够独立测试，这样就方便多了。
 
 **临时属性**
 
 ​		springboot已经为我们开发者早就想好了这种问题该如何解决，并且提供了对应的功能入口。在测试用例程序中，可以通过对注解@SpringBootTest添加属性来模拟临时属性，具体如下：
+
+application.yml:
+
+```YML
+test:
+  prop: testValue
+```
 
 ```JAVA
 //properties属性可以为当前测试用例添加临时的属性配置
@@ -492,16 +486,14 @@ public class PropertiesAndArgsTest {
 
 **临时参数**
 
-​		除了上述这种情况，在前面讲解使用命令行启动springboot程序时讲过，通过命令行参数也可以设置属性值。而且线上启动程序时，通常都会添加一些专用的配置信息。作为运维人员他们才不懂java，更不懂这些配置的信息具体格式该怎么写，那如果我们作为开发者提供了对应的书写内容后，能否提前测试一下这些配置信息是否有效呢？当时是可以的，还是通过注解@SpringBootTest的另一个属性来进行设定。
+​		除了上述这种情况，在前面讲解使用命令行启动springboot程序时讲过，通过命令行参数也可以设置属性值。而且线上启动程序时，通常都会添加一些专用的配置信息。还是通过注解@SpringBootTest的另一个属性来进行设定。
 
 ```JAVA
 //args属性可以为当前测试用例添加临时的命令行参数
-@SpringBootTest(args={"--test.prop=testValue2"})
+@SpringBootTest(args = {"--test.prop=testValue2"})
 public class PropertiesAndArgsTest {
-    
     @Value("${test.prop}")
     private String msg;
-    
     @Test
     void testProperties(){
         System.out.println(msg);
@@ -511,27 +503,15 @@ public class PropertiesAndArgsTest {
 
 ​		使用注解@SpringBootTest的args属性就可以为当前测试用例模拟命令行参数并进行测试。
 
-​		说到这里，好奇宝宝们肯定就有新问题了，如果两者共存呢？其实如果思考一下配置属性与命令行参数的加载优先级，这个结果就不言而喻了。在属性加载的优先级设定中，有明确的优先级设定顺序，还记得下面这个顺序吗？
-
-<img src="img\image-20211206100859236.png" alt="image-20211206100859236" style="zoom:67%;" />
+​	如果两者共存呢？顺序是什么？
 
 ​		在这个属性加载优先级的顺序中，明确规定了命令行参数的优先级排序是11，而配置属性的优先级是3，结果不言而喻了，args属性配置优先于properties属性配置加载。
-
-​		到这里我们就掌握了如果在测试用例中去模拟临时属性的设定。
 
 **总结**
 
 1. 加载测试临时属性可以通过注解@SpringBootTest的properties和args属性进行设定，此设定应用范围仅适用于当前测试用例
 
-**思考**
-
-​		应用于测试环境的临时属性解决了，如果想在测试的时候临时加载一些bean能不做呢？也就是说我测试时，想搞一些独立的bean出来，专门应用于测试环境，能否实现呢？咱们下一节再讲。
-
-
-
-### KF-3-2.加载测试专用配置
-
-​		上一节提出了临时配置一些专用于测试环境的bean的需求，这一节我们就来解决这个问题。
+### 3-2.加载测试专用配置
 
 ​		学习过Spring的知识，我们都知道，其实一个spring环境中可以设置若干个配置文件或配置类，若干个配置信息可以同时生效。现在我们的需求就是在测试环境中再添加一个配置类，然后启动测试环境时，生效此配置就行了。其实做法和spring环境中加载多个配置信息的方式完全一样。具体操作步骤如下：
 
@@ -566,19 +546,13 @@ public class ConfigurationTest {
 }
 ```
 
-​		到这里就通过@Import属性实现了基于开发环境的配置基础上，对配置进行测试环境的追加操作，实现了1+1的配置环境效果。这样我们就可以实现每一个不同的测试用例加载不同的bean的效果，丰富测试用例的编写，同时不影响开发环境的配置。
+​		到这里就通过@Import属性实现了基于开发环境的配置基础上，对配置进行测试环境的追加操作,这样我们就可以实现每一个不同的测试用例加载不同的bean的效果，丰富测试用例的编写，同时不影响开发环境的配置。
 
 **总结**
 
 1. 定义测试环境专用的配置类，然后通过@Import注解在具体的测试中导入临时的配置，例如测试用例，方便测试过程，且上述配置不影响其他的测试类环境
 
-**思考**
-
-​		当前我们已经可以实现业务层和数据层的测试，并且通过临时配置，控制每个测试用例加载不同的测试数据。但是实际企业开发不仅要保障业务层与数据层的功能安全有效，也要保障表现层的功能正常。但是我们目的对表现层的测试都是通过postman手工测试的，并没有在打包过程中体现表现层功能被测试通过。能否在测试用例中对表现层进行功能测试呢？还真可以，咱们下一节再讲。
-
-
-
-### KF-3-3.Web环境模拟测试
+### 3-3.Web环境模拟测试
 
 ​		在测试中对表现层功能进行测试需要一个基础和一个功能。所谓的一个基础是运行测试程序时，必须启动web环境，不然没法测试web功能。一个功能是必须在测试程序中具备发送web请求的能力，不然无法实现web功能的测试。所以在测试用例中测试表现层接口这项工作就转换成了两件事，一，如何在测试类中启动web测试，二，如何在测试类中发送web请求。下面一件事一件事进行，先说第一个
 
@@ -588,13 +562,14 @@ public class ConfigurationTest {
 
 ```JAVA
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class WebTest {	
+public class webTest {
+    @Test
+    void test(){
+    }
 }
 ```
 
 ​		测试类中启动web环境时，可以指定启动的Web环境对应的端口，springboot提供了4种设置值，分别如下：
-
-<img src="img\image-20220223125453317.png" alt="image-20220223125453317" style="zoom:80%;" />
 
 - MOCK：根据当前设置确认是否启动web环境，例如使用了Servlet的API就启动web环境，属于适配性的配置
 - DEFINED_PORT：使用自定义的端口作为web服务器端口
@@ -623,12 +598,14 @@ public class WebTest {
 
 ```java
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//开启虚拟MVC调用
+//开启虚拟MVC的调用
 @AutoConfigureMockMvc
-public class WebTest {
-
+public class webTest {
     @Test
-    void testWeb(@Autowired MockMvc mvc) {
+    void test(){
+    }
+    @Test
+    void testWeb(@Autowired MockMvc mvc) throws Exception{      
     }
 }
 ```
@@ -640,101 +617,118 @@ public class WebTest {
 //开启虚拟MVC调用
 @AutoConfigureMockMvc
 public class WebTest {
-
-    @Test
-    void testWeb(@Autowired MockMvc mvc) throws Exception {
+   @Test
+    void testWeb(@Autowired MockMvc mvc) throws Exception{
         //http://localhost:8080/books
-        //创建虚拟请求，当前访问/books
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
-        //执行对应的请求
+        //创建虚拟请求，当前访问/book
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/book");
         mvc.perform(builder);
+    }
     }
 }
 ```
 
-​		执行测试程序，现在就可以正常的发送/books对应的请求了，注意访问路径不要写http://localhost:8080/books，因为前面的服务器IP地址和端口使用的是当前虚拟的web环境，无需指定，仅指定请求的具体路径即可。
+​		执行测试程序，现在就可以正常的发送/book对应的请求了，注意访问路径不要写http://localhost:8080/book，因为前面的服务器IP地址和端口使用的是当前虚拟的web环境，无需指定，仅指定请求的具体路径即可。
 
-**总结**
-
-1. 在测试类中测试web层接口要保障测试类启动时启动web容器，使用@SpringBootTest注解的webEnvironment属性可以虚拟web环境用于测试
-2. 为测试方法注入MockMvc对象，通过MockMvc对象可以发送虚拟请求，模拟web请求调用过程
-
-**思考**
-
-​		目前已经成功的发送了请求，但是还没有起到测试的效果，测试过程必须出现预计值与真实值的比对结果才能确认测试结果是否通过，虚拟请求中能对哪些请求结果进行比对呢？咱们下一节再讲。
-
-
+​		目前已经成功的发送了请求，但是还没有起到测试的效果，测试过程必须出现预计值与真实值的比对结果才能确认测试结果是否通过，
 
 **web环境请求结果比对**
 
-​		上一节已经在测试用例中成功的模拟出了web环境，并成功的发送了web请求，本节就来解决发送请求后如何比对发送结果的问题。其实发完请求得到的信息只有一种，就是响应对象。至于响应对象中包含什么，就可以比对什么。常见的比对内容如下：
+常见的比对内容如下：
 
 - 响应状态匹配
 
   ```JAVA
-  @Test
-  void testStatus(@Autowired MockMvc mvc) throws Exception {
-      MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
-      ResultActions action = mvc.perform(builder);
-      //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
-      //定义本次调用的预期值
-      StatusResultMatchers status = MockMvcResultMatchers.status();
-      //预计本次调用时成功的：状态200
-      ResultMatcher ok = status.isOk();
-      //添加预计值到本次调用过程中进行匹配
-      action.andExpect(ok);
-  }
+      @Test
+      void testStatus(@Autowired MockMvc mvc) throws Exception{
+          //http://localhost:8080/books
+          //创建虚拟请求，当前访问/book
+          MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/book1");
+          ResultActions action = mvc.perform(builder);
+          //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
+          //结果匹配器
+          //status当前模拟运行的状态
+          StatusResultMatchers status = MockMvcResultMatchers.status();
+          //预计本次调用时成功的：状态：200
+          ResultMatcher ok = status.isOk();
+          //添加预计值到本次调用过程中进行匹配
+          action.andExpect(ok);
+  
+      }
   ```
+
+  如果匹配失败那么会报错：
+
+  ![image-20220822164943276](SpringBoot开发实用.assets/image-20220822164943276.png)
 
 - 响应体匹配（非json数据格式）
 
   ```JAVA
-  @Test
-  void testBody(@Autowired MockMvc mvc) throws Exception {
-      MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
-      ResultActions action = mvc.perform(builder);
-      //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
-      //定义本次调用的预期值
-      ContentResultMatchers content = MockMvcResultMatchers.content();
-      ResultMatcher result = content.string("springboot2");
-      //添加预计值到本次调用过程中进行匹配
-      action.andExpect(result);
-  }
+     @Test
+      void testBody(@Autowired MockMvc mvc) throws Exception{
+          //http://localhost:8080/books
+          //创建虚拟请求，当前访问/book
+          MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/book");
+          ResultActions action = mvc.perform(builder);
+          //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
+          //结果匹配器
+          //status当前模拟运行的状态
+          ContentResultMatchers content = MockMvcResultMatchers.content();
+          //预计本次调用时成功的状态：200
+          ResultMatcher springboot = content.string("springboot");
+          //添加预计值到本次调用过程中进行匹配
+          action.andExpect(springboot);
+  
+      }
   ```
 
 - 响应体匹配（json数据格式，开发中的主流使用方式）
 
   ```JAVA
-  @Test
-  void testJson(@Autowired MockMvc mvc) throws Exception {
-      MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
-      ResultActions action = mvc.perform(builder);
-      //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
-      //定义本次调用的预期值
-      ContentResultMatchers content = MockMvcResultMatchers.content();
-      ResultMatcher result = content.json("{\"id\":1,\"name\":\"springboot2\",\"type\":\"springboot\"}");
-      //添加预计值到本次调用过程中进行匹配
-      action.andExpect(result);
-  }
+      //Json匹配
+      @Test
+      void testJSON(@Autowired MockMvc mvc) throws Exception{
+          //http://localhost:8080/books
+          //创建虚拟请求，当前访问/book
+          MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/book");
+          ResultActions action = mvc.perform(builder);
+          //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
+          //结果匹配器
+          //status当前模拟运行的状态
+          ContentResultMatchers content = MockMvcResultMatchers.content();
+          //预计本次调用时成功的状态：200
+          ResultMatcher springboot = content.json("{\"id\":1,\"name\":\"崔巍\",\"type\":\"帅哥\",\"description\":\"他是中北大学第一帅比\"}");
+          //添加预计值到本次调用过程中进行匹配
+          action.andExpect(springboot);
+      }
   ```
 
 - 响应头信息匹配
 
   ```JAVA
-  @Test
-  void testContentType(@Autowired MockMvc mvc) throws Exception {
-      MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
-      ResultActions action = mvc.perform(builder);
-      //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
-      //定义本次调用的预期值
-      HeaderResultMatchers header = MockMvcResultMatchers.header();
-      ResultMatcher contentType = header.string("Content-Type", "application/json");
-      //添加预计值到本次调用过程中进行匹配
-      action.andExpect(contentType);
-  }
+     //响应头信息匹配（非json格式）
+      @Test
+      void testContentType(@Autowired MockMvc mvc) throws Exception{
+          //http://localhost:8080/books
+          //创建虚拟请求，当前访问/book
+          MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/book");
+          ResultActions action = mvc.perform(builder);
+          //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
+          //结果匹配器
+          //status当前模拟运行的状态
+          HeaderResultMatchers header = MockMvcResultMatchers.header();
+          //预计本次调用时成功的状态：200
+          ResultMatcher contentType = header.string("Content-Type", "application/json");
+          //添加预计值到本次调用过程中进行匹配
+          action.andExpect(contentType);
+      }
   ```
 
-​		基本上齐了，头信息，正文信息，状态信息都有了，就可以组合出一个完美的响应结果比对结果了。以下范例就是三种信息同时进行匹配校验，也是一个完整的信息匹配过程。
+​		如果信息匹配不上，会报错：
+
+![image-20220822182936389](SpringBoot开发实用.assets/image-20220822182936389.png)
+
+基本上齐了，头信息，正文信息，状态信息都有了，就可以组合出一个完美的响应结果比对结果了。以下范例就是三种信息同时进行匹配校验，也是一个完整的信息匹配过程。
 
 ```JAVA
 @Test
@@ -760,29 +754,25 @@ void testGetById(@Autowired MockMvc mvc) throws Exception {
 
 1. web虚拟调用可以对本地虚拟请求的返回响应信息进行比对，分为响应头信息比对、响应体信息比对、响应状态信息比对
 
+### 3-4.数据层测试回滚
 
-
-### KF-3-4.数据层测试回滚
-
-​		当前我们的测试程序可以完美的进行表现层、业务层、数据层接口对应的功能测试了，但是测试用例开发完成后，在打包的阶段由于test生命周期属于必须被运行的生命周期，如果跳过会给系统带来极高的安全隐患，所以测试用例必须执行。但是新的问题就呈现了，测试用例如果测试时产生了事务提交就会在测试过程中对数据库数据产生影响，进而产生垃圾数据。这个过程不是我们希望发生的，作为开发者测试用例该运行运行，但是过程中产生的数据不要在我的系统中留痕，这样该如何处理呢？
+​		当前我们的测试程序可以完美的进行表现层、业务层、数据层接口对应的功能测试了，但是测试用例开发完成后，在打包的阶段由于test生命周期属于必须被运行的生命周期，如果跳过会给系统带来极高的安全隐患，所以测试用例必须执行。但是新的问题就呈现了，测试用例如果测试时产生了事务提交就会在测试过程中对数据库数据产生影响，进而产生垃圾数据。
 
 ​		springboot早就为开发者想到了这个问题，并且针对此问题给出了最简解决方案，在原始测试用例中添加注解@Transactional即可实现当前测试用例的事务不提交。当程序运行后，只要注解@Transactional出现的位置存在注解@SpringBootTest，springboot就会认为这是一个测试程序，无需提交事务，所以也就可以避免事务的提交。
 
 ```JAVA
 @SpringBootTest
 @Transactional
-@Rollback(true)
+@Rollback(false)
 public class DaoTest {
     @Autowired
     private BookService bookService;
-
     @Test
     void testSave(){
         Book book = new Book();
-        book.setName("springboot3");
-        book.setType("springboot3");
-        book.setDescription("springboot3");
-
+        book.setName("springboot2");
+        book.setType("springboot2");
+        book.setDescription("springboot2");
         bookService.save(book);
     }
 }
@@ -795,13 +785,7 @@ public class DaoTest {
 1. 在springboot的测试类中通过添加注解@Transactional来阻止测试用例提交事务
 2. 通过注解@Rollback控制springboot测试类执行结果是否提交事务，需要配合注解@Transactional使用
 
-**思考**
-
-​		当前测试程序已经近乎完美了，但是由于测试用例中书写的测试数据属于固定数据，往往失去了测试的意义，开发者可以针对测试用例进行针对性开发，这样就有可能出现测试用例不能完美呈现业务逻辑代码是否真实有效的达成业务目标的现象，解决方案其实很容易想，测试用例的数据只要随机产生就可以了，能实现吗？咱们下一节再讲。
-
-
-
-### KF-3-5.测试用例数据设定
+### 3-5.测试用例数据设定
 
 ​		对于测试用例的数据固定书写肯定是不合理的，springboot提供了在配置中使用随机值的机制，确保每次运行程序加载的数据都是随机的。具体如下：
 
@@ -809,8 +793,6 @@ public class DaoTest {
 testcase:
   book:
     id: ${random.int}
-    id2: ${random.int(10)}
-    type: ${random.int!5,10!}
     name: ${random.value}
     uuid: ${random.uuid}
     publishTime: ${random.long}
@@ -820,12 +802,10 @@ testcase:
 
 ```JAVA
 @Component
-@Data
 @ConfigurationProperties(prefix = "testcase.book")
+@Data
 public class BookCase {
     private int id;
-    private int id2;
-    private int type;
     private String name;
     private String uuid;
     private long publishTime;
@@ -834,7 +814,7 @@ public class BookCase {
 
 ​		对于随机值的产生，还有一些小的限定规则，比如产生的数值性数据可以设置范围等，具体如下：
 
-<img src="img\image-20220223135454862.png" alt="image-20220223135454862" style="zoom:80%;" />
+![image-20220823175557769](SpringBoot开发实用.assets/image-20220823175557769.png)
 
 - ${random.int}表示随机整数
 - ${random.int(10)}表示10以内的随机数
@@ -845,17 +825,9 @@ public class BookCase {
 
 1. 使用随机数据可以替换测试用例中书写的固定数据，提高测试用例中的测试数据有效性
 
+## 4.数据层解决方案
 
-
-## KF-4.数据层解决方案
-
-​		开发实用篇前三章基本上是开胃菜，从第四章开始，开发实用篇进入到了噩梦难度了，从这里开始，不再是单纯的在springboot内部搞事情了，要涉及到很多相关知识。本章节主要内容都是和数据存储与读取相关，前期学习的知识与数据层有关的技术基本上都围绕在数据库这个层面上，所以本章要讲的第一个大的分支就是SQL解决方案相关的内容，除此之外，数据的来源还可以是非SQL技术相关的数据操作，因此第二部分围绕着NOSQL解决方案讲解。至于什么是NOSQL解决方案，讲到了再说吧。下面就从SQL解决方案说起。
-
-
-
-### KF-4-1.SQL
-
-​		回忆一下之前做SSMP整合的时候数据层解决方案涉及到了哪些技术？MySQL数据库与MyBatisPlus框架，后面又学了Druid数据源的配置，所以现在数据层解决方案可以说是Mysql+Druid+MyBatisPlus。而三个技术分别对应了数据层操作的三个层面：
+### 4-1.SQL
 
 - 数据源技术：Druid
 - 持久化技术：MyBatisPlus
@@ -872,16 +844,26 @@ INFO 28600 --- [           main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init
 INFO 28600 --- [           main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
 ```
 
-​		如果不使用Druid数据源，程序运行后是什么样子呢？是独立的数据库连接对象还是有其他的连接池技术支持呢？将Druid技术对应的starter去掉再次运行程序可以在日志中找到如下初始化信息：
+​		如果不使用Druid数据源，程序运行后是什么样子呢？将Druid技术对应的starter去掉再次运行程序可以在日志中找到如下初始化信息：
+
+在pom.xml中删除：
+
+```
+ <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.6</version>
+        </dependency>
+```
+
+
 
 ```CMD
 INFO 31820 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 INFO 31820 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 ```
 
-​		虽然没有DruidDataSource相关的信息了，但是我们发现日志中有HikariDataSource这个信息，就算不懂这是个什么技术，看名字也能看出来，以DataSource结尾的名称，这一定是一个数据源技术。我们又没有手工添加这个技术，这个技术哪里来的呢？这就是这一节要讲的知识，springboot内嵌数据源。
-
-​		数据层技术是每一个企业级应用程序都会用到的，而其中必定会进行数据库连接的管理。springboot根据开发者的习惯出发，开发者提供了数据源技术，就用你提供的，开发者没有提供，那总不能手工管理一个一个的数据库连接对象啊，怎么办？我给你一个默认的就好了，这样省心又省事，大家都方便。
+​		虽然没有DruidDataSource相关的信息了，但是我们发现日志中有HikariDataSource这个信息，以DataSource结尾的名称，这一定是一个数据源技术。其实这就是springboot内嵌数据源。
 
 ​		springboot提供了3款内嵌数据源技术，分别如下：
 
@@ -889,13 +871,13 @@ INFO 31820 --- [           main] com.zaxxer.hikari.HikariDataSource       : Hika
 - Tomcat提供DataSource
 - Commons DBCP
 
-​		第一种，HikartCP，这是springboot官方推荐的数据源技术，作为默认内置数据源使用。啥意思？你不配置数据源，那就用这个。
+​		第一种，HikartCP，这是springboot官方推荐的数据源技术，作为默认内置数据源使用。
 
-​		第二种，Tomcat提供的DataSource，如果不想用HikartCP，并且使用tomcat作为web服务器进行web程序的开发，使用这个。为什么是Tomcat，不是其他web服务器呢？因为web技术导入starter后，默认使用内嵌tomcat，既然都是默认使用的技术了，那就一用到底，数据源也用它的。有人就提出怎么才能不使用HikartCP用tomcat提供的默认数据源对象呢？把HikartCP技术的坐标排除掉就OK了。
+​		第二种，Tomcat提供的DataSource，如果不想用HikartCP，并且使用tomcat作为web服务器进行web程序的开发，使用这个。为什么是Tomcat，不是其他web服务器呢？因为web技术导入starter后，默认使用内嵌tomcat，既然都是默认使用的技术了，那就一用到底，数据源也用它的。把HikartCP技术的坐标排除掉就可以用tomcat内部的数据源了。
 
 ​		第三种，DBCP，这个使用的条件就更苛刻了，既不使用HikartCP也不使用tomcat的DataSource时，默认给你用这个。
 
-​		springboot这心操的，也是稀碎啊，就怕你自己管不好连接对象，给你一顿推荐，真是开发界的最强辅助。既然都给你奶上了，那就受用吧，怎么配置使用这些东西呢？之前我们配置druid时使用druid的starter对应的配置如下：
+之前我们配置druid时使用druid的starter对应的配置如下：
 
 ```YAML
 spring:
@@ -943,17 +925,13 @@ spring:
       maximum-pool-size: 50
 ```
 
-​		如果不想使用hikari数据源，使用tomcat的数据源或者DBCP配置格式也是一样的。学习到这里，以后我们做数据层时，数据源对象的选择就不再是单一的使用druid数据源技术了，可以根据需要自行选择。
-
 **总结**
 
 1. springboot技术提供了3种内置的数据源技术，分别是Hikari、tomcat内置数据源、DBCP
 
-
-
 #### 持久化技术
 
-​		说完数据源解决方案，再来说一下持久化解决方案。springboot充分发挥其最强辅助的特征，给开发者提供了一套现成的数据层技术，叫做JdbcTemplate。其实这个技术不能说是springboot提供的，因为不使用springboot技术，一样能使用它，谁提供的呢？spring技术提供的，所以在springboot技术范畴中，这个技术也是存在的，毕竟springboot技术是加速spring程序开发而创建的。
+​		springboot充分发挥其最强辅助的特征，给开发者提供了一套现成的数据层技术，叫做JdbcTemplate。
 
 ​		这个技术其实就是回归到jdbc最原始的编程形式来进行数据层的开发，下面直接上操作步骤：
 
@@ -1041,8 +1019,6 @@ spring:
 
 #### 数据库技术
 
-​		截止到目前，springboot给开发者提供了内置的数据源解决方案和持久化解决方案，在数据层解决方案三件套中还剩下一个数据库，莫非springboot也提供有内置的解决方案？还真有，还不是一个，三个，这一节就来说说内置的数据库解决方案。
-
 ​		springboot提供了3款内置的数据库，分别是
 
 - H2
@@ -1051,7 +1027,7 @@ spring:
 
 ​		以上三款数据库除了可以独立安装之外，还可以像是tomcat服务器一样，采用内嵌的形式运行在spirngboot容器中。内嵌在容器中运行，那必须是java对象啊，对，这三款数据库底层都是使用java语言开发的。
 
-​		我们一直使用MySQL数据库就挺好的，为什么有需求用这个呢？原因就在于这三个数据库都可以采用内嵌容器的形式运行，在应用程序运行后，如果我们进行测试工作，此时测试的数据无需存储在磁盘上，但是又要测试使用，内嵌数据库就方便了，运行在内存中，该测试测试，该运行运行，等服务器关闭后，一切烟消云散，多好，省得你维护外部数据库了。这也是内嵌数据库的最大优点，方便进行功能测试。
+​     这三个数据库都可以采用内嵌容器的形式运行，在应用程序运行后，如果我们进行测试工作，此时测试的数据无需存储在磁盘上，但是又要测试使用，内嵌数据库就方便了，运行在内存中，该测试测试，该运行运行，等服务器关闭后，一切烟消云散。
 
 ​		下面以H2数据库为例讲解如何使用这些内嵌数据库，操作步骤也非常简单，简单才好用嘛
 
@@ -1100,16 +1076,7 @@ datasource:
 
 **步骤④**：使用JdbcTemplate或MyBatisPlus技术操作数据库
 
-（略）
-
 ​		其实我们只是换了一个数据库而已，其他的东西都不受影响。一个重要提醒，别忘了，上线时，把内存级数据库关闭，采用MySQL数据库作为数据持久化方案，关闭方式就是设置enabled属性为false即可。
-
-**总结**
-
-1. H2内嵌式数据库启动方式，添加坐标，添加配置
-2. H2数据库线上运行时请务必关闭
-
-
 
 ​		到这里SQL相关的数据层解决方案就讲完了，现在的可选技术就丰富的多了。
 
@@ -1117,17 +1084,9 @@ datasource:
 - 持久化技术：MyBatisPlus、MyBatis、JdbcTemplate
 - 数据库技术：MySQL、H2、HSQL、Derby
 
-​		现在开发程序时就可以在以上技术中任选一种组织成一套数据库解决方案了。
+### 4-2.NoSQL
 
-
-
-### KF-4-2.NoSQL
-
-​		SQL数据层解决方案说完了，下面来说收NoSQL数据层解决方案。这个NoSQL是什么意思呢？从字面来看，No表示否定，NoSQL就是非关系型数据库解决方案，意思就是数据该存存该取取，只是这些数据不放在关系型数据库中了，那放在哪里？自然是一些能够存储数据的其他相关技术中了，比如Redis等。本节讲解的内容就是springboot如何整合这些技术，在springboot官方文档中提供了10种相关技术的整合方案，我们将讲解国内市场上最流行的几款NoSQL数据库整合方案，分别是Redis、MongoDB、ES。
-
-​		因为每个小伙伴学习这门课程的时候起点不同，为了便于各位学习者更好的学习，每种技术在讲解整合前都会先讲一下安装和基本使用，然后再讲整合。如果对某个技术比较熟悉的小伙伴可以直接跳过安装的学习过程，直接看整合方案即可。此外上述这些技术最佳使用方案都是在Linux服务器上部署，但是考虑到各位小伙伴的学习起点差异过大，所以下面的课程都是以Windows平台作为安装基础讲解，如果想看Linux版软件安装，可以再找到对应技术的学习文档查阅学习。
-
-
+NOSQL的意思，No表示否定，NoSQL就是非关系型数据库解决方案，意思就是数据该存存该取取，只是这些数据不放在关系型数据库中了，那放在哪里？自然是一些能够存储数据的其他相关技术中了，比如Redis等。
 
 #### SpringBoot整合Redis
 
@@ -1139,13 +1098,11 @@ datasource:
 
 ​		windows版安装包下载地址：https://github.com/tporadowski/redis/releases
 
-​		下载的安装包有两种形式，一种是一键安装的msi文件，还有一种是解压缩就能使用的zip文件，哪种形式都行，这里就不介绍安装过程了，本课程采用的是msi一键安装的msi文件进行安装的。
-
 ​		啥是msi，其实就是一个文件安装包，不仅安装软件，还帮你把安装软件时需要的功能关联在一起，打包操作。比如如安装序列、创建和设置安装路径、设置系统依赖项、默认设定安装选项和控制安装过程的属性。说简单点就是一站式服务，安装过程一条龙操作一气呵成，就是为小白用户提供的软件安装程序。
 
 ​		安装完毕后会得到如下文件，其中有两个文件对应两个命令，是启动Redis的核心命令，需要再CMD命令行模式执行。
 
-<img src="img\image-20220224091709173.png" alt="image-20220224091709173" style="zoom: 80%;" />
+![image-20220824172402548](SpringBoot开发实用.assets/image-20220824172402548.png)
 
 **启动服务器**
 
@@ -1155,6 +1112,10 @@ redis-server.exe redis.windows.conf
 
 ​		初学者无需调整服务器对外服务端口，默认6379。
 
+但是在Window环境下会报错：
+
+![image-20220824172609912](SpringBoot开发实用.assets/image-20220824172609912.png)
+
 **启动客户端**
 
 ```CMD
@@ -1162,6 +1123,14 @@ redis-cli.exe
 ```
 
 ​		如果启动redis服务器失败，可以先启动客户端，然后执行shutdown操作后退出，此时redis服务器就可以正常执行了。
+
+重新开一个cmd:
+
+![image-20220824172645425](SpringBoot开发实用.assets/image-20220824172645425.png)
+
+执行完这个操作以后，重复上面的操作，会看到这个界面，说明启动成功了
+
+![image-20220824172743417](SpringBoot开发实用.assets/image-20220824172743417.png)
 
 ##### 基本操作
 
@@ -1171,14 +1140,12 @@ redis-cli.exe
 
 ```CMD
 set name itheima
-set age 12
 ```
 
 ​		从redis中取出已经放入的数据，根据名称取，就可以得到对应数据。如果没有对应数据就会得到(nil)
 
 ```CMD
 get name
-get age
 ```
 
 ​		以上使用的数据存储是一个名称对应一个值，如果要维护的数据过多，可以使用别的数据存储结构。例如hash，它是一种一个名称下可以存储多个数据的存储模型，并且每个数据也可以有自己的二级存储名称。向hash结构中存储数据格式如下：
@@ -1199,18 +1166,6 @@ hget a a2			#得到aa2
 
 ##### 整合
 
-​		在进行整合之前先梳理一下整合的思想，springboot整合任何技术其实就是在springboot中使用对应技术的API。如果两个技术没有交集，就不存在整合的概念了。所谓整合其实就是使用springboot技术去管理其他技术，几个问题是躲不掉的。
-
-​		第一，需要先导入对应技术的坐标，而整合之后，这些坐标都有了一些变化
-
-​		第二，任何技术通常都会有一些相关的设置信息，整合之后，这些信息如何写，写在哪是一个问题
-
-​		第三，没有整合之前操作如果是模式A的话，整合之后如果没有给开发者带来一些便捷操作，那整合将毫无意义，所以整合后操作肯定要简化一些，那对应的操作方式自然也有所不同
-
-​		按照上面的三个问题去思考springboot整合所有技术是一种通用思想，在整合的过程中会逐步摸索出整合的套路，而且适用性非常强，经过若干种技术的整合后基本上可以总结出一套固定思维。
-
-​		下面就开始springboot整合redis，操作步骤如下：
-
 **步骤①**：导入springboot整合redis的starter坐标
 
 ```xml
@@ -1222,7 +1177,7 @@ hget a a2			#得到aa2
 
 ​		上述坐标可以在创建模块的时候通过勾选的形式进行选择，归属NoSQL分类中
 
-<img src="img\image-20220224101142220.png" alt="image-20220224101142220" style="zoom:50%;" />
+![image-20220824212543575](SpringBoot开发实用.assets/image-20220824212543575.png)
 
 **步骤②**：进行基础配置
 
@@ -1239,38 +1194,53 @@ spring:
 
 ```java
 @SpringBootTest
-class Springboot16RedisApplicationTests {
-    @Autowired
-    private RedisTemplate redisTemplate;
-    @Test
-    void set() {
-        ValueOperations ops = redisTemplate.opsForValue();
-        ops.set("age",41);
-    }
-    @Test
-    void get() {
-        ValueOperations ops = redisTemplate.opsForValue();
-        Object age = ops.get("name");
-        System.out.println(age);
-    }
-    @Test
-    void hset() {
-        HashOperations ops = redisTemplate.opsForHash();
-        ops.put("info","b","bb");
-    }
-    @Test
-    void hget() {
-        HashOperations ops = redisTemplate.opsForHash();
-        Object val = ops.get("info", "b");
-        System.out.println(val);
-    }
-}
+class Springboot11RedisApplicationTests {
 
+    @Resource
+    private RedisTemplate redisTemplate;
+
+    @Test
+    void sete() {
+        ValueOperations ops = redisTemplate.opsForValue();
+        ops.set("age",14);
+
+    }
+    @Test
+    void get(){
+        ValueOperations opss = redisTemplate.opsForValue();
+        Object age = opss.get("age");
+        System.out.println(age);
+
+    }
+    @Test
+    void Hset(){
+        HashOperations ops= redisTemplate.opsForHash();
+        ops.put("info","a","aa");
+
+    }
+    @Test
+    void Hget(){
+        HashOperations ops= redisTemplate.opsForHash();
+        Object o = ops.get("info", "a");
+        System.out.println(o);
+
+    }
+
+}
 ```
 
-​		在操作redis时，需要先确认操作何种数据，根据数据种类得到操作接口。例如使用opsForValue()获取string类型的数据操作接口，使用opsForHash()获取hash类型的数据操作接口，剩下的就是调用对应api操作了。各种类型的数据操作接口如下：
+这里RedisTemplate应该用@Autowired进行注入，但是注入不进来，会报错，查阅资料使用@resouce不会报错。不知道为什么
 
-<img src="img\image-20220224103104908.png" alt="image-20220224103104908" style="zoom:80%;" />
+- @Autowired和@Resource注解都是作为bean对象注入的时候使用的
+
+- 区别：
+
+  1.@Autowired注解是Spring提供的，而@Resource注解是J2EE本身提供的
+  2.@Autowird注解默认通过byType方式注入，而@Resource注解默认通过byName方式注入
+  3.@Autowired注解注入的对象需要在IOC容器中存在，否则需要加上属性required=false，表示忽略当前要注入的bean，如果有直接注入，没有跳过，不会报错
+  4.byName就是变量名去匹配bean的id属性，而byType则是变量类型去匹配bean的class属性
+
+在操作redis时，需要先确认操作何种数据，根据数据种类得到操作接口。例如使用opsForValue()获取string类型的数据操作接口，使用opsForHash()获取hash类型的数据操作接口，剩下的就是调用对应api操作了。
 
 **总结**
 
@@ -1278,8 +1248,6 @@ class Springboot16RedisApplicationTests {
    1. 导入springboot整合redis的starter坐标
    2. 进行基础配置
    3. 使用springboot整合redis的专用客户端接口RedisTemplate操作
-
-
 
 **StringRedisTemplate**
 
@@ -1298,8 +1266,6 @@ public class StringRedisTemplateTest {
     }
 }
 ```
-
-
 
 **redis客户端选择**
 
@@ -2185,7 +2151,7 @@ void testSearch() throws IOException {
 
 
 
-## KF-5.整合第三方技术
+## 5.整合第三方技术
 
 ​		通过第四章的学习，我们领略到了springboot在整合第三方技术时强大的一致性，在第五章中我们要使用springboot继续整合各种各样的第三方技术，通过本章的学习，可以将之前学习的springboot整合第三方技术的思想贯彻到底，还是那三板斧。导坐标、做配置、调API。
 
@@ -2193,7 +2159,7 @@ void testSearch() throws IOException {
 
 
 
-### KF-5-1.缓存
+### 5-1.缓存
 
 ​		企业级应用主要作用是信息处理，当需要读取数据时，由于受限于数据库的访问效率，导致整体系统性能偏低。
 
@@ -3354,7 +3320,7 @@ memcached.sanitizeKeys = false
 
 
 
-### KF-5-2.任务
+### 5-2.任务
 
 ​		springboot整合第三方技术第二部分我们来说说任务系统，其实这里说的任务系统指的是定时任务。定时任务是企业级开发中必不可少的组成部分，诸如长周期业务数据的计算，例如年度报表，诸如系统脏数据的处理，再比如系统性能监控报告，还有抢购类活动的商品上架，这些都离不开定时任务。本节将介绍两种不同的定时任务技术。
 
@@ -3479,7 +3445,7 @@ spring:
 
    
 
-### KF-5-3.邮件
+### 5-3.邮件
 
 ​		springboot整合第三方技术第三部分我们来说说邮件系统，发邮件是java程序的基本操作，springboot整合javamail其实就是简化开发。不熟悉邮件的小伙伴可以先学习完javamail的基础操作，再来看这一部分内容才能感触到springboot整合javamail究竟简化了哪些操作。简化的多码？其实不多，差别不大，只是还个格式而已。
 
@@ -3640,7 +3606,7 @@ public class SendMailServiceImpl2 implements SendMailService {
 
    
 
-### KF-5-4.消息
+### 5-4.消息
 
 ​		springboot整合第三方技术最后一部分我们来说说消息中间件，首先先介绍一下消息的应用。
 
@@ -4688,7 +4654,7 @@ public class MessageListener {
 
    
 
-## KF-6.监控
+## 6.监控
 
 ​		在说监控之前，需要回顾一下软件业的发展史。最早的软件完成一些非常简单的功能，代码不多，错误也少。随着软件功能的逐步完善，软件的功能变得越来越复杂，功能不能得到有效的保障，这个阶段出现了针对软件功能的检测，也就是软件测试。伴随着计算机操作系统的逐步升级，软件的运行状态也变得开始让人捉摸不透，出现了不稳定的状况。伴随着计算机网络的发展，程序也从单机状态切换成基于计算机网络的程序，应用于网络的程序开始出现，由于网络的不稳定性，程序的运行状态让使用者更加堪忧。互联网的出现彻底打破了软件的思维模式，随之而来的互联网软件就更加凸显出应对各种各样复杂的网络情况之下的弱小。计算机软件的运行状况已经成为了软件运行的一个大话题，针对软件的运行状况就出现了全新的思维，建立起了初代的软件运行状态监控。
 
@@ -4698,7 +4664,7 @@ public class MessageListener {
 
 
 
-### KF-6-1.监控的意义
+### 6-1.监控的意义
 
 ​		对于现代的互联网程序来说，规模越来越大，功能越来越复杂，还要追求更好的客户体验，因此要监控的信息量也就比较大了。由于现在的互联网程序大部分都是基于微服务的程序，一个程序的运行需要若干个服务来保障，因此第一个要监控的指标就是服务是否正常运行，也就是**监控服务状态是否处理宕机状态**。一旦发现某个服务宕机了，必须马上给出对应的解决方案，避免整体应用功能受影响。其次，由于互联网程序服务的客户量是巨大的，当客户的请求在短时间内集中达到服务器后，就会出现各种程序运行指标的波动。比如内存占用严重，请求无法及时响应处理等，这就是第二个要监控的重要指标，**监控服务运行指标**。虽然软件是对外提供用户的访问需求，完成对应功能的，但是后台的运行是否平稳，是否出现了不影响客户使用的功能隐患，这些也是要密切监控的，此时就需要在不停机的情况下，监控系统运行情况，日志是一个不错的手段。如果在众多日志中找到开发者或运维人员所关注的日志信息，简单快速有效的过滤出要看的日志也是监控系统需要考虑的问题，这就是第三个要监控的指标，**监控程序运行日志**。虽然我们期望程序一直平稳运行，但是由于突发情况的出现，例如服务器被攻击、服务器内存溢出等情况造成了服务器宕机，此时当前服务不能满足使用需要，就要将其重启甚至关闭，如果快速控制服务器的启停也是程序运行过程中不可回避的问题，这就是第四个监控项，**管理服务状态**。以上这些仅仅是从大的方面来思考监控这个问题，还有很多的细节点，例如上线了一个新功能，定时提醒用户续费，这种功能不是上线后马上就运行的，但是当前功能是否真的启动，如果快速的查询到这个功能已经开启，这也是监控中要解决的问题，等等。看来监控真的是一项非常重要的工作。
 
@@ -4734,7 +4700,7 @@ public class MessageListener {
 
 
 
-### KF-6-2.可视化监控平台
+### 6-2.可视化监控平台
 
 ​		springboot抽取了大部分监控系统的常用指标，提出了监控的总思想。然后就有好心的同志根据监控的总思想，制作了一个通用性很强的监控系统，因为是基于springboot监控的核心思想制作的，所以这个程序被命名为**Spring Boot Admin**。
 
@@ -4910,7 +4876,7 @@ endpoints:
 
 
 
-### KF-6-3.监控原理
+### 6-3.监控原理
 
 ​		通过查阅监控中的映射指标，可以看到当前系统中可以运行的所有请求路径，其中大部分路径以/actuator开头
 
@@ -5130,7 +5096,7 @@ management:
 
    
 
-### KF-6-4.自定义监控指标
+### 6-4.自定义监控指标
 
 ​		端点描述了被监控的信息，除了系统默认的指标，还可以自行添加显示的指标，下面就通过3种不同的端点的指标自定义方式来学习端点信息的二次开发。
 
@@ -5273,4 +5239,4 @@ public class PayEndpoint {
 
 ​		实用性知识就是新知识了，springboot整合各种技术，每种技术整合中都有一些特殊操作，整体来说其实就是三句话。加坐标做配置调接口。经验性知识是对前面两篇中出现的一些知识的补充，在学习基础篇时如果将精力放在这些东西上就有点学偏了，容易钻牛角尖，放到实用开发篇中结合实际开发说一些不常见的但是对系统功能又危害的操作解决方案，提升理解。
 
-​		开发实用篇做到这里就告一段落，下面就要着手准备原理篇了。市面上很多课程原理篇讲的过于高深莫测，在新手还没明白123的时候就开始讲微积分了，着实让人看了着急。至于原理篇我讲成什么样子？一起期待吧。
+​		开发实用篇做到这里就告一段落，下面就要着手准备原理篇了。市面上很多课程原理篇讲的过于高深莫测，在新手还没明白123的时候就开始讲微积分了，着实让人看了着急。至于原理篇我讲成什么样子？一起期待吧。		
