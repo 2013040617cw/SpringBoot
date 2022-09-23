@@ -1,4 +1,4 @@
-#                       SpringBoot开发实用
+SpringBoot开发实用
 
 ## 1.热部署
 
@@ -1256,11 +1256,13 @@ class Springboot11RedisApplicationTests {
 ```JAVA
 @SpringBootTest
 public class StringRedisTemplateTest {
-    @Autowired
+
+    @Resource
     private StringRedisTemplate stringRedisTemplate;
+
     @Test
     void get(){
-        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+        ValueOperations<String, String> ops= stringRedisTemplate.opsForValue();
         String name = ops.get("name");
         System.out.println(name);
     }
@@ -1292,41 +1294,18 @@ spring:
     client-type: jedis
 ```
 
-**步骤③**：根据需要设置对应的配置
-
-```yaml
-spring:
-  redis:
-    host: localhost
-    port: 6379
-    client-type: jedis
-    lettuce:
-      pool:
-        max-active: 16
-    jedis:
-      pool:
-        max-active: 16
-```
-
 **lettcus与jedis区别**
 
 - jedis连接Redis服务器是直连模式，当多线程模式下使用jedis会存在线程安全问题，解决方案可以通过配置连接池使每个连接专用，这样整体性能就大受影响
 - lettcus基于Netty框架进行与Redis服务器连接，底层设计中采用StatefulRedisConnection。 StatefulRedisConnection自身是线程安全的，可以保障并发访问安全问题，所以一个连接可以被多线程复用。当然lettcus也支持多连接实例一起工作
 
-**总结**
-
-1. springboot整合redis提供了StringRedisTemplate对象，以字符串的数据格式操作redis
-2. 如果需要切换redis客户端实现技术，可以通过配置的形式进行
-
-
-
 #### SpringBoot整合MongoDB
 
-​		使用Redis技术可以有效的提高数据访问速度，但是由于Redis的数据格式单一性，无法操作结构化数据，当操作对象型的数据时，Redis就显得捉襟见肘。在保障访问速度的情况下，如果想操作结构化数据，看来Redis无法满足要求了，此时需要使用全新的数据存储结束来解决此问题，本节讲解springboot如何整合MongoDB技术。
+​		使用Redis技术可以有效的提高数据访问速度，但是由于Redis的数据格式单一性，无法操作结构化数据，当操作对象型的数据时，Redis就显得捉襟见肘。在保障访问速度的情况下，如果想操作结构化数据，看来Redis无法满足要求了，此时需要使用全新的数据存储结束来解决此问题，MongoDB技术。
 
 ​		MongoDB是一个开源、高性能、无模式的文档型数据库，它是NoSQL数据库产品中的一种，是最像关系型数据库的非关系型数据库。
 
-​		上述描述中几个词，其中对于我们最陌生的词是无模式的。什么叫无模式呢？简单说就是作为一款数据库，没有固定的数据存储结构，第一条数据可能有A、B、C一共3个字段，第二条数据可能有D、E、F也是3个字段，第三条数据可能是A、C、E3个字段，也就是说数据的结构不固定，这就是无模式。有人会说这有什么用啊？灵活，随时变更，不受约束。基于上述特点，MongoDB的应用面也会产生一些变化。以下列出了一些可以使用MongoDB作为数据存储的场景，但是并不是必须使用MongoDB的场景：
+​		上述描述中几个词，其中对于我们最陌生的词是无模式的。无模式就是作为一款数据库，没有固定的数据存储结构，第一条数据可能有A、B、C一共3个字段，第二条数据可能有D、E、F也是3个字段，第三条数据可能是A、C、E3个字段，也就是说数据的结构不固定，这就是无模式。它的特点就是灵活，随时变更，不受约束。基于上述特点，MongoDB的应用面也会产生一些变化。以下列出了一些可以使用MongoDB作为数据存储的场景，但是并不是必须使用MongoDB的场景：
 
 - 淘宝用户数据
   - 存储位置：数据库
@@ -1341,33 +1320,20 @@ spring:
   - 存储位置：Mongodb
   - 特征：临时存储，修改频度飞速
 
-​		快速了解一下MongoDB，下面直接开始我们的学习，老规矩，先安装，再操作，最后说整合
-
-
-
 ##### 安装
 
 ​		windows版安装包下载地址：https://www.mongodb.com/try/download
 
-​		下载的安装包也有两种形式，一种是一键安装的msi文件，还有一种是解压缩就能使用的zip文件，哪种形式都行，本课程采用解压缩zip文件进行安装。
+​		下载的安装包也有两种形式，一种是一键安装的msi文件，还有一种是解压缩就能使用的zip文件，
 
-​		解压缩完毕后会得到如下文件，其中bin目录包含了所有mongodb的可执行命令
+1. 
 
-![image-20220224111306933](img\image-20220224111306933.png)
+
+![image-20220825110629574](SpringBoot开发实用.assets/image-20220825110629574.png)
 
 ​		mongodb在运行时需要指定一个数据存储的目录，所以创建一个数据存储目录，通常放置在安装目录中，此处创建data的目录用来存储数据，具体如下
 
-![image-20220224111053408](img\image-20220224111053408.png)
-
-​		如果在安装的过程中出现了如下警告信息，就是告诉你，你当前的操作系统缺少了一些系统文件，这个不用担心。
-
-<img src="img\image-20220224113956882.png" alt="image-20220224113956882" style="zoom:50%;" />
-
-​		根据下列方案即可解决，在浏览器中搜索提示缺少的名称对应的文件，并下载，将下载的文件拷贝到windows安装目录的system32目录下，然后在命令行中执行regsvr32命令注册此文件。根据下载的文件名不同，执行命令前更改对应名称。
-
-```CMD
-regsvr32 vcruntime140_1.dll
-```
+![image-20220825110653179](SpringBoot开发实用.assets/image-20220825110653179.png)
 
 **启动服务器**
 
@@ -1375,7 +1341,9 @@ regsvr32 vcruntime140_1.dll
 mongod --dbpath=..\data\db
 ```
 
-​		启动服务器时需要指定数据存储位置，通过参数--dbpath进行设置，可以根据需要自行设置数据存储路径。默认服务端口27017。
+​		![image-20220825112614444](SpringBoot开发实用.assets/image-20220825112614444.png)
+
+启动服务器时需要指定数据存储位置，通过参数--dbpath进行设置，可以根据需要自行设置数据存储路径。默认服务端口27017。
 
 **启动客户端**
 
@@ -1383,25 +1351,23 @@ mongod --dbpath=..\data\db
 mongo --host=127.0.0.1 --port=27017
 ```
 
-##### 基本操作
+![image-20220825112629746](SpringBoot开发实用.assets/image-20220825112629746.png)
 
-​		MongoDB虽然是一款数据库，但是它的操作并不是使用SQL语句进行的，因此操作方式各位小伙伴可能比较陌生，好在有一些类似于Navicat的数据库客户端软件，能够便捷的操作MongoDB，先安装一个客户端，再来操作MongoDB。
+##### 基本操作
 
 ​		同类型的软件较多，本次安装的软件时Robo3t，Robot3t是一款绿色软件，无需安装，解压缩即可。解压缩完毕后进入安装目录双击robot3t.exe即可使用。
 
-<img src="img\image-20220224114911573.png" alt="image-20220224114911573" style="zoom: 33%;" />
+![image-20220825113328835](SpringBoot开发实用.assets/image-20220825113328835.png)
 
 ​		打开软件首先要连接MongoDB服务器，选择【File】菜单，选择【Connect...】
 
-![image-20220224115202422](img\image-20220224115202422.png)
+![image-20220825113407078](SpringBoot开发实用.assets/image-20220825113407078.png)
 
 ​		进入连接管理界面后，选择左上角的【Create】链接，创建新的连接设置
 
-<img src="img\image-20220224115254200.png" alt="image-20220224115254200" style="zoom:80%;" />
+![image-20220825113431828](SpringBoot开发实用.assets/image-20220825113431828.png)
 
 ​		如果输入设置值即可连接（默认不修改即可连接本机27017端口）
-
-![image-20220224115300266](img\image-20220224115300266.png)
 
 ​		连接成功后在命令输入区域输入命令即可操作MongoDB。
 
@@ -1411,20 +1377,20 @@ mongo --host=127.0.0.1 --port=27017
 
 ​		新增文档：（文档是一种类似json格式的数据，初学者可以先把数据理解为就是json数据）	
 
-```CMD
-db.集合名称.insert/save/insertOne(文档)
-```
-
-​		删除文档：
-
-```CMD
-db.集合名称.remove(条件)
-```
-
-​		修改文档：
+增删改查操作：
 
 ```cmd
-db.集合名称.update(条件，{操作种类:{文档}})
+// 添加数据（文档）
+// db.book.save({"name":"springboot",type:"springboot2"})
+// 
+//删除操作
+// db.book.remove({type:"springboot2"})
+
+//修改操作
+db.book.update({name:"springboot"},{$set:{name:"springboot2"}})
+
+//有条件得查询
+db.book.find({type:"springboot2"})
 ```
 
 ​		查询文档：
@@ -1447,11 +1413,7 @@ db.集合名称.update(条件，{操作种类:{文档}})
 条件连接查询：		   db.集合.find({$and:[{条件1},{条件2}]})	   //等同于SQL中的and、or
 ```
 
-​		有关MongoDB的基础操作就普及到这里，需要全面掌握MongoDB技术，请参看相关教程学习。
-
 ##### 整合
-
-​		使用springboot整合MongDB该如何进行呢？其实springboot为什么使用的开发者这么多，就是因为他的套路几乎完全一样。导入坐标，做配置，使用API接口操作。整合Redis如此，整合MongoDB同样如此。
 
 ​		第一，先导入对应技术的整合starter坐标
 
@@ -1459,7 +1421,7 @@ db.集合名称.update(条件，{操作种类:{文档}})
 
 ​		第三，使用提供的API操作即可
 
-​		下面就开始springboot整合MongoDB，操作步骤如下：
+操作步骤如下：
 
 **步骤①**：导入springboot整合MongoDB的starter坐标
 
@@ -1472,7 +1434,7 @@ db.集合名称.update(条件，{操作种类:{文档}})
 
 ​		上述坐标也可以在创建模块的时候通过勾选的形式进行选择，同样归属NoSQL分类中
 
-<img src="img\image-20220224120721626.png" alt="image-20220224120721626" style="zoom: 67%;" />
+![image-20220825160213570](SpringBoot开发实用.assets/image-20220825160213570.png)
 
 **步骤②**：进行基础配置
 
@@ -1480,7 +1442,7 @@ db.集合名称.update(条件，{操作种类:{文档}})
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost/itheima
+      uri: mongodb://localhost/itcuiwei
 ```
 
 ​		操作MongoDB需要的配置与操作redis一样，最基本的信息都是操作哪一台服务器，区别就是连接的服务器IP地址和端口不同，书写格式不同而已。
@@ -1489,27 +1451,26 @@ spring:
 
 ```java
 @SpringBootTest
-class Springboot17MongodbApplicationTests {
-    @Autowired
+class Springboot12MongodbApplicationTests {
+    @Resource
     private MongoTemplate mongoTemplate;
     @Test
     void contextLoads() {
+
         Book book = new Book();
         book.setId(2);
-        book.setName("springboot2");
-        book.setType("springboot2");
-        book.setDescription("springboot2");
+        book.setName("崔巍最帅");
+        book.setType("超人类");
+        book.setDescription("我家住在翻斗乐园，我在翻斗幼儿园");
         mongoTemplate.save(book);
     }
     @Test
-    void find(){
+    void findAll(){
         List<Book> all = mongoTemplate.findAll(Book.class);
         System.out.println(all);
     }
 }
 ```
-
-​		整合工作到这里就做完了，感觉既熟悉也陌生。熟悉的是这个套路，三板斧，就这三招，导坐标做配置用API操作，陌生的是这个技术，里面具体的操作API可能会不熟悉，有关springboot整合MongoDB我们就讲到这里。有兴趣可以继续学习MongoDB的操作，然后再来这里通过编程的形式操作MongoDB。
 
 **总结**
 
@@ -1518,15 +1479,15 @@ class Springboot17MongodbApplicationTests {
    2. 进行基础配置
    3. 使用springboot整合MongoDB的专用客户端接口MongoTemplate操作
 
-
-
 #### SpringBoot整合ES
 
-​		NoSQL解决方案已经讲完了两种技术的整合了，Redis可以使用内存加载数据并实现数据快速访问，MongoDB可以在内存中存储类似对象的数据并实现数据的快速访问，在企业级开发中对于速度的追求是永无止境的。下面要讲的内容也是一款NoSQL解决方案，只不过他的作用不是为了直接加速数据的读写，而是加速数据的查询的，叫做ES技术。
+- ​		Redis可以使用内存加载数据并实现数据快速访问
+- ​        MongoDB可以在内存中存储类似对象的数据并实现数据的快速访问
+- ​        ES技术的作用不是为了直接加速数据的读写，而是加速数据的查询的
 
 ​		ES（Elasticsearch）是一个分布式全文搜索引擎，重点是全文搜索。
 
-​		那什么是全文搜索呢？比如用户要买一本书，以Java为关键字进行搜索，不管是书名中还是书的介绍中，甚至是书的作者名字，只要包含java就作为查询结果返回给用户查看，上述过程就使用了全文搜索技术。搜索的条件不再是仅用于对某一个字段进行比对，而是在一条数据中使用搜索条件去比对更多的字段，只要能匹配上就列入查询结果，这就是全文搜索的目的。而ES技术就是一种可以实现上述效果的技术。
+​		全文搜索：比如用户要买一本书，以Java为关键字进行搜索，不管是书名中还是书的介绍中，甚至是书的作者名字，只要包含java就作为查询结果返回给用户查看，上述过程就使用了全文搜索技术。
 
 ​		要实现全文搜索的效果，不可能使用数据库中like操作去进行比对，这种效率太低了。ES设计了一种全新的思想，来实现全文搜索。具体操作过程如下：
 
@@ -1554,17 +1515,13 @@ class Springboot17MongodbApplicationTests {
 
 ​		上述过程中分词结果关键字内容每一个都不相同，作用有点类似于数据库中的索引，是用来加速数据查询的。但是数据库中的索引是对某一个字段进行添加索引，而这里的分词结果关键字不是一个完整的字段值，只是一个字段中的其中的一部分内容。并且索引使用时是根据索引内容查找整条数据，全文搜索中的分词结果关键字查询后得到的并不是整条的数据，而是数据的id，要想获得具体数据还要再次查询，因此这里为这种分词结果关键字起了一个全新的名称，叫做**倒排索引**。
 
-​		通过上述内容的学习，发现使用ES其实准备工作还是挺多的，必须先建立文档的倒排索引，然后才能继续使用。快速了解一下ES的工作原理，下面直接开始我们的学习，老规矩，先安装，再操作，最后说整合。
-
-
-
 ##### 安装
 
 ​		windows版安装包下载地址：[https://](https://www.elastic.co/cn/downloads/elasticsearch)[www.elastic.co/cn/downloads/elasticsearch](https://www.elastic.co/cn/downloads/elasticsearch)
 
 ​		下载的安装包是解压缩就能使用的zip文件，解压缩完毕后会得到如下文件
 
-![image-20220225132756400](img\image-20220225132756400.png)
+![image-20220826092133377](SpringBoot开发实用.assets/image-20220826092133377.png)
 
 - bin目录：包含所有的可执行命令
 - config目录：包含ES服务器使用的配置文件
@@ -1575,6 +1532,8 @@ class Springboot17MongodbApplicationTests {
 - plugins目录：包含ES软件安装的插件，默认为空
 
 **启动服务器**
+
+点击bat文件：
 
 ```CMD
 elasticsearch.bat
@@ -1604,11 +1563,9 @@ elasticsearch.bat
 
 ##### 基本操作
 
-​		ES中保存有我们要查询的数据，只不过格式和数据库存储数据格式不同而已。在ES中我们要先创建倒排索引，这个索引的功能又点类似于数据库的表，然后将数据添加到倒排索引中，添加的数据称为文档。所以要进行ES的操作要先创建索引，再添加文档，这样才能进行后续的查询操作。
+​		ES中保存有我们要查询的数据，只不过格式和数据库存储数据格式不同而已。在ES中我们要先创建倒排索引，这个索引的功能有点类似于数据库的表，然后将数据添加到倒排索引中，添加的数据称为文档。所以要进行ES的操作要先创建索引，再添加文档，这样才能进行后续的查询操作。
 
-​		要操作ES可以通过Rest风格的请求来进行，也就是说发送一个请求就可以执行一个操作。比如新建索引，删除索引这些操作都可以使用发送请求的形式来进行。
-
-- 创建索引，books是索引名称，下同
+- 创建索引，books是索引名称
 
   ```CMD
   PUT请求		http://localhost:9200/books
@@ -1907,8 +1864,6 @@ elasticsearch.bat
 
 ##### 整合
 
-​		使用springboot整合ES该如何进行呢？老规矩，导入坐标，做配置，使用API接口操作。整合Redis如此，整合MongoDB如此，整合ES依然如此。太没有新意了，其实不是没有新意，这就是springboot的强大之处，所有东西都做成相同规则，对开发者来说非常友好。
-
 ​		下面就开始springboot整合ES，操作步骤如下：
 
 **步骤①**：导入springboot整合ES的starter坐标
@@ -1941,7 +1896,7 @@ class Springboot18EsApplicationTests {
 }
 ```
 
-​		上述操作形式是ES早期的操作方式，使用的客户端被称为Low Level Client，这种客户端操作方式性能方面略显不足，于是ES开发了全新的客户端操作方式，称为High Level Client。高级别客户端与ES版本同步更新，但是springboot最初整合ES的时候使用的是低级别客户端，所以企业开发需要更换成高级别的客户端模式。
+​		上述操作形式是ES早期的操作方式，使用的客户端被称为Low Level Client，这种客户端操作方式性能方面略显不足，于是ES开发了全新的客户端操作方式，称为High Level Client。
 
 ​		下面使用高级别客户端方式进行springboot整合ES，操作步骤如下：
 
@@ -1954,71 +1909,68 @@ class Springboot18EsApplicationTests {
 </dependency>
 ```
 
-**步骤②**：使用编程的形式设置连接的ES服务器，并获取客户端对象
+**步骤②**：使用编程的形式设置连接的ES服务器，并获取客户端对象，最后获取索引，关闭客户端
 
 ```java
 @SpringBootTest
-class Springboot18EsApplicationTests {
-    private RestHighLevelClient client;
-      @Test
-      void testCreateClient() throws IOException {
-          HttpHost host = HttpHost.create("http://localhost:9200");
-          RestClientBuilder builder = RestClient.builder(host);
-          client = new RestHighLevelClient(builder);
-  
-          client.close();
-      }
+class Springboot13EsApplicationTests {
+//	@Autowired
+//	private BookDao bookDao;
+//	@Autowired
+//	private ElasticsearchRestTemplate elasticsearchRestTemplate;
+
+	@Autowired
+	private RestHighLevelClient client;
+
+	@Test()
+	void testCreateClient() throws  Exception{
+		//创建主机地址
+		HttpHost host = HttpHost.create("http://localhost:9200");
+		//传入主机地址
+		RestClientBuilder builder = RestClient.builder(host);
+		//创建客户端
+		RestHighLevelClient restHighLevelClient = new RestHighLevelClient(builder);
+
+		//创建了一个索引，索引的名字叫books
+		CreateIndexRequest request = new CreateIndexRequest("books");
+		client.indices().create(request,RequestOptions.DEFAULT);
+		//关闭客户端
+		client.close();
+	}
 }
 ```
 
 ​		配置ES服务器地址与端口9200，记得客户端使用完毕需要手工关闭。由于当前客户端是手工维护的，因此不能通过自动装配的形式加载对象。
 
-**步骤③**：使用客户端对象操作ES，例如创建索引
-
-```java
-@SpringBootTest
-class Springboot18EsApplicationTests {
-    private RestHighLevelClient client;
-      @Test
-      void testCreateIndex() throws IOException {
-          HttpHost host = HttpHost.create("http://localhost:9200");
-          RestClientBuilder builder = RestClient.builder(host);
-          client = new RestHighLevelClient(builder);
-          
-          CreateIndexRequest request = new CreateIndexRequest("books");
-          client.indices().create(request, RequestOptions.DEFAULT); 
-          
-          client.close();
-      }
-}
-```
-
-​		高级别客户端操作是通过发送请求的方式完成所有操作的，ES针对各种不同的操作，设定了各式各样的请求对象，上例中创建索引的对象是CreateIndexRequest，其他操作也会有自己专用的Request对象。
-
 ​		当前操作我们发现，无论进行ES何种操作，第一步永远是获取RestHighLevelClient对象，最后一步永远是关闭该对象的连接。在测试中可以使用测试类的特性去帮助开发者一次性的完成上述操作，但是在业务书写时，还需要自行管理。将上述代码格式转换成使用测试类的初始化方法和销毁方法进行客户端对象的维护。
 
 ```JAVA
-@SpringBootTest
-class Springboot18EsApplicationTests {
-    @BeforeEach		//在测试类中每个操作运行前运行的方法
-    void setUp() {
-        HttpHost host = HttpHost.create("http://localhost:9200");
-        RestClientBuilder builder = RestClient.builder(host);
-        client = new RestHighLevelClient(builder);
-    }
+	@Autowired
+	private RestHighLevelClient client;
 
-    @AfterEach		//在测试类中每个操作运行后运行的方法
-    void tearDown() throws IOException {
-        client.close();
-    }
+	@BeforeEach
+	void setUp(){  // 在每个测试方法前运行
+		//创建主机地址
+		HttpHost host = HttpHost.create("http://localhost:9200");
+		//传入主机地址
+		RestClientBuilder builder = RestClient.builder(host);
+		//创建客户端
+		RestHighLevelClient restHighLevelClient = new RestHighLevelClient(builder);
 
-    private RestHighLevelClient client;
+	}
 
-    @Test
-    void testCreateIndex() throws IOException {
-        CreateIndexRequest request = new CreateIndexRequest("books");
-        client.indices().create(request, RequestOptions.DEFAULT);
-    }
+	@AfterEach
+	void tearDown() throws Exception{//在每个测试方法后运行
+		//关闭客户端
+		client.close();
+	}
+	@Test()
+	void testCreateClient() throws Exception{
+		//创建了一个索引，索引的名字叫books
+		CreateIndexRequest request = new CreateIndexRequest("books");
+		client.indices().create(request,RequestOptions.DEFAULT);
+
+	}
 }
 ```
 
@@ -2140,22 +2092,7 @@ void testSearch() throws IOException {
 
 ​		按条件查询文档使用的请求对象是SearchRequest，查询时调用SearchRequest对象的termQuery方法，需要给出查询属性名，此处支持使用合并字段，也就是前面定义索引属性时添加的all属性。
 
-​		springboot整合ES的操作到这里就说完了，与前期进行springboot整合redis和mongodb的差别还是蛮大的，主要原始就是我们没有使用springboot整合ES的客户端对象。至于操作，由于ES操作种类过多，所以显得操作略微有点复杂。有关springboot整合ES就先学习到这里吧。
-
-**总结**
-
-1. springboot整合ES步骤
-   1. 导入springboot整合ES的High Level Client坐标
-   2. 手工管理客户端对象，包括初始化和关闭操作
-   3. 使用High Level Client根据操作的种类不同，选择不同的Request对象完成对应操作
-
-
-
 ## 5.整合第三方技术
-
-​		通过第四章的学习，我们领略到了springboot在整合第三方技术时强大的一致性，在第五章中我们要使用springboot继续整合各种各样的第三方技术，通过本章的学习，可以将之前学习的springboot整合第三方技术的思想贯彻到底，还是那三板斧。导坐标、做配置、调API。
-
-​		springboot能够整合的技术实在是太多了，可以说是万物皆可整。本章将从企业级开发中常用的一些技术作为出发点，对各种各样的技术进行整合。
 
 
 
@@ -2163,13 +2100,13 @@ void testSearch() throws IOException {
 
 ​		企业级应用主要作用是信息处理，当需要读取数据时，由于受限于数据库的访问效率，导致整体系统性能偏低。
 
-<img src="img\image-20220226154148303.png" alt="image-20220226154148303" style="zoom:67%;" />
+![image-20220831171438554](SpringBoot开发实用.assets/image-20220831171438554.png)
 
 ​															          应用程序直接与数据库打交道，访问效率低
 
 ​		为了改善上述现象，开发者通常会在应用程序与数据库之间建立一种临时的数据存储机制，该区域中的数据在内存中保存，读写速度较快，可以有效解决数据库访问效率低下的问题。这一块临时存储数据的区域就是缓存。
 
-<img src="img\image-20220226154233010.png" alt="image-20220226154233010" style="zoom:67%;" />
+![image-20220831171506403](SpringBoot开发实用.assets/image-20220831171506403.png)
 
  											使用缓存后，应用程序与缓存打交道，缓存与数据库打交道，数据访问效率提高
 
@@ -2221,8 +2158,6 @@ public class BookServiceImpl implements BookService {
 ​		在业务方法上面使用注解@Cacheable声明当前方法的返回值放入缓存中，其中要指定缓存的存储位置，以及缓存中保存当前方法返回值对应的名称。上例中value属性描述缓存的存储位置，可以理解为是一个存储空间名，key属性描述了缓存中保存数据的名称，使用#id读取形参中的id值作为缓存名称。
 
 ​		使用@Cacheable注解后，执行当前操作，如果发现对应名称在缓存中没有数据，就正常读取数据，然后放入缓存；如果对应名称在缓存中有数据，就终止当前业务方法执行，直接返回缓存中的数据。
-
-
 
 #### 手机验证码案例
 
@@ -2352,7 +2287,7 @@ public class SMSCodeController {
 
 #### SpringBoot整合Ehcache缓存
 
-​		手机验证码的案例已经完成了，下面就开始springboot整合各种各样的缓存技术，第一个整合Ehcache技术。Ehcache是一种缓存技术，使用springboot整合Ehcache其实就是变更一下缓存技术的实现方式，话不多说，直接开整
+​	Ehcache是一种缓存技术，使用springboot整合Ehcache其实就是变更一下缓存技术的实现方式
 
 **步骤①**：导入Ehcache的坐标
 
@@ -2363,21 +2298,19 @@ public class SMSCodeController {
 </dependency>
 ```
 
-​		此处为什么不是导入Ehcache的starter，而是导入技术坐标呢？其实springboot整合缓存技术做的是通用格式，不管你整合哪种缓存技术，只是实现变化了，操作方式一样。这也体现出springboot技术的优点，统一同类技术的整合方式。
-
 **步骤②**：配置缓存技术实现使用Ehcache
 
 ```yaml
 spring:
   cache:
+  //设置缓存类型
     type: ehcache
     ehcache:
+    //设置加载文件
       config: ehcache.xml
 ```
 
-​		配置缓存的类型type为ehcache，此处需要说明一下，当前springboot可以整合的缓存技术中包含有ehcach，所以可以这样书写。其实这个type不可以随便写的，不是随便写一个名称就可以整合的。
-
-​		由于ehcache的配置有独立的配置文件格式，因此还需要指定ehcache的配置文件，以便于读取相应配置
+​		由于ehcache的配置有独立的配置文件格式，因此还需要指定ehcache的配置文件，以便于读取相应配置，所以要加入如下配置：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2394,24 +2327,29 @@ spring:
     <!-- timeToIdleSeconds：最大不活动间隔，设置过长缓存容易溢出，设置过短无效果，可用于记录时效性数据，例如验证码-->
     <!-- timeToLiveSeconds：最大存活时间-->
     <!-- memoryStoreEvictionPolicy：缓存清除策略-->
+    
+    
+<!--    默认属性-->
     <defaultCache
-        eternal="false"
-        diskPersistent="false"
-        maxElementsInMemory="1000"
-        overflowToDisk="false"
-        timeToIdleSeconds="60"
-        timeToLiveSeconds="60"
-        memoryStoreEvictionPolicy="LRU" />
+            eternal="false"
+            diskPersistent="false"
+            maxElementsInMemory="1000"
+            overflowToDisk="false"
+            timeToIdleSeconds="60"
+            timeToLiveSeconds="60"
+            memoryStoreEvictionPolicy="LRU" />
 
+    
+<!--    设置一个name,不同的数据使用不同的缓存-->
     <cache
-        name="smsCode"
-        eternal="false"
-        diskPersistent="false"
-        maxElementsInMemory="1000"
-        overflowToDisk="false"
-        timeToIdleSeconds="10"
-        timeToLiveSeconds="10"
-        memoryStoreEvictionPolicy="LRU" />
+            name="smsCode"
+            eternal="false"
+            diskPersistent="false"
+            maxElementsInMemory="1000"
+            overflowToDisk="false"
+            timeToIdleSeconds="10"
+            timeToLiveSeconds="10"
+            memoryStoreEvictionPolicy="LRU" />
 </ehcache>
 ```
 
@@ -2426,20 +2364,9 @@ public String sendCodeToSMS(String tele) {
 ```
 ​		这个设定需要保障ehcache中有一个缓存空间名称叫做smsCode的配置，前后要统一。在企业开发过程中，通过设置不同名称的cache来设定不同的缓存策略，应用于不同的缓存数据。
 
-​		到这里springboot整合Ehcache就做完了，可以发现一点，原始代码没有任何修改，仅仅是加了一组配置就可以变更缓存供应商了，这也是springboot提供了统一的缓存操作接口的优势，变更实现并不影响原始代码的书写。
-
-**总结**
-
-1. springboot使用Ehcache作为缓存实现需要导入Ehcache的坐标
-2. 修改设置，配置缓存供应商为ehcache，并提供对应的缓存配置文件
-
-​		
-
 #### SpringBoot整合Redis缓存
 
-​		上节使用Ehcache替换了springboot内置的缓存技术，其实springboot支持的缓存技术还很多，下面使用redis技术作为缓存解决方案来实现手机验证码案例。
-
-​		比对使用Ehcache的过程，加坐标，改缓存实现类型为ehcache，做Ehcache的配置。如果还成redis做缓存呢？一模一样，加坐标，改缓存实现类型为redis，做redis的配置。差别之处只有一点，redis的配置可以在yml文件中直接进行配置，无需制作独立的配置文件。
+​		redis的配置。差别之处只有一点，redis的配置可以在yml文件中直接进行配置，无需像ehcahe一样制作独立的配置文件。
 
 **步骤①**：导入redis的坐标
 
@@ -2453,12 +2380,14 @@ public String sendCodeToSMS(String tele) {
 **步骤②**：配置缓存技术实现使用redis
 
 ```yaml
+#Redis
 spring:
+  cache:
+    type: redis
+#配置Redis服务器配置
   redis:
     host: localhost
     port: 6379
-  cache:
-    type: redis
 ```
 
 ​		如果需要对redis作为缓存进行配置，注意不是对原始的redis进行配置，而是配置redis作为缓存使用相关的配置，隶属于spring.cache.redis节点下，注意不要写错位置了。
@@ -2471,22 +2400,13 @@ spring:
   cache:
     type: redis
     redis:
-      use-key-prefix: false
-      key-prefix: sms_
-      cache-null-values: false
-      time-to-live: 10s
+      use-key-prefix: false   //设置是否使用前缀
+      key-prefix: sms_        //指定前缀
+      cache-null-values:       //是否缓存空值
+      time-to-live: 10s   //设置生命周期时间
 ```
 
-**总结**
-
-1. springboot使用redis作为缓存实现需要导入redis的坐标
-2. 修改设置，配置缓存供应商为redis，并提供对应的缓存配置
-
-
-
 #### SpringBoot整合Memcached缓存
-
-​		目前我们已经掌握了3种缓存解决方案的配置形式，分别是springboot内置缓存，ehcache和redis，本节研究一下国内比较流行的一款缓存memcached。
 
 ​		按照之前的套路，其实变更缓存并不繁琐，但是springboot并没有支持使用memcached作为其缓存解决方案，也就是说在type属性中没有memcached的配置选项，这里就需要更变一下处理方式了。在整合之前先安装memcached。
 
@@ -2494,17 +2414,15 @@ spring:
 
 ​		windows版安装包下载地址：https://www.runoob.com/memcached/window-install-memcached.html
 
-​		下载的安装包是解压缩就能使用的zip文件，解压缩完毕后会得到如下文件
+下载完成后，生成下面的文件夹：
 
-![image-20220226174957040](img\image-20220226174957040.png)
+![image-20220902100629977](SpringBoot开发实用.assets/image-20220902100629977.png)
 
 ​		可执行文件只有一个memcached.exe，使用该文件可以将memcached作为系统服务启动，执行此文件时会出现报错信息，如下：
 
-<img src="img\image-20220226175141986.png" alt="image-20220226175141986" style="zoom:80%;" />
+![image-20220902100705847](SpringBoot开发实用.assets/image-20220902100705847.png)
 
 ​		此处出现问题的原因是注册系统服务时需要使用管理员权限，当前账号权限不足导致安装服务失败，切换管理员账号权限启动命令行
-
-<img src="img\image-20220226175302903.png" alt="image-20220226175302903" style="zoom:80%;" />
 
 ​		然后再次执行安装服务的命令即可，如下：
 
@@ -2519,13 +2437,13 @@ memcached.exe -d start		# 启动服务
 memcached.exe -d stop		# 停止服务
 ```
 
-​		也可以在任务管理器中进行服务状态的切换
+也可以在任务管理器的服务中找到memcached服务，进行右键手动开启或者关闭。
 
-<img src="img\image-20220226175441675.png" alt="image-20220226175441675" style="zoom:67%;" />
+**变更**
 
-**变更缓存为Memcached**
+**缓存为Memcached**
 
-​		由于memcached未被springboot收录为缓存解决方案，因此使用memcached需要通过手工硬编码的方式来使用，于是前面的套路都不适用了，需要自己写了。
+​		由于memcached未被springboot收录为缓存解决方案，因此使用memcached需要通过手工硬编码的方式来使用。
 
 ​		memcached目前提供有三种客户端技术，分别是Memcached Client for Java、SpyMemcached和Xmemcached，其中性能指标各方面最好的客户端是Xmemcached，本次整合就使用这个作为客户端实现技术了。下面开始使用Xmemcached
 
@@ -2566,6 +2484,7 @@ public class SMSCodeServiceImpl implements SMSCodeService {
     private MemcachedClient memcachedClient;
 
     public String sendCodeToSMS(String tele) {
+        //获取验证码。
         String code = codeUtils.generator(tele);
         try {
             memcachedClient.set(tele,10,code);
@@ -2589,11 +2508,7 @@ public class SMSCodeServiceImpl implements SMSCodeService {
 
 ​		设置值到缓存中使用set操作，取值使用get操作，其实更符合我们开发者的习惯。
 
-​		上述代码中对于服务器的配置使用硬编码写死到了代码中，将此数据提取出来，做成独立的配置属性。
-
 **定义配置属性**
-
-​		以下过程采用前期学习的属性配置方式进行，当前操作有助于理解原理篇中的很多知识。
 
 - 定义配置类，加载必要的配置属性，读取配置文件中memcached节点信息
 
@@ -2621,40 +2536,27 @@ public class SMSCodeServiceImpl implements SMSCodeService {
 
 ```java
 @Configuration
-public class XMemcachedConfig {
+public class XMenecached {
     @Autowired
-    private XMemcachedProperties props;
+    private XMemcachedProperties xMemcachedProperties;
     @Bean
-    public MemcachedClient getMemcachedClient() throws IOException {
-        MemcachedClientBuilder memcachedClientBuilder = new XMemcachedClientBuilder(props.getServers());
-        memcachedClientBuilder.setConnectionPoolSize(props.getPoolSize());
-        memcachedClientBuilder.setOpTimeout(props.getOpTimeout());
+    public MemcachedClient  getMemcachedClient() throws  Exception{
+
+        //创建服务器
+        MemcachedClientBuilder memcachedClientBuilder = new XMemcachedClientBuilder(xMemcachedProperties.getServers());
+        //创建客户端
         MemcachedClient memcachedClient = memcachedClientBuilder.build();
         return memcachedClient;
+
     }
 }
 ```
 
-**总结**
-
-1. memcached安装后需要启动对应服务才可以对外提供缓存功能，安装memcached服务需要基于windows系统管理员权限
-2. 由于springboot没有提供对memcached的缓存整合方案，需要采用手工编码的形式创建xmemcached客户端操作缓存
-3. 导入xmemcached坐标后，创建memcached配置类，注册MemcachedClient对应的bean，用于操作缓存
-4. 初始化MemcachedClient对象所需要使用的属性可以通过自定义配置属性类的形式加载
-
-**思考**
-
-​		到这里已经完成了三种缓存的整合，其中redis和mongodb需要安装独立的服务器，连接时需要输入对应的服务器地址，这种是远程缓存，Ehcache是一个典型的内存级缓存，因为它什么也不用安装，启动后导入jar包就有缓存功能了。这个时候就要问了，能不能这两种缓存一起用呢？咱们下节再说。
-
-
-
 #### SpringBoot整合jetcache缓存
 
-​		目前我们使用的缓存都是要么A要么B，能不能AB一起用呢？这一节就解决这个问题。springboot针对缓存的整合仅仅停留在用缓存上面，如果缓存自身不支持同时支持AB一起用，springboot也没办法，所以要想解决AB缓存一起用的问题，就必须找一款缓存能够支持AB两种缓存一起用，有这种缓存吗？还真有，阿里出品，jetcache。
+​		jetcache严格意义上来说，并不是一个缓存解决方案，只能说他算是一个缓存框架，然后把别的缓存放到jetcache中管理，这样就可以支持AB缓存一起用了。并且jetcache参考了springboot整合缓存的思想，整体技术使用方式和springboot的缓存解决方案思想非常类似。
 
-​		jetcache严格意义上来说，并不是一个缓存解决方案，只能说他算是一个缓存框架，然后把别的缓存放到jetcache中管理，这样就可以支持AB缓存一起用了。并且jetcache参考了springboot整合缓存的思想，整体技术使用方式和springboot的缓存解决方案思想非常类似。下面咱们就先把jetcache用起来，然后再说它里面的一些小的功能。
-
-​		做之前要先明确一下，jetcache并不是随便拿两个缓存都能拼到一起去的。目前jetcache支持的缓存方案本地缓存支持两种，远程缓存支持两种，分别如下：
+​		目前jetcache支持的缓存方案本地缓存支持两种，远程缓存支持两种，分别如下：
 
 - 本地缓存（Local）
   - LinkedHashMap
@@ -2663,18 +2565,79 @@ public class XMemcachedConfig {
   - Redis
   - Tair
 
-​		其实也有人问我，为什么jetcache只支持2+2这么4款缓存呢？阿里研发这个技术其实主要是为了满足自身的使用需要。最初肯定只有1+1种，逐步变化成2+2种。下面就以LinkedHashMap+Redis的方案实现本地与远程缓存方案同时使用。
-
 ##### 纯远程方案
 
-**步骤①**：导入springboot整合jetcache对应的坐标starter，当前坐标默认使用的远程方案是redis
+**步骤①**：配置Pom.xml
 
 ```xml
-<dependency>
-    <groupId>com.alicp.jetcache</groupId>
-    <artifactId>jetcache-starter-redis</artifactId>
-    <version>2.6.2</version>
-</dependency>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.cuiwei</groupId>
+    <artifactId>springboot_15_jetcache</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springboot_15_jetcache</name>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>3.4.3</version>
+    </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.6</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
 ```
 
 **步骤②**：远程方案基本配置
@@ -2690,7 +2653,7 @@ jetcache:
         maxTotal: 50
 ```
 
-​		其中poolConfig是必配项，否则会报错
+​		其中poolConfig是必配项，否则会报错，maxTotal是连接池中总连接的最大数量
 
 **步骤③**：启用缓存，在引导类上方标注注解@EnableCreateCacheAnnotation配置springboot程序中可以使用注解的形式创建缓存
 
@@ -2709,27 +2672,28 @@ public class Springboot20JetCacheApplication {
 
 ```java
 @Service
-public class SMSCodeServiceImpl implements SMSCodeService {
-    @Autowired
-    private CodeUtils codeUtils;
-    
-    @CreateCache(name="jetCache_",expire = 10,timeUnit = TimeUnit.SECONDS)
-    private Cache<String ,String> jetCache;
+public class SMSCodeServiceimpl implements SMSCodeService {
 
+    @Autowired
+    CodeUtils codeUtils;
+
+    //expire可以设置缓存的过期时间
+    @CreateCache(name = "jetcache",expire = 3600)
+    private Cache<String,String> jetcache;
+
+    @Override
     public String sendCodeToSMS(String tele) {
         String code = codeUtils.generator(tele);
-        jetCache.put(tele,code);
+        jetcache.put(tele,code);
         return code;
     }
 
-    public boolean checkCode(SMSCode smsCode) {
-        String code = jetCache.get(smsCode.getTele());
+    public Boolean checkCode(SMSCode smsCode) {
+        String  code = jetcache.get(smsCode.getTele());
         return smsCode.getCode().equals(code);
     }
 }
 ```
-
-​		通过上述jetcache使用远程方案连接redis可以看出，jetcache操作缓存时的接口操作更符合开发者习惯，使用缓存就先获取缓存对象Cache，放数据进去就是put，取数据出来就是get，更加简单易懂。并且jetcache操作缓存时，可以为某个缓存对象设置过期时间，将同类型的数据放入缓存中，方便有效周期的管理。
 
 ​		上述方案中使用的是配置中定义的default缓存，其实这个default是个名字，可以随便写，也可以随便加。例如再添加一种缓存解决方案，参照如下配置进行：
 
@@ -2885,11 +2849,9 @@ public class SMSCodeServiceImpl implements SMSCodeService {
 | jetcache.[local\|remote].${area}.expireAfterWriteInMillis | 无穷大 | 默认过期时间，毫秒单位                                       |
 | jetcache.local.${area}.expireAfterAccessInMillis          | 0      | 仅local类型的缓存有效，毫秒单位，最大不活动间隔              |
 
-​		以上方案仅支持手工控制缓存，但是springcache方案中的方法缓存特别好用，给一个方法添加一个注解，方法就会自动使用缓存。jetcache也提供了对应的功能，即方法缓存。
-
 **方法缓存**
 
-​		jetcache提供了方法缓存方案，只不过名称变更了而已。在对应的操作接口上方使用注解@Cached即可
+在对应的操作接口上方使用注解@Cached即可
 
 **步骤①**：导入springboot整合jetcache对应的坐标starter
 
@@ -2927,7 +2889,7 @@ jetcache:
         maxTotal: 50
 ```
 
-​		由于redis缓存中不支持保存对象，因此需要对redis设置当Object类型数据进入到redis中时如何进行类型转换。需要配置keyConvertor表示key的类型转换方式，同时标注value的转换类型方式，值进入redis时是java类型，标注valueEncode为java，值从redis中读取时转换成java，标注valueDecode为java。
+​		由于redis缓存中不支持保存对象，因此需要对redis设置当Object类型数据进入到redis中时如何进行类型转换。需要配置keyConvertor表示key的类型转换方式，同时标注value的转换类型方式，**值进入redis时是java类型，标注valueEncode为java，值从redis中读取时转换成java，标注valueDecode为java。**
 
 ​		注意，为了实现Object类型的值进出redis，需要保障进出redis的Object类型的数据必须实现序列化接口。
 
@@ -2974,7 +2936,7 @@ public class BookServiceImpl implements BookService {
 
 ##### 远程方案的数据同步
 
-​		由于远程方案中redis保存的数据可以被多个客户端共享，这就存在了数据同步问题。jetcache提供了3个注解解决此问题，分别在更新、删除操作时同步缓存数据，和读取缓存时定时刷新数据
+​		如果你的数据库中的数据改了，但是缓存还没有进行更新，那么数据就存在错误，所以可以通过下面的3个注释进行解决。
 
 **更新缓存**
 
@@ -3006,14 +2968,12 @@ public Book getById(Integer id) {
 
 ##### 数据报表
 
-​		jetcache还提供有简单的数据报表功能，帮助开发者快速查看缓存命中信息，只需要添加一个配置即可
-
 ```yaml
 jetcache:
   statIntervalMinutes: 1
 ```
 
-​		设置后，每1分钟在控制台输出缓存数据命中信息
+​		设置后，每1分钟在控制台输出缓存数据命中信息（为了测试你的缓存的性能如何）
 
 ```CMD
 [DefaultExecutor] c.alicp.jetcache.support.StatInfoLogger  : jetcache stat from 2022-02-28 09:32:15,892 to 2022-02-28 09:33:00,003
@@ -3031,49 +2991,56 @@ book_    |   0.66| 75.86%|    29|     22|      0|        0|          28.0|      
 4. jetcache提供方法缓存，并提供了对应的缓存更新与刷新功能
 5. jetcache提供有简单的缓存信息命中报表方便开发者即时监控缓存数据命中情况
 
-**思考**
 
-​		jetcache解决了前期使用缓存方案单一的问题，但是仍然不能灵活的选择缓存进行搭配使用，是否存在一种技术可以灵活的搭配各种各样的缓存使用呢？有，咱们下一节再讲。
 
 #### SpringBoot整合j2cache缓存
 
-​		jetcache可以在限定范围内构建多级缓存，但是灵活性不足，不能随意搭配缓存，本节介绍一种可以随意搭配缓存解决方案的缓存整合框架，j2cache。下面就来讲解如何使用这种缓存框架，以Ehcache与redis整合为例：
+​		j2cahche是为了随意搭配缓存解决方案的缓存整合框架。
 
 **步骤①**：导入j2cache、redis、ehcache坐标
 
 ```xml
-<dependency>
-    <groupId>net.oschina.j2cache</groupId>
-    <artifactId>j2cache-core</artifactId>
-    <version>2.8.4-release</version>
-</dependency>
-<dependency>
-    <groupId>net.oschina.j2cache</groupId>
-    <artifactId>j2cache-spring-boot2-starter</artifactId>
-    <version>2.8.0-release</version>
-</dependency>
-<dependency>
-    <groupId>net.sf.ehcache</groupId>
-    <artifactId>ehcache</artifactId>
-</dependency>
+<!--        j2cache的核心包-->
+        <dependency>
+            <groupId>net.oschina.j2cache</groupId>
+            <artifactId>j2cache-core</artifactId>
+            <version>2.8.4-release</version>
+        </dependency>
+<!--        spring整合j2cache的坐标-->
+        <dependency>
+            <groupId>net.oschina.j2cache</groupId>
+            <artifactId>j2cache-spring-boot2-starter</artifactId>
+            <version>2.8.0-release</version>
+        </dependency>
 ```
 
 ​		j2cache的starter中默认包含了redis坐标，官方推荐使用redis作为二级缓存，因此此处无需导入redis坐标
 
+![image-20220923190543005](SpringBoot开发实用.assets/image-20220923190543005.png)
+
 **步骤②**：配置一级与二级缓存，并配置一二级缓存间数据传递方式，配置书写在名称为j2cache.properties的文件中。如果使用ehcache还需要单独添加ehcache的配置文件
 
 ```yaml
-# 1级缓存
+1.一级缓存
+#  指定缓存类别
 j2cache.L1.provider_class = ehcache
+#配置
 ehcache.configXml = ehcache.xml
 
-# 2级缓存
-j2cache.L2.provider_class = net.oschina.j2cache.cache.support.redis.SpringRedisProvider
+
+#2.二级缓存
+#指定缓存类别
+j2cache.L2.provider_class =net.oschina.j2cache.cache.support.redis.SpringRedisProvider
+#配置
 j2cache.L2.config_section = redis
 redis.hosts = localhost:6379
 
-# 1级缓存中的数据如何到达二级缓存
-j2cache.broadcast = net.oschina.j2cache.cache.support.redis.SpringRedisPubSubPolicy
+
+#一级缓存中的数据怎样到达二级缓存
+j2cache,broadcast =net.oschina.j2cache.cache.support.redis.SpringRedisPubSubPolicy
+
+更改redis模式为single
+redis.mode = single
 ```
 
 ​		此处配置不能乱配置，需要参照官方给出的配置说明进行。例如1级供应商选择ehcache，供应商名称仅仅是一个ehcache，但是2级供应商选择redis时要写专用的Spring整合Redis的供应商类名SpringRedisProvider，而且这个名称并不是所有的redis包中能提供的，也不是spring包中提供的。因此配置j2cache必须参照官方文档配置，而且还要去找专用的整合包，导入对应坐标才可以使用。
@@ -3084,21 +3051,23 @@ j2cache.broadcast = net.oschina.j2cache.cache.support.redis.SpringRedisPubSubPol
 
 ```java
 @Service
-public class SMSCodeServiceImpl implements SMSCodeService {
+public class SMSCodeServiceimpl implements SMSCodeService {
+
     @Autowired
-    private CodeUtils codeUtils;
+    CodeUtils codeUtils;
 
     @Autowired
     private CacheChannel cacheChannel;
 
+    @Override
     public String sendCodeToSMS(String tele) {
         String code = codeUtils.generator(tele);
-        cacheChannel.set("sms",tele,code);
-        return code;
+       cacheChannel.set("sms",tele,code);
+       return code;
     }
-
+    @Override
     public boolean checkCode(SMSCode smsCode) {
-        String code = cacheChannel.get("sms",smsCode.getTele()).asString();
+      String code= cacheChannel.get("sms", smsCode.getTele()).asString();
         return smsCode.getCode().equals(code);
     }
 }
@@ -3312,21 +3281,13 @@ memcached.opTimeout = 100
 memcached.sanitizeKeys = false
 ```
 
-**总结**
-
-1. j2cache是一个缓存框架，自身不具有缓存功能，它提供多种缓存整合在一起使用的方案
-2. j2cache需要通过复杂的配置设置各级缓存，以及缓存之间数据交换的方式
-3. j2cache操作接口通过CacheChannel实现
-
 
 
 ### 5-2.任务
 
-​		springboot整合第三方技术第二部分我们来说说任务系统，其实这里说的任务系统指的是定时任务。定时任务是企业级开发中必不可少的组成部分，诸如长周期业务数据的计算，例如年度报表，诸如系统脏数据的处理，再比如系统性能监控报告，还有抢购类活动的商品上架，这些都离不开定时任务。本节将介绍两种不同的定时任务技术。
+​		springboot整合第三方技术第二部分我们来说说任务系统，其实这里说的任务系统指的是定时任务。定时任务是企业级开发中必不可少的组成部分，诸如长周期业务数据的计算，例如年度报表，诸如系统脏数据的处理，再比如系统性能监控报告，还有抢购类活动的商品上架，这些都离不开定时任务.
 
-
-
-#### Quartz
+#### Quart
 
 ​		Quartz技术是一个比较成熟的定时任务框架，怎么说呢？有点繁琐，用过的都知道，配置略微复杂。springboot对其进行整合后，简化了一系列的配置，将很多配置采用默认设置，这样开发阶段就简化了很多。再学习springboot整合Quartz前先普及几个Quartz的概念。
 

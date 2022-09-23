@@ -22,6 +22,12 @@
     <ignored path="$PROJECT_DIR$/springboot_10_test/target/" />
     <ignored path="$PROJECT_DIR$/springboot_15_sql/target/" />
     <ignored path="$PROJECT_DIR$/springboot_11_redis/target/" />
+    <ignored path="$PROJECT_DIR$/springboot_12_mongodb/target/" />
+    <ignored path="$PROJECT_DIR$/springboot_13_es/target/" />
+    <ignored path="$PROJECT_DIR$/springboot_14_cache/target/" />
+    <ignored path="$PROJECT_DIR$/springboot_15_jetcache/target/" />
+    <ignored path="$PROJECT_DIR$/springboot_16_jetcache2/target/" />
+    <ignored path="$PROJECT_DIR$/springboot_17_task/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,87 +38,72 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/springboot_11_redis/src/test/java/com/cuiwei/Springboot11RedisApplicationTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springboot_11_redis/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-252" />
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/springboot_06_druid/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot_06_druid/src/main/java/com/cuiwei/dao/BookDao.java" />
-        <option value="$PROJECT_DIR$/springboot_06_druid/src/test/java/com/cuiwei/Springboot06DruidApplicationTests.java" />
-        <option value="$PROJECT_DIR$/springboot_06_druid/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springboot_07_profiles/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springboot_07_profiles/src/main/resources/application-dev.yml" />
-        <option value="$PROJECT_DIR$/springboot_07_profiles/src/main/resources/application-pro.yml" />
-        <option value="$PROJECT_DIR$/springboot_07_profiles/src/main/resources/application-test.yml" />
-        <option value="$PROJECT_DIR$/springboot_09_ssmp/src/main/java/com/itheima/domain/Book.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/config/MPConfig.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/controller/utils/ProjectExceptionAdvice.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/controller/BookController.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/service/BookService.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/service/impl/BookServiceImpl2.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/dao/BookDao.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/service/IBookService.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/service/impl/BookServiceImpl.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/resources/config/application.yml" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/domain/Book.java" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot_08_hot_deploy/src/main/resources/static/pages/books.html" />
-        <option value="$PROJECT_DIR$/springboot_09_configration/src/main/java/com/cuiwei/config/ServletConfig.java" />
-        <option value="$PROJECT_DIR$/springboot_09_configration/src/main/java/com/cuiwei/Springboot09ConfigrationApplication.java" />
-        <option value="$PROJECT_DIR$/springboot_09_configration/src/main/java/com/cuiwei/config/ServerConfig.java" />
-        <option value="$PROJECT_DIR$/springboot_09_configration/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot_09_configration/src/test/java/com/cuiwei/Springboot09ConfigrationApplicationTests.java" />
-        <option value="$PROJECT_DIR$/springboot_09_configration/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/ConfigrationTest.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/config/MsgConfig.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/domain/Book.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/webTest.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/Controller/BookController.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/service/BookService.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/dao/bookDao.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/dao/BookDao.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/service/impl/BookServiceImpl.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/config/DaoTest.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/DaoTest.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/testcase/domain/BookCase.java" />
-        <option value="$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/PropertiesAndArgsTest.java" />
-        <option value="$PROJECT_DIR$/springboot_15_sql/src/main/java/com/itheima/domain/Book.java" />
-        <option value="$PROJECT_DIR$/springboot_15_sql/src/main/java/com/itheima/dao/BookDao.java" />
-        <option value="$PROJECT_DIR$/springboot_15_sql/src/test/java/com/itheima/Springboot15SqlApplicationTests.java" />
-        <option value="$PROJECT_DIR$/springboot_03_junit/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot_15_sql/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot_15_sql/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springboot_15_sql/src/main/java/com/itheima/Springboot15SqlApplication.java" />
-        <option value="$PROJECT_DIR$/springboot_11_redis/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springboot_11_redis/src/test/java/com/cuiwei/Springboot11RedisApplicationTests.java" />
+        <option value="$PROJECT_DIR$/springboot_12_mongodb/src/test/java/com/cuiwei/Springboot12MongodbApplicationTests.java" />
+        <option value="$PROJECT_DIR$/springboot_12_mongodb/src/main/java/com/cuiwei/Springboot12MongodbApplication.java" />
+        <option value="$PROJECT_DIR$/springboot_13_es/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/springboot_13_es/src/main/java/com/cuiwei/dao/BookDao.java" />
+        <option value="$PROJECT_DIR$/springboot_13_es/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springboot_13_es/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_13_es/src/test/java/com/cuiwei/Springboot13EsApplicationTests.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/domain/Book.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/dao/BookDao.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/BookSercice.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/controller/MsgController.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/Springboot14CacheApplication.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/domain/SMSCode.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/utils/CodeUtils.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/controller/BookController.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/impl/BookServiceimpl.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/BookService.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/impl/MsgServiceimpl.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/MsgService.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/SMSCodeService.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/impl/SMSCodeimpl.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/controller/SMSCodeController.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/resources/ehcache.xml" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/impl/SMSCodeServiceimpl.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/XMemcachedProperties.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/config/XMenecached.java" />
+        <option value="$PROJECT_DIR$/springboot_01_01_quickstart/src/main/java/com/itcuiwei/controller/BookControler.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/BookService.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/dao/BookDao.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/SMSCodeService.java" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_04_mybatis/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/controller/SMSCodeController.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/impl/SMSCodeServiceimpl.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/test/java/com/cuiwei/Springboot15JetcacheApplicationTests.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/doamin/Book.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/domain/Book.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/Springboot15JetcacheApplication.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/impl/BookServiceimpl.java" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/controller/BookController.java" />
+        <option value="$PROJECT_DIR$/springboot_16_jetcache2/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/caffeine.properties" />
+        <option value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/service/SMSCodeService.java" />
+        <option value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/controller/SMSCodeController.java" />
+        <option value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/service/impl/SMSCodeServiceimpl.java" />
+        <option value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/j2cache.properties" />
       </list>
     </option>
   </component>
@@ -130,115 +121,77 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="springboot_11_redis" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="springboot_16_jetcache2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="springboot_11_redis" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="springboot_16_jetcache2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="springboot_11_redis" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="springboot_16_jetcache2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-data-redis:2.7.3" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
+          <item name="net.oschina.j2cache:j2cache-core:2.8.4-release" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="springboot_11_redis" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="springboot_16_jetcache2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.7.3" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
+          <item name="net.oschina.j2cache:j2cache-spring-boot2-starter:2.8.0-release" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
         </path>
       </expand>
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="435" />
+    <option name="x" value="15" />
     <option name="width" value="1380" />
-    <option name="height" value="960" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="cuiwei" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_11_redis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="cuiwei" type="462c0819:PsiDirectoryNode" />
@@ -247,6 +200,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -258,7 +212,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyBtis-Plus" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -267,10 +221,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.41494253" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -281,18 +236,18 @@
       <recent name="com.cuiwei" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cuiwei.utils" />
+      <recent name="com.cuiwei.service" />
+      <recent name="com.cuiwei.service.impl" />
       <recent name="com.cuiwei.domain" />
-      <recent name="com.cuiwei.dao" />
-      <recent name="com.cuiwei.config" />
       <recent name="com.cuiwei.controller" />
-      <recent name="com.cuwiei.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SpringBootProject\springboot_16_jetcache2\src\main\resources" />
+      <recent name="D:\SpringBootProject\springboot_15_jetcache\src\main\java\com\cuiwei\service\impl" />
+      <recent name="D:\SpringBootProject\springboot_15_jetcache\src\main\java\com\cuiwei\service" />
+      <recent name="D:\SpringBootProject\springboot_15_jetcache\src\main\java\com\cuiwei\doamin" />
       <recent name="D:\SpringBootProject\springboot_08_hot_deploy\src\main\resources" />
-      <recent name="D:\SpringBootProject\springboot_08_hot_deploy\src\main\java\com\cuiwei" />
-      <recent name="D:\SpringBootProject\springboot_07_profiles\src\main\resources" />
-      <recent name="D:\SpringBootProject\springboot_07_profiles\src\main\resources\simple" />
-      <recent name="D:\SpringBootProject\springboot_06_druid\src\main\java\com\cuiwei" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -307,9 +262,70 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Springboot11RedisApplicationTests.Hget">
-    <configuration name="Springboot11RedisApplicationTests.Hget" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="springboot_11_redis" />
+  <component name="RunManager" selected="Spring Boot.Springboot16Jetcache2Application">
+    <configuration name="CodeUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cuiwei.utils.CodeUtils" />
+      <module name="springboot_14_cache" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cuiwei.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Springboot13EsApplicationTests.fb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot_13_es" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cuiwei.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cuiwei" />
+      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot13EsApplicationTests" />
+      <option name="METHOD_NAME" value="fb" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Springboot13EsApplicationTests.testCreateClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot_13_es" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cuiwei.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cuiwei" />
+      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot13EsApplicationTests" />
+      <option name="METHOD_NAME" value="testCreateClient" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Springboot13EsApplicationTests.testCreateDocAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot_13_es" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cuiwei.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cuiwei" />
+      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot13EsApplicationTests" />
+      <option name="METHOD_NAME" value="testCreateDocAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Springboot15JetcacheApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot_15_jetcache" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.cuiwei.*" />
@@ -317,72 +333,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.cuiwei" />
-      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot11RedisApplicationTests" />
-      <option name="METHOD_NAME" value="Hget" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Springboot11RedisApplicationTests.Hset" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="springboot_11_redis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cuiwei.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cuiwei" />
-      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot11RedisApplicationTests" />
-      <option name="METHOD_NAME" value="Hset" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Springboot11RedisApplicationTests.get" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="springboot_11_redis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cuiwei.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cuiwei" />
-      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot11RedisApplicationTests" />
-      <option name="METHOD_NAME" value="get" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Springboot11RedisApplicationTests.sete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="springboot_11_redis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cuiwei.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cuiwei" />
-      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot11RedisApplicationTests" />
-      <option name="METHOD_NAME" value="sete" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Springboot15SqlApplicationTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="springboot_15_sql" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.itheima.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.itheima" />
-      <option name="MAIN_CLASS_NAME" value="com.itheima.Springboot15SqlApplicationTests" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot15JetcacheApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -487,6 +439,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Springboot12MongodbApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot_12_mongodb" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cuiwei.Springboot12MongodbApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Springboot13EsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot_13_es" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cuiwei.Springboot13EsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Springboot14CacheApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot_14_cache" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cuiwei.Springboot14CacheApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Springboot15JetcacheApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot_15_jetcache" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cuiwei.Springboot15JetcacheApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Springboot15SqlApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springboot_15_sql" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.itheima.Springboot15SqlApplication" />
@@ -494,8 +474,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Springboot16Jetcache2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot_16_jetcache2" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cuiwei.Springboot16Jetcache2Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Springboot17TaskApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot_17_task" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cuiwei.Springboot17TaskApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.Springboot15SqlApplicationTests.test" />
+      <item itemvalue="Application.CodeUtils" />
+      <item itemvalue="JUnit.Springboot13EsApplicationTests.fb" />
+      <item itemvalue="JUnit.Springboot13EsApplicationTests.testCreateClient" />
+      <item itemvalue="JUnit.Springboot13EsApplicationTests.testCreateDocAll" />
+      <item itemvalue="JUnit.Springboot15JetcacheApplicationTests.contextLoads" />
       <item itemvalue="Spring Boot.Application (1)" />
       <item itemvalue="Spring Boot.Springboot03JunitApplication" />
       <item itemvalue="Spring Boot.Springboot04MybatisApplication" />
@@ -511,18 +509,20 @@
       <item itemvalue="Spring Boot.Springboot10TestApplication" />
       <item itemvalue="Spring Boot.Springboot15SqlApplication" />
       <item itemvalue="Spring Boot.Springboot11RedisApplication" />
-      <item itemvalue="JUnit.Springboot11RedisApplicationTests.sete" />
-      <item itemvalue="JUnit.Springboot11RedisApplicationTests.get" />
-      <item itemvalue="JUnit.Springboot11RedisApplicationTests.Hget" />
-      <item itemvalue="JUnit.Springboot11RedisApplicationTests.Hset" />
+      <item itemvalue="Spring Boot.Springboot12MongodbApplication" />
+      <item itemvalue="Spring Boot.Springboot13EsApplication" />
+      <item itemvalue="Spring Boot.Springboot14CacheApplication" />
+      <item itemvalue="Spring Boot.Springboot15JetcacheApplication" />
+      <item itemvalue="Spring Boot.Springboot16Jetcache2Application" />
+      <item itemvalue="Spring Boot.Springboot17TaskApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Springboot11RedisApplicationTests.Hget" />
-        <item itemvalue="JUnit.Springboot11RedisApplicationTests.Hset" />
-        <item itemvalue="JUnit.Springboot11RedisApplicationTests.get" />
-        <item itemvalue="JUnit.Springboot11RedisApplicationTests.sete" />
-        <item itemvalue="JUnit.Springboot15SqlApplicationTests.test" />
+        <item itemvalue="JUnit.Springboot15JetcacheApplicationTests.contextLoads" />
+        <item itemvalue="Application.CodeUtils" />
+        <item itemvalue="JUnit.Springboot13EsApplicationTests.testCreateDocAll" />
+        <item itemvalue="JUnit.Springboot13EsApplicationTests.testCreateClient" />
+        <item itemvalue="JUnit.Springboot13EsApplicationTests.fb" />
       </list>
     </recent_temporary>
   </component>
@@ -557,48 +557,77 @@
       <workItem from="1661216633839" duration="7288000" />
       <workItem from="1661303919323" duration="595000" />
       <workItem from="1661304534072" duration="8371000" />
+      <workItem from="1661393822513" duration="6712000" />
+      <workItem from="1661475831792" duration="5082000" />
+      <workItem from="1661562847620" duration="6318000" />
+      <workItem from="1661739001479" duration="5282000" />
+      <workItem from="1661821944912" duration="4621000" />
+      <workItem from="1661936953568" duration="1389000" />
+      <workItem from="1661938535178" duration="167000" />
+      <workItem from="1661938933621" duration="3016000" />
+      <workItem from="1661999103679" duration="4855000" />
+      <workItem from="1662019511192" duration="4788000" />
+      <workItem from="1662082348863" duration="4311000" />
+      <workItem from="1662168437557" duration="5896000" />
+      <workItem from="1662259763630" duration="5097000" />
+      <workItem from="1663056144996" duration="28000" />
+      <workItem from="1663071017336" duration="29000" />
+      <workItem from="1663127026542" duration="3000" />
+      <workItem from="1663162175208" duration="312000" />
+      <workItem from="1663206918667" duration="1041000" />
+      <workItem from="1663417862482" duration="334000" />
+      <workItem from="1663492534649" duration="3909000" />
+      <workItem from="1663507339797" duration="524000" />
+      <workItem from="1663507884084" duration="814000" />
+      <workItem from="1663592550347" duration="2371000" />
+      <workItem from="1663669358096" duration="3262000" />
+      <workItem from="1663672670266" duration="29000" />
+      <workItem from="1663672856513" duration="2388000" />
+      <workItem from="1663926284783" duration="1530000" />
+      <workItem from="1663927869028" duration="5172000" />
+      <workItem from="1663935879577" duration="3600000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Springboot15SqlApplicationTests - 2022.08.24 at 09h 54m 37s.xml">
-      <configuration name="Springboot15SqlApplicationTests" configurationId="JUnit" />
+    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 09h 43m 19s.xml">
+      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Springboot15SqlApplicationTests_test - 2022.08.24 at 09h 54m 52s.xml">
-      <configuration name="Springboot15SqlApplicationTests.test" configurationId="JUnit" />
+    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 09h 47m 38s.xml">
+      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Springboot15SqlApplicationTests_test - 2022.08.24 at 09h 55m 22s.xml">
-      <configuration name="Springboot15SqlApplicationTests.test" configurationId="JUnit" />
+    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 09h 56m 54s.xml">
+      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Springboot15SqlApplicationTests_test - 2022.08.24 at 09h 55m 49s.xml">
-      <configuration name="Springboot15SqlApplicationTests.test" configurationId="JUnit" />
+    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 10h 12m 17s.xml">
+      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Springboot15SqlApplicationTests_test - 2022.08.24 at 10h 04m 04s.xml">
-      <configuration name="Springboot15SqlApplicationTests.test" configurationId="JUnit" />
+    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 10h 13m 48s.xml">
+      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Springboot11RedisApplicationTests_sete - 2022.08.24 at 21h 35m 09s.xml">
-      <configuration name="Springboot11RedisApplicationTests.sete" configurationId="JUnit" />
+    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 10h 17m 34s.xml">
+      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Springboot11RedisApplicationTests_get - 2022.08.24 at 21h 36m 02s.xml">
-      <configuration name="Springboot11RedisApplicationTests.get" configurationId="JUnit" />
+    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 10h 28m 52s.xml">
+      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Springboot11RedisApplicationTests_Hget - 2022.08.24 at 21h 41m 47s.xml">
-      <configuration name="Springboot11RedisApplicationTests.Hget" configurationId="JUnit" />
+    <history-entry file="Springboot15JetcacheApplicationTests_contextLoads - 2022.09.20 at 18h 58m 09s.xml">
+      <configuration name="Springboot15JetcacheApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Springboot11RedisApplicationTests_Hset - 2022.08.24 at 21h 41m 55s.xml">
-      <configuration name="Springboot11RedisApplicationTests.Hset" configurationId="JUnit" />
+    <history-entry file="Springboot15JetcacheApplicationTests_contextLoads - 2022.09.23 at 17h 53m 14s.xml">
+      <configuration name="Springboot15JetcacheApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Springboot11RedisApplicationTests_Hget - 2022.08.24 at 21h 42m 39s.xml">
-      <configuration name="Springboot11RedisApplicationTests.Hget" configurationId="JUnit" />
+    <history-entry file="Springboot15JetcacheApplicationTests_contextLoads - 2022.09.23 at 17h 54m 23s.xml">
+      <configuration name="Springboot15JetcacheApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79268000" />
+    <option name="totallyTimeSpent" value="162148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.265625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.265625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -607,9 +636,9 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49934897" weight="0.23045267" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.95884776" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32921812" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49934897" weight="0.2085048" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5473251" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -617,7 +646,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50065106" side_tool="true" weight="0.95473254" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32921812" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.24828532" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" />
@@ -632,476 +661,426 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.265625" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32921812" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49934897" visible="true" weight="0.32921812" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.6159122" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50065106" side_tool="true" weight="0.95473254" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.24828532" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.375" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/controller/SMSCodeController.java</url>
+          <line>12</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/springboot_09_ssmp/src/main/java/com/itheima/dao/BookDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/service/IBookService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/test/java/com/cuiwei/Springboot08HotDeployApplicationTests.java">
+    <entry file="file://$PROJECT_DIR$/springboot_01_01_quickstart/src/test/java/com/itcuiwei/Springboot0101QuickstartApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.12/lib/src.zip!/java.base/java/lang/ref/ReferenceQueue.java">
+    <entry file="file://$PROJECT_DIR$/springboot_01_01_quickstart/src/main/java/com/itcuiwei/controller/BookControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
+        <state relative-caret-position="504">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_01_01_quickstart/pom.xml">
+    <entry file="file://$PROJECT_DIR$/springboot_14_cache/src/main/resources/ehcache.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-840" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_06_druid/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="29" selection-end-column="21" />
+        <state relative-caret-position="480">
+          <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/dao/BookDao.java">
+    <entry file="file://$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/controller/BookController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        <state relative-caret-position="233">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/service/impl/BookServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/Book.java" />
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/utils/CodeUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="812">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/service/impl/BookServiceImpl2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_09_ssmp/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/controller/utils/ProjectExceptionAdvice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/controller/utils/R.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-259">
+        <state relative-caret-position="-52">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/service/BookService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/controller/BookController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/domain/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/config/MPConfig.java">
+    <entry file="file://$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/Springboot14CacheApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/java/com/cuiwei/Springboot08HotDeployApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding>
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/resources/static/pages/books.html">
+    <entry file="file://$PROJECT_DIR$/springboot_04_mybatis/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
-          <caret line="367" column="62" selection-start-line="367" selection-start-column="62" selection-end-line="367" selection-end-column="62" />
+          <caret line="1" selection-start-line="1" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_09_configration/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_09_configration/src/main/java/com/cuiwei/config/ServerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_09_configration/src/main/java/com/cuiwei/Springboot09ConfigrationApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_09_configration/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_09_configration/src/test/java/com/cuiwei/Springboot09ConfigrationApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/config/MsgConfig.java">
+    <entry file="file://$PROJECT_DIR$/springboot_04_mybatis/src/main/java/com/cuiwei/Springboot04MybatisApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#244#245#0" expanded="true" />
-          </folding>
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/ConfigrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/2.7.3/spring-boot-test-2.7.3.jar!/org/springframework/boot/test/context/SpringBootTest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/webTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="86" column="1" selection-start-line="86" selection-start-column="1" selection-end-line="101" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/Controller/BookController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/src/main/resources/config/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="3" selection-start-line="3" selection-end-line="18" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_08_hot_deploy/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="41" selection-start-line="24" selection-start-column="7" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/Springboot10TestApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/DaoTest.java">
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/SMSCodeService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
-          <caret line="10" selection-start-line="10" selection-end-line="24" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/service/impl/BookServiceImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.2.6/druid-1.2.6.jar!/com/alibaba/druid/pool/DruidPooledPreparedStatement.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="336">
+          <caret line="452" selection-start-line="452" selection-end-line="452" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/domain/Book.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/9.0.65/tomcat-embed-core-9.0.65.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
-          <folding>
-            <element signature="e#395#396#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#481#482#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#741#742#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#813#814#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#913#914#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="336">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/test/java/com/cuiwei/PropertiesAndArgsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="18" selection-start-line="18" selection-end-line="23" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/dao/BookDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/service/BookService.java">
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/BookService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_10_test/src/main/java/com/cuiwei/testcase/domain/BookCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" selection-start-line="6" selection-end-line="12" selection-end-column="29" />
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#722#723#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#780#781#0" expanded="true" />
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#883#884#0" expanded="true" />
-            <element signature="e#910#911#0" expanded="true" />
-            <element signature="e#950#951#0" expanded="true" />
-            <element signature="e#982#983#0" expanded="true" />
-            <element signature="e#1018#1019#0" expanded="true" />
-            <element signature="e#1052#1053#0" expanded="true" />
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1150#1151#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_sql/src/main/java/com/itheima/domain/Book.java">
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/test/java/com/cuiwei/Springboot15JetcacheApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+        <state relative-caret-position="134">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/Springboot15JetcacheApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding>
-            <element signature="e#422#423#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#638#639#0" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#768#769#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#940#941#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_03_junit/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_03_junit/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_sql/src/main/java/com/itheima/dao/BookDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_sql/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_sql/src/test/java/com/itheima/Springboot15SqlApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-          <folding>
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#613#614#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_sql/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_sql/src/main/java/com/itheima/Springboot15SqlApplication.java">
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/dao/BookDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
-          <caret line="8" column="70" selection-start-line="8" selection-start-column="70" selection-end-line="8" selection-end-column="70" />
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/impl/BookServiceimpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/utils/CodeUtils.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="59" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_14_cache/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="84" column="4" lean-forward="true" selection-start-line="84" selection-start-column="4" selection-end-line="87" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/j2cache.properties.kt" />
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/ehcache.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/oschina/j2cache/j2cache-spring-boot2-starter/2.8.0-release/j2cache-spring-boot2-starter-2.8.0-release.jar!/net/oschina/j2cache/cache/support/redis/SpringRedisProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/oschina/j2cache/j2cache-spring-boot2-starter/2.8.0-release/j2cache-spring-boot2-starter-2.8.0-release.jar!/net/oschina/j2cache/cache/support/redis/SpringRedisPubSubPolicy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/domain/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/domain/SMSCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/controller/BookController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/ehcache3.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/caffeine.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/service/SMSCodeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="46" lean-forward="true" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/Springboot16Jetcache2Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.12.RELEASE/spring-beans-5.2.12.RELEASE.jar!/org/springframework/beans/BeanUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.12.RELEASE/spring-beans-5.2.12.RELEASE.jar!/org/springframework/beans/factory/support/SimpleInstantiationStrategy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.12.RELEASE/spring-beans-5.2.12.RELEASE.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="330" selection-start-line="330" selection-end-line="330" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.12.RELEASE/spring-beans-5.2.12.RELEASE.jar!/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/ch/qos/logback/classic/LoggerContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="208" selection-start-line="208" selection-end-line="208" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/ch/qos/logback/classic/Logger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="600" selection-start-line="600" selection-end-line="600" />
+          <folding>
+            <element signature="e#18854#18855#0" expanded="true" />
+            <element signature="e#18909#18910#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jcl/5.2.12.RELEASE/spring-jcl-5.2.12.RELEASE.jar!/org/apache/commons/logging/LogAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="353" selection-start-line="353" selection-end-line="353" />
+          <folding>
+            <element signature="e#12661#12662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.2.12.RELEASE/spring-context-5.2.12.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="277" selection-start-line="277" selection-end-line="277" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.12.RELEASE/spring-beans-5.2.12.RELEASE.jar!/org/springframework/beans/factory/support/AbstractBeanFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="236" selection-start-line="236" selection-end-line="236" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/domain/SMSCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/controller/SMSCodeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/service/impl/SMSCodeServiceimpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/j2cache.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/springboot_11_redis/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_14_cache/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" />
+        <state relative-caret-position="84">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_11_redis/pom.xml">
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-252" />
+        <state relative-caret-position="364">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_11_redis/src/test/java/com/cuiwei/Springboot11RedisApplicationTests.java">
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/controller/SMSCodeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
-          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/impl/SMSCodeServiceimpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="16" column="42" lean-forward="true" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1156,12 +1135,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>springboot_11_redis</last-edited>
+          <last-edited>springboot_17_task</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.41494253" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

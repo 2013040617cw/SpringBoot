@@ -1,4 +1,4 @@
-package com.cuiwei.doamin;
+package com.cuiwei.domain;
 
 public class SMSCode {
     private String tele;

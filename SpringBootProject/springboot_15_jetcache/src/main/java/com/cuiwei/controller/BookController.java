@@ -1,6 +1,6 @@
 package com.cuiwei.controller;
 
-import com.cuiwei.doamin.Book;
+import com.cuiwei.domain.Book;
 import com.cuiwei.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/books")
+@RequestMapping("/bboks")
 public class BookController {
        @Autowired
        private BookService bookService;
 
-        @GetMapping("{id}")
-        public Book get(@PathVariable Integer id){
-            return bookService.getById(id);
-        }
+    @GetMapping("{id}")
+    public Book get(@PathVariable Integer id){
+        return bookService.getById(id);
+    }
 
         @PostMapping
         public boolean save(@RequestBody Book book){

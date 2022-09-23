@@ -1,4 +1,4 @@
-package com.cuiwei.doamin;
+package com.cuiwei.domain;
 
 import lombok.Data;
 

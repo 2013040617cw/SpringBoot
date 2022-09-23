@@ -1,6 +1,6 @@
 package com.cuiwei.service;
 
-import com.cuiwei.doamin.Book;
+import com.cuiwei.domain.Book;
 
 import java.util.List;
 

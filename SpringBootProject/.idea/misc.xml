@@ -18,6 +18,12 @@
         <option value="$PROJECT_DIR$/springboot_10_test/pom.xml" />
         <option value="$PROJECT_DIR$/springboot_15_sql/pom.xml" />
         <option value="$PROJECT_DIR$/springboot_11_redis/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_12_mongodb/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_13_es/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_14_cache/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_15_jetcache/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_16_jetcache2/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_17_task/pom.xml" />
       </list>
     </option>
   </component>

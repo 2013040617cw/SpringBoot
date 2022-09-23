@@ -1,0 +1,43 @@
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: tb1_
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 80
+
+  spring:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ssm_db
+      username: root
+      password: 123456
+
+# --ehcache--
+# cache:
+
+
+
+#   ehcache:
+#   config: ehcache.xml
+#   type: ehcache
+
+#--redis--
+#spring:
+#  cache:
+#    type: redis
+##配置Redis服务器配置
+#  redis:
+#    host: localhost
+#    port: 6379
+
+  memcached:
+    servers: localhost:11211
+    poolSize: 10
+    opTimeOut: 3000
+
+
+
+

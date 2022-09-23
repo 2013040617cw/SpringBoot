@@ -16,7 +16,13 @@
       <module fileurl="file://$PROJECT_DIR$/springboot_09_configration/springboot_09_configration.iml" filepath="$PROJECT_DIR$/springboot_09_configration/springboot_09_configration.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_10_test/springboot_10_test.iml" filepath="$PROJECT_DIR$/springboot_10_test/springboot_10_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_11_redis/springboot_11_redis.iml" filepath="$PROJECT_DIR$/springboot_11_redis/springboot_11_redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_12_mongodb/springboot_12_mongodb.iml" filepath="$PROJECT_DIR$/springboot_12_mongodb/springboot_12_mongodb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_13_es/springboot_13_es.iml" filepath="$PROJECT_DIR$/springboot_13_es/springboot_13_es.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_14_cache/springboot_14_cache.iml" filepath="$PROJECT_DIR$/springboot_14_cache/springboot_14_cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_15_jetcache/springboot_15_jetcache.iml" filepath="$PROJECT_DIR$/springboot_15_jetcache/springboot_15_jetcache.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot_15_sql/springboot_15_sql.iml" filepath="$PROJECT_DIR$/springboot_15_sql/springboot_15_sql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_16_jetcache2/springboot_16_jetcache2.iml" filepath="$PROJECT_DIR$/springboot_16_jetcache2/springboot_16_jetcache2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_17_task/springboot_17_task.iml" filepath="$PROJECT_DIR$/springboot_17_task/springboot_17_task.iml" />
     </modules>
   </component>
 </project>
