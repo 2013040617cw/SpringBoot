@@ -2,31 +2,14 @@
 
 # SpringBoot基础篇
 
-​		在基础篇中，我给学习者的定位是先上手，能够使用SpringBoot搭建基于SpringBoot的web项目开发，所以内容设置较少，主要包含如下内容：
-
-- SpringBoot快速入门
-- SpringBoot基础配置
-- 基于SpringBoot整合SSMP
-
 ## JC-1.快速上手SpringBoot
 
-​	学习任意一项技术，首先要知道这个技术的作用是什么，不然学完以后，你都不知道什么时候使用这个技术，也就是技术对应的应用场景。SpringBoot技术由Pivotal团队研发制作，功能的话简单概括就是加速Spring程序的开发，这个加速要从如下两个方面来说
+​	SpringBoot技术由Pivotal团队研发制作，功能的话简单概括就是加速Spring程序的开发，这个加速要从如下两个方面来说
 
 - Spring程序初始搭建过程
 - Spring程序的开发过程
 
-​	通过上面两个方面的定位，我们可以产生两个模糊的概念：
-
-1. SpringBoot开发团队认为原始的Spring程序初始搭建的时候可能有些繁琐，这个过程是可以简化的，那原始的Spring程序初始搭建过程都包含哪些东西了呢？为什么觉得繁琐呢？最基本的Spring程序至少有一个配置文件或配置类，用来描述Spring的配置信息，莫非这个文件都可以不写？此外现在企业级开发使用Spring大部分情况下是做web开发，如果做web开发的话，还要在加载web环境时加载时加载指定的spring配置，这都是最基本的需求了，不写的话怎么知道加载哪个配置文件/配置类呢？
-2. SpringBoot开发团队认为原始的Spring程序开发的过程也有些繁琐，这个过程仍然可以简化。开发过程无外乎使用什么技术，导入对应的jar包（或坐标）然后将这个技术的核心对象交给Spring容器管理，也就是配置成Spring容器管控的bean就可以了。这都是基本操作啊，难道这些东西SpringBoot也能帮我们简化？
-
-​	带着上面这些疑问我们就着手第一个SpringBoot程序的开发了，看看到底使用SpringBoot技术能简化开发到什么程度。
-
-
-
 ### JC-1-1.SpringBoot入门程序制作（一）
-
-​	下面让我们开始做第一个SpringBoot程序吧，本课程基于Idea2020.3版本制作，使用的Maven版本为3.6.1，JDK版本为1.8。如果你的环境和上述环境不同，可能在操作界面和操作过程中略有不同，只要软件匹配兼容即可（说到这个Idea和Maven，它们两个还真不是什么版本都能搭到一起的，说多了都是泪啊）。
 
 ​	下面使用SpringBoot技术快速构建一个SpringMVC的程序，通过这个过程体会<font color="#ff0000"><b>简化</b></font>二字的含义
 
@@ -71,20 +54,12 @@ public class BookController {
 
 ​	使用带main方法的java程序的运行形式来运行程序，运行完毕后，控制台输出上述信息。
 
-​	不难看出，运行的信息中包含了8080的端口，Tomcat这种熟悉的字样，难道这里启动了Tomcat服务器？是的，这里已经启动了。那服务器没有配置，哪里来的呢？后面再说。现在你就可以通过浏览器访问请求的路径，测试功能是否工作正常了
+​	不难看出，运行的信息中包含了8080的端口，Tomcat这种熟悉的字样，这里启动了Tomcat服务器 pom.xml
 
-```JAVA
-访问路径：	http://localhost:8080/book
-```
-
-​	是不是感觉很神奇？目前的效果其实依赖的底层逻辑还是很复杂的，但是从开发者角度来看，目前只有两个文件展现到了开发者面前
-
-- pom.xml
-
-  ​	这是maven的配置文件，描述了当前工程构建时相应的配置信息
+- ​	这是maven的配置文件，描述了当前工程构建时相应的配置信息
 
   ```XML
-  <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
   <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
       <modelVersion>4.0.0</modelVersion>
@@ -126,7 +101,7 @@ public class BookController {
   
   </project>
   ```
-
+  
   配置中有两个信息需要关注，一个是parent，也就是当前工程继承了另外一个工程，还有依赖坐标。
 
 - Application类
@@ -140,11 +115,6 @@ public class BookController {
   }
   ```
 
-  ​	这个类功能很简单，就一句代码，前面运行程序就是运行的这个类
-
-​	到这里我们可以大胆推测一下，如果上面这两个文件没有的话，SpringBoot肯定没法玩，看来核心就是这两个文件了。由于是制作第一个SpringBoot程序，先不要关注这两个文件的功能，后面详细讲解内部工作流程。
-
-​	通过上面的制作，我们不难发现，SpringBoot程序简直太好写了，几乎什么都没写，功能就有了，这也是SpringBoot技术为什么现在这么火的原因，和Spirng程序相比，SpringBoot程序在开发的过程中各个层面均具有优势
 
 | **类配置文件**         | **Spring**   | **SpringBoot** |
 | ---------------------- | ------------ | -------------- |
@@ -153,20 +123,12 @@ public class BookController {
 | Spring/SpringMVC配置类 | **手工制作** | **无**         |
 | 控制器                 | **手工制作** | **手工制作**   |
 
-​	一句话总结一下就是<font color="#ff0000"><b>能少写就少写</b></font>，<font color="#ff0000"><b>能不写就不写</b></font>，这就是SpringBoot技术给我们带来的好处，行了，现在你就可以动手做一做SpringBoot程序了，看看效果如何，是否真的帮助你简化开发了
-
 **总结**
 
 1. 开发SpringBoot程序可以根据向导进行联网快速制作
 2. SpringBoot程序需要基于JDK8以上版本进行制作
 3. SpringBoot程序中需要使用何种功能通过勾选选择技术，也可以手工添加对应的要使用的技术（后期讲解）
 4. 运行SpringBoot程序通过运行Application程序入口进行
-
-**思考**
-
-​	前面制作的时候说过，这个过程必须联网才可以进行，但是有些时候你会遇到一些莫名其妙的问题，比如基于Idea开发时，你会发现你配置了一些坐标，然后Maven下载对应东西的时候死慢死慢的，甚至还会失败。其实这和Idea这款IDE工具有关，万一Idea不能正常访问网络的话，我们是不是就无法制作SpringBoot程序了呢？咱们下一节再说
-
-
 
 ### JC-1-2.SpringBoot入门程序制作（二）
 
@@ -198,17 +160,9 @@ public class BookController {
 
 原因是，端口号被占用。
 
-<font color="#f0f"><b>温馨提示</b></font>
-
-​	做到这里其实可以透漏一个小秘密，Idea工具中创建SpringBoot工程其实连接的就是SpringBoot的官网，走的就是这个过程，只不过Idea把界面给整合了一下，读取到了Spring官网给的信息，然后展示到了Idea的界面中而已.
-
-​	现在创建工程靠的是访问国外的Spring主站，但是互联网访问是可以控制的，如果一天这个网站你在国内都无法访问了，那前面这两种方式都无法创建SpringBoot工程了，这时候又该怎么解决这个问题呢？
-
-
-
 ### JC-1-3.SpringBoot入门程序制作（三）
 
-​	前面提到网站如果被限制访问了，那么就用阿里云。
+​	如果国外的网站不能用了，可以使用阿里云的网站。
 
 ​	创建工程时，切换选择starter服务路径，然后手工收入阿里云提供给我们的使用地址即可。地址：http://start.aliyun.com或https://start.aliyun.com
 
@@ -216,9 +170,7 @@ public class BookController {
 
 ![image-20220802105052562](SpringBoot基础.assets/image-20220802105052562.png)
 
-​	阿里云提供的地址更符合国内开发者的使用习惯，里面有一些SpringBoot官网上没有给出的坐标，大家可以好好看一看。
-
-​	<font color="#ff0000"><b>注意</b></font>：阿里云提供的工程创建地址初始化完毕后和实用SpringBoot官网创建出来的工程略有区别。主要是在配置文件的形式上有区别。这个信息在后面讲解Boot程序的执行流程时给大家揭晓
+​	<font color="#ff0000"><b>注意</b></font>：阿里云提供的工程创建地址初始化完毕后和实用SpringBoot官网创建出来的工程略有区别。
 
 **总结**
 
@@ -226,15 +178,11 @@ public class BookController {
 2. 输入阿里云start地址
 3. 创建项目
 
-**思考**
-
-​	做到这里我们已经有了三种方式创建SpringBoot工程，但是每种方式都要求你必须能上网才能创建工程。假如有一天，你加入了一个保密级别比较高的项目组，整个项目组没有外网，整个事情是不是就不能做了呢？咱们下一节再说
-
 ### JC-1-4.SpringBoot入门程序制作（四）
 
 ​	不能上网，创建SpringBoot工程
 
-​	联网做什么呢？首先SpringBoot工程也是基于Maven构建的，而Maven工程当使用了一些自己需要使用又不存在的东西时，就要去下载。其实SpringBoot工程创建的时候就是去下载一些必要的组件的。你把这些东西给提前准备好就可以了吗？是的，就是这样。
+​	首先SpringBoot工程也是基于Maven构建的，而Maven工程当使用了一些自己需要使用又不存在的东西时，就要去下载。其实SpringBoot工程创建的时候就是去下载一些必要的组件的。你把这些东西给提前准备好就可以了？。
 
 ​	下面咱们就一起手工创建一个SpringBoot工程
 
@@ -286,15 +234,11 @@ public class Application {
 */
 ```
 
-​	<font color="#ff0000"><b>关注</b></font>：类上面的注解@SpringBootApplication千万别丢了，这个是核心，后面再介绍
+​	<font color="#ff0000"><b>关注</b></font>：类上面的注解@SpringBootApplication千万别丢了。
 
 ​	<font color="#ff0000"><b>关注</b></font>：类名可以自定义，只要保障下面代码中使用的类名和你自己定义的名称一样即可，也就是run方法中的那个class对应的名称
 
 **步骤④**：下面就可以自己创建一个Controller测试一下是否能用了，和之前没有差别了
-
-<font color="#f0f"><b>温馨提示</b></font>
-
-​	如果你的计算机上从来没有创建成功过SpringBoot工程，自然也就没有下载过SpringBoot对应的坐标，那用手写创建的方式在不联网的情况下肯定该是不能用的。所谓手写，其实就是自己写别人帮你生成的东西，但是引用的坐标对应的资源必须保障maven仓库里面有才行，如果没有，还是要去下载的
 
 **总结**
 
@@ -335,52 +279,26 @@ public class Application {
 
 ​	SpringBoot是由Pivotal团队提供的全新框架，其设计目的是用来<font color="#ff0000"><b>简化Spring应用的初始搭建以及开发过程</b></font>。
 
-​	都简化了了哪些东西呢？
-
 - Spring程序缺点
   - 依赖设置繁琐
-    - 以前写Spring程序，使用的技术都要自己一个一个的写，现在不需要了，如果做过原始SpringMVC程序的小伙伴应该知道，写SpringMVC程序，最基础的spring-web和spring-webmvc这两个坐标时必须的，就这还不包含你用json啊等等这些坐标，现在呢？一个坐标搞定面
+    - 以前写Spring程序，使用的技术都要自己一个一个的写，现在不需要了，如果做过原始SpringMVC程序的小伙伴应该知道，写SpringMVC程序，最基础的spring-web和spring-webmvc这两个坐标时必须的，就这还不包含你用json啊等等这些坐标，现在一个坐标搞定。
   - 配置繁琐
-    - 以前写配置类或者配置文件，然后用什么东西就要自己写加载bean这些东西，现在呢？什么都没写，照样能用
+    - 以前写配置类或者配置文件，然后用什么东西就要自己写加载bean这些东西。
 
-> 回顾
->
-> ​	通过上面两个方面的定位，我们可以产生两个模糊的概念：
->
-> 1. SpringBoot开发团队认为原始的Spring程序初始搭建的时候可能有些繁琐，这个过程是可以简化的，那原始的Spring程序初始搭建过程都包含哪些东西了呢？为什么觉得繁琐呢？最基本的Spring程序至少有一个配置文件或配置类，用来描述Spring的配置信息，莫非这个文件都可以不写？此外现在企业级开发使用Spring大部分情况下是做web开发，如果做web开发的话，还要在加载web环境时加载时加载指定的spring配置，这都是最基本的需求了，不写的话怎么知道加载哪个配置文件/配置类呢？那换了SpringBoot技术以后呢，这些还要写吗？谜底稍后揭晓，先卖个关子
-> 2. SpringBoot开发团队认为原始的Spring程序开发的过程也有些繁琐，这个过程仍然可以简化。开发过程无外乎使用什么技术，导入对应的jar包（或坐标）然后将这个技术的核心对象交给Spring容器管理，也就是配置成Spring容器管控的bean就可以了。这都是基本操作啊，难道这些东西SpringBoot也能帮我们简化？
-
-​	再来看看前面提出的两个问题，已经有答案了，都简化了，都不用写了，这就是SpringBoot给我们带来的好处。这些简化操作在SpringBoot中有专业的用语，也是SpringBoot程序的核心功能及优点：
+pringBoot程序的核心功能及优点：
 
 - 起步依赖（简化依赖配置）
   - 依赖配置的书写简化就是靠这个起步依赖达成的
 - 自动配置（简化常用工程相关配置）
-  - 配置过于繁琐，使用自动配置就可以做响应的简化，但是内部还是很复杂的，后面具体展开说
+  - 配置过于繁琐，使用自动配置就可以做响应的简化，但是内部还是很复杂的。
 - 辅助功能（内置服务器，……）
-  - 除了上面的功能，其实SpringBoot程序还有其他的一些优势，比如我们没有配置Tomcat服务器，但是能正常运行，这是SpringBoot程序的一个可以感知到的功能，也是SpringBoot的辅助功能之一。一个辅助功能都能做的这么6，太牛了
+  - 除了上面的功能，其实SpringBoot程序还有其他的一些优势，比如我们没有配置Tomcat服务器，但是能正常运行，这是SpringBoot程序的一个可以感知到的功能，也是SpringBoot的辅助功能之一。
 
-​	下面结合入门程序来说说这些简化操作都在哪些方面进行体现的，一共分为4个方面
 
-- parent
-- starter
-- 引导类
-- 内嵌tomcat
 
-#### parent
+### 	parent
 
-​	SpringBoot关注到开发者在进行开发时，往往对依赖版本的选择具有固定的搭配格式，并且这些依赖版本的选择还不能乱搭配。比如A技术的2.0版与B技术的3.5版可以合作在一起，但是和B技术的3.7版合并使用时就有冲突。其实很多开发者都一直想做一件事情，就是将各种各样的技术配合使用的常见依赖版本进行收集整理，制作出了最合理的依赖版本配置方案，这样使用起来就方便多了。
-
-​	SpringBoot一看这种情况so easy啊，于是将所有的技术版本的常见使用方案都给开发者整理了出来，以后开发者使用时直接用它提供的版本方案，就不用担心冲突问题了，相当于SpringBoot做了无数个技术版本搭配的列表，这个技术搭配列表的名字叫做<font color="#ff0000"><b>parent</b></font>。
-
-​	<font color="#ff0000"><b>parent</b></font>自身具有很多个版本，每个<font color="#ff0000"><b>parent</b></font>版本中包含有几百个其他技术的版本号，不同的parent间使用的各种技术的版本号有可能会发生变化。当开发者使用某些技术时，直接使用SpringBoot提供的<font color="#ff0000"><b>parent</b></font>就行了，由<font color="#ff0000"><b>parent</b></font>帮助开发者统一的进行各种技术的版本管理
-
-​	比如你现在要使用Spring配合MyBatis开发，没有parent之前怎么做呢？选个Spring的版本，再选个MyBatis的版本，再把这些技术使用时关联的其他技术的版本逐一确定下来。当你Spring的版本发生变化需要切换时，你的MyBatis版本有可能也要跟着切换，关联技术呢？可能都要切换，而且切换后还可能出现问题。现在这一切工作都可以交给parent来做了。你无需关注这些技术间的版本冲突问题，你只需要关注你用什么技术就行了，冲突问题由<font color="#ff0000"><b>parent</b></font>负责处理。
-
-​	有人可能会提出来，万一<font color="#ff0000"><b>parent</b></font>给我导入了一些我不想使用的依赖怎么办？记清楚，这一点很关键，<font color="#ff0000"><b>parent</b></font>仅仅帮我们进行版本管理，它不负责帮你导入坐标，说白了用什么还是你自己定，只不过版本不需要你管理了。整体上来说，<font color="#ff0000"><b>使用parent可以帮助开发者进行版本的统一管理</b></font>
-
-​	<font color="#ff0000"><b>关注</b></font>：parent定义出来以后，并不是直接使用的，仅仅给了开发者一个说明书，但是并没有实际使用，这个一定要确认清楚
-
-​	那SpringBoot又是如何做到这一点的呢？可以查阅SpringBoot的配置源码，看到这些定义
+s[pring为开发者提供了一些坐标的版本，避免多个依赖使用相同技术时出现依赖版本冲突
 
 - 项目中的pom.xml中继承了一个坐标
 
@@ -472,26 +390,13 @@ public class Application {
 </dependencyManagement>
 ```
 
-
-
-**总结**
-
-1. 开发SpringBoot程序要继承spring-boot-starter-parent
-2. spring-boot-starter-parent中定义了若干个依赖管理
-3. 继承parent模块可以避免多个依赖使用相同技术时出现依赖版本冲突
-4. 继承parent的形式也可以采用引入依赖的形式实现效果
-
-
-
 #### starter
 
-SpringBoot关注到开发者在实际开发时，对于依赖坐标的使用往往都有一些固定的组合方式，比如使用spring-webmvc就一定要使用spring-web。每次都要固定搭配着写，非常繁琐，而且格式固定，没有任何技术含量。
+SpringBoot关注到开发者在实际开发时，对于依赖坐标的使用往往都有一些固定的组合方式，比如使用spring-webmvc就一定要使用spring-web。每次都要固定搭配着写，非常繁琐，而且格式固定，。
 
 ​	SpringBoot一看这种情况，看来需要给开发者带来一些帮助了。安排，把所有的技术使用的**固定搭配格式**都给开发出来，以后你用某个技术，就不用一次写一堆依赖了，还容易写错，我给你做一个东西，代表一堆东西，开发者使用的时候，直接用我做好的这个东西就好了，对于这样的固定技术搭配，SpringBoot给它起了个名字叫做<font color="#ff0000"><b>starter</b></font>。
 
 ​	starter定义了使用某种技术时对于依赖的固定搭配格式，也是一种最佳解决方案，<font color="#ff0000"><b>使用starter可以帮助开发者减少依赖配置</b></font>
-
-​	这个东西其实在入门案例里面已经使用过了，入门案例中的web功能就是使用这种方式添加依赖的。可以查阅SpringBoot的配置源码，看到这些定义
 
 - 项目中的pom.xml定义了使用SpringMVC技术，但是并没有写SpringMVC的坐标，而是添加了一个名字中包含starter的依赖
 
@@ -539,9 +444,7 @@ SpringBoot关注到开发者在实际开发时，对于依赖坐标的使用往�
 </dependencies>
 ```
 
-​	之前提到过开发SpringMVC程序需要导入spring-webmvc的坐标和spring整合web开发的坐标，就是上面这组坐标中的最后两个了。
-
-​	但是我们发现除了这两个还有其他的，比如第二个，叫做spring-boot-starter-json。看名称就知道，这个是与json有关的坐标了，但是看名字发现和最后两个又不太一样，它的名字中也有starter，打开看看里面有什么？
+​	但是我们发现除了这两个还有其他的，比如第二个，叫做spring-boot-starter-json。看名称就知道，这个是与json有关的坐标了，但是看名字发现和最后两个又不太一样，它的名字中也有starter ,它的内容是：
 
 ```XML
 <dependencies>
@@ -584,13 +487,11 @@ SpringBoot关注到开发者在实际开发时，对于依赖坐标的使用往�
 </dependencies>
 ```
 
-​	我们可以发现，这个starter中又包含了若干个坐标，其实就是使用SpringMVC开发通常都会使用到Json，使用json又离不开这里面定义的这些坐标，看来还真是方便，SpringBoot把我们开发中使用的东西能用到的都给提前做好了。你仔细看完会发现，里面有一些你没用过的。的确会出现这种过量导入的可能性，没关系，可以通过maven中的排除依赖剔除掉一部分。不过你不管它也没事，大不了就是过量导入呗。
+​	
 
 ​	到这里基本上得到了一个信息，使用starter可以帮开发者快速配置依赖关系。以前写依赖3个坐标的，现在写导入一个就搞定了，就是加速依赖配置的。
 
 **starter与parent的区别**
-
-​	朦朦胧胧中感觉starter与parent好像都是帮助我们简化配置的，但是功能又不一样，梳理一下。
 
 ​	<font color="#ff0000"><b>starter</b></font>是一个坐标中定了若干个坐标，以前写多个的，现在写一个，<font color="#ff0000"><b>是用来减少依赖配置的书写量的</b></font>
 
@@ -638,16 +539,6 @@ SpringBoot关注到开发者在实际开发时，对于依赖坐标的使用往�
 ```JAVA
 命名规则：spring-boot-starter-技术名称
 ```
-
-​	所以以后见了spring-boot-starter-aaa这样的名字，这就是SpringBoot官方给出的starter定义。那非官方定义的也有吗？有的，具体命名方式到整合章节再说
-
-**总结**
-
-1. 开发SpringBoot程序需要导入坐标时通常导入对应的starter
-2. 每个不同的starter根据功能不同，通常包含多个依赖坐标
-3. 使用starter可以实现快速配置的效果，达到简化配置的目的
-
-
 
 #### 引导类
 
@@ -1884,20 +1775,17 @@ mybatis-plus:
 
 ### JC-3-4.整合Druid
 
-​	使用SpringBoot整合了3个技术了，发现套路基本相同，导入对应的starter，然后做配置，各位小伙伴需要一直强化这套思想。下面再整合一个技术，继续深入强化此思想。
-
-​	前面整合MyBatis和MP的时候，使用的数据源对象都是SpringBoot默认的数据源对象，下面我们手工控制一下，自己指定了一个数据源对象，Druid。
-
 ​	在没有指定数据源时，我们的配置如下：
 
 ```YAML
 #2.配置相关信息
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=Asia/Shanghai
-    username: root
-    password: root
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/ssm_db
+        username: root
+        password: 123456
 ```
 
 ​	此时虽然没有指定数据源，但是根据SpringBoot的德行，肯定帮我们选了一个它认为最好的数据源对象，这就是HiKari。通过启动日志可以查看到对应的身影。
@@ -1965,13 +1853,9 @@ spring:
       password: root
 ```
 
-​	注意观察，配置项中，在datasource下面并不是直接配置url这些属性的，而是先配置了一个druid节点，然后再配置的url这些东西。言外之意，url这个属性时druid下面的属性，那你能想到吗？除了这4个常规配置外，还有druid专用的其他配置。通过提示功能可以打开druid相关的配置查阅
+​	注意观察，配置项中，在datasource下面并不是直接配置url这些属性的，而是先配置了一个druid节点，然后再配置的url这些东西。言外之意，url这个属性时druid下面的属性。
 
-<img src="img\image-20211129112610729.png" alt="image-20211129112610729" style="zoom:80%;" />
-
-​	与druid相关的配置超过200条以上，这就告诉你，如果想做druid相关的配置，使用这种格式就可以了，这里就不展开描述了，太多了。
-
-​	这是我们做的第4个技术的整合方案，还是那两句话：<font color="#ff0000"><b>导入对应starter，使用对应配置</b></font>。没了，SpringBoot整合其他技术就这么简单粗暴。
+​	这是我们做的第4个技术的整合方案，还是那两句话：<font color="#ff0000"><b>导入对应starter，使用对应配置</b></font>。
 
 **总结**
 
@@ -1985,35 +1869,7 @@ spring:
 
 ### JC-3-5.SSMP整合综合案例
 
-​	SpringBoot能够整合的技术太多太多了，对于初学者来说慢慢来，一点点掌握。前面咱们做了4个整合了，下面就通过一个稍微综合一点的案例，将所有知识贯穿起来，同时做一个小功能，体会一下。不过有言在先，这个案例制作的时候，你可能会有这种感觉，说好的SpringBoot整合其他技术的案例，为什么感觉SpringBoot整合其他技术的身影不多呢？因为这东西书写太简单了，简单到瞬间写完，大量的时间做的不是这些整合工作。
-
-​	先看一下这个案例的最终效果
-
-**主页面**
-
-![image-20211129113447844](img\image-20211129113447844.png)
-
-**添加**
-
-![image-20211129113522459](img\image-20211129113522459.png)
-
-**删除**
-
-![image-20211129113550829](img\image-20211129113550829.png)
-
-**修改**
-
-![image-20211129113610966](C:\Users\itcast\AppData\Roaming\Typora\typora-user-images\image-20211129113610966.png)
-
-**分页**
-
-![image-20211129113628969](img\image-20211129113628969.png)
-
-**条件查询**
-
-![image-20211129113650369](img\image-20211129113650369.png)
-
-​	整体案例中需要采用的技术如下，先了解一下，做到哪一个说哪一个
+整体的案例采用：
 
 1. 实体类开发————使用Lombok快速制作实体类
 2. Dao开发————整合MyBatisPlus，制作数据层测试

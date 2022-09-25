@@ -28,6 +28,7 @@
     <ignored path="$PROJECT_DIR$/springboot_15_jetcache/target/" />
     <ignored path="$PROJECT_DIR$/springboot_16_jetcache2/target/" />
     <ignored path="$PROJECT_DIR$/springboot_17_task/target/" />
+    <ignored path="$PROJECT_DIR$/springboot_18_mail/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,35 +39,47 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/Springboot18MailApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+              <folding>
+                <element signature="e#252#253#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/impl/SendMailServiceimpl2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="562">
+              <caret line="50" column="1" lean-forward="true" selection-start-line="15" selection-end-line="50" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
         <option value="Kotlin File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/springboot_12_mongodb/src/test/java/com/cuiwei/Springboot12MongodbApplicationTests.java" />
-        <option value="$PROJECT_DIR$/springboot_12_mongodb/src/main/java/com/cuiwei/Springboot12MongodbApplication.java" />
-        <option value="$PROJECT_DIR$/springboot_13_es/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/springboot_13_es/src/main/java/com/cuiwei/dao/BookDao.java" />
-        <option value="$PROJECT_DIR$/springboot_13_es/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/springboot_13_es/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot_13_es/src/test/java/com/cuiwei/Springboot13EsApplicationTests.java" />
-        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/domain/Book.java" />
-        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/dao/BookDao.java" />
-        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/BookSercice.java" />
-        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/controller/MsgController.java" />
-        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/Springboot14CacheApplication.java" />
-        <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/domain/SMSCode.java" />
         <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/utils/CodeUtils.java" />
         <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/controller/BookController.java" />
         <option value="$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/service/impl/BookServiceimpl.java" />
@@ -104,6 +117,20 @@
         <option value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/controller/SMSCodeController.java" />
         <option value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/java/com/cuiwei/service/impl/SMSCodeServiceimpl.java" />
         <option value="$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/j2cache.properties" />
+        <option value="$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/TimeTaskApp.java" />
+        <option value="$PROJECT_DIR$/springboot_17_task/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/quartz/MyQuartz.java" />
+        <option value="$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/config/QuartzConfig.java" />
+        <option value="$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/Springboot17TaskApplication.java" />
+        <option value="$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/quartz/MyBean.java" />
+        <option value="$PROJECT_DIR$/springboot_18_mail/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/SendMailService.java" />
+        <option value="$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/impl/SendMailService.java" />
+        <option value="$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/Springboot18MailApplication.java" />
+        <option value="$PROJECT_DIR$/springboot_18_mail/src/test/java/com/cuiwei/Springboot18MailApplicationTests.java" />
+        <option value="$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/impl/SendMailServiceimpl.java" />
+        <option value="$PROJECT_DIR$/springboot_18_mail/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/impl/SendMailServiceimpl2.java" />
       </list>
     </option>
   </component>
@@ -125,20 +152,12 @@
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="springboot_16_jetcache2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="springboot_18_mail" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="springboot_16_jetcache2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="net.oschina.j2cache:j2cache-core:2.8.4-release" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="springboot_16_jetcache2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="net.oschina.j2cache:j2cache-spring-boot2-starter:2.8.0-release" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
+          <item name="springboot_18_mail" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
@@ -154,34 +173,35 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -189,18 +209,69 @@
             </path>
             <path>
               <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springboot_17_task" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="cuiwei" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cuiwei" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cuiwei" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot_18_mail" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -225,22 +296,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.41494253" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\SpringBoot\springboot-02_base_configuration\src\main\resources" />
-      <recent name="D:\SpringBoot\springboot-02_base_configuration\src\main\resources\bak" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.cuiwei" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.cuiwei.utils" />
-      <recent name="com.cuiwei.service" />
-      <recent name="com.cuiwei.service.impl" />
-      <recent name="com.cuiwei.domain" />
-      <recent name="com.cuiwei.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\SpringBootProject\springboot_16_jetcache2\src\main\resources" />
@@ -248,6 +308,17 @@
       <recent name="D:\SpringBootProject\springboot_15_jetcache\src\main\java\com\cuiwei\service" />
       <recent name="D:\SpringBootProject\springboot_15_jetcache\src\main\java\com\cuiwei\doamin" />
       <recent name="D:\SpringBootProject\springboot_08_hot_deploy\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cuiwei.impl" />
+      <recent name="com.cuiwei.utils" />
+      <recent name="com.cuiwei.service" />
+      <recent name="com.cuiwei.service.impl" />
+      <recent name="com.cuiwei.domain" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SpringBoot\springboot-02_base_configuration\src\main\resources" />
+      <recent name="D:\SpringBoot\springboot-02_base_configuration\src\main\resources\bak" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -262,7 +333,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Springboot16Jetcache2Application">
+  <component name="RunManager" selected="JUnit.Springboot18MailApplicationTests.contextLoads">
     <configuration name="CodeUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cuiwei.utils.CodeUtils" />
       <module name="springboot_14_cache" />
@@ -276,34 +347,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Springboot13EsApplicationTests.fb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="springboot_13_es" />
+    <configuration name="TimeTaskApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cuiwei.TimeTaskApp" />
+      <module name="springboot_17_task" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cuiwei.config.*" />
+          <option name="PATTERN" value="com.cuiwei.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.cuiwei" />
-      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot13EsApplicationTests" />
-      <option name="METHOD_NAME" value="fb" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Springboot13EsApplicationTests.testCreateClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="springboot_13_es" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.cuiwei.config.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.cuiwei" />
-      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot13EsApplicationTests" />
-      <option name="METHOD_NAME" value="testCreateClient" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -334,6 +386,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.cuiwei" />
       <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot15JetcacheApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Springboot18MailApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot_18_mail" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cuiwei.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cuiwei" />
+      <option name="MAIN_CLASS_NAME" value="com.cuiwei.Springboot18MailApplicationTests" />
       <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -488,12 +556,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Springboot18MailApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot_18_mail" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cuiwei.Springboot18MailApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.CodeUtils" />
-      <item itemvalue="JUnit.Springboot13EsApplicationTests.fb" />
-      <item itemvalue="JUnit.Springboot13EsApplicationTests.testCreateClient" />
+      <item itemvalue="Application.TimeTaskApp" />
       <item itemvalue="JUnit.Springboot13EsApplicationTests.testCreateDocAll" />
       <item itemvalue="JUnit.Springboot15JetcacheApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.Springboot18MailApplicationTests.contextLoads" />
       <item itemvalue="Spring Boot.Application (1)" />
       <item itemvalue="Spring Boot.Springboot03JunitApplication" />
       <item itemvalue="Spring Boot.Springboot04MybatisApplication" />
@@ -515,14 +590,15 @@
       <item itemvalue="Spring Boot.Springboot15JetcacheApplication" />
       <item itemvalue="Spring Boot.Springboot16Jetcache2Application" />
       <item itemvalue="Spring Boot.Springboot17TaskApplication" />
+      <item itemvalue="Spring Boot.Springboot18MailApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Springboot18MailApplicationTests.contextLoads" />
+        <item itemvalue="Application.TimeTaskApp" />
         <item itemvalue="JUnit.Springboot15JetcacheApplicationTests.contextLoads" />
         <item itemvalue="Application.CodeUtils" />
         <item itemvalue="JUnit.Springboot13EsApplicationTests.testCreateDocAll" />
-        <item itemvalue="JUnit.Springboot13EsApplicationTests.testCreateClient" />
-        <item itemvalue="JUnit.Springboot13EsApplicationTests.fb" />
       </list>
     </recent_temporary>
   </component>
@@ -586,31 +662,12 @@
       <workItem from="1663926284783" duration="1530000" />
       <workItem from="1663927869028" duration="5172000" />
       <workItem from="1663935879577" duration="3600000" />
+      <workItem from="1664086680323" duration="7523000" />
+      <workItem from="1664094985922" duration="1067000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 09h 43m 19s.xml">
-      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 09h 47m 38s.xml">
-      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 09h 56m 54s.xml">
-      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 10h 12m 17s.xml">
-      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 10h 13m 48s.xml">
-      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 10h 17m 34s.xml">
-      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Springboot13EsApplicationTests_testCreateClient - 2022.08.27 at 10h 28m 52s.xml">
-      <configuration name="Springboot13EsApplicationTests.testCreateClient" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Springboot15JetcacheApplicationTests_contextLoads - 2022.09.20 at 18h 58m 09s.xml">
       <configuration name="Springboot15JetcacheApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
@@ -620,9 +677,30 @@
     <history-entry file="Springboot15JetcacheApplicationTests_contextLoads - 2022.09.23 at 17h 54m 23s.xml">
       <configuration name="Springboot15JetcacheApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Springboot18MailApplicationTests_contextLoads - 2022.09.25 at 16h 00m 23s.xml">
+      <configuration name="Springboot18MailApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Springboot18MailApplicationTests_contextLoads - 2022.09.25 at 16h 22m 46s.xml">
+      <configuration name="Springboot18MailApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Springboot18MailApplicationTests_contextLoads - 2022.09.25 at 16h 24m 37s.xml">
+      <configuration name="Springboot18MailApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Springboot18MailApplicationTests_contextLoads - 2022.09.25 at 16h 26m 49s.xml">
+      <configuration name="Springboot18MailApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Springboot18MailApplicationTests_contextLoads - 2022.09.25 at 16h 34m 33s.xml">
+      <configuration name="Springboot18MailApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Springboot18MailApplicationTests_contextLoads - 2022.09.25 at 16h 35m 50s.xml">
+      <configuration name="Springboot18MailApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Springboot18MailApplicationTests_contextLoads - 2022.09.25 at 16h 37m 51s.xml">
+      <configuration name="Springboot18MailApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162148000" />
+    <option name="totallyTimeSpent" value="170738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -637,7 +715,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32921812" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49934897" weight="0.2085048" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49934897" weight="0.041152265" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5473251" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -713,124 +791,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/springboot_01_01_quickstart/src/test/java/com/itcuiwei/Springboot0101QuickstartApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_01_01_quickstart/src/main/java/com/itcuiwei/controller/BookControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_14_cache/src/main/resources/ehcache.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/controller/BookController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/Book.java" />
-    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/utils/CodeUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-52">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_14_cache/src/main/java/com/cuiwei/Springboot14CacheApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_04_mybatis/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" selection-start-line="1" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_04_mybatis/src/main/java/com/cuiwei/Springboot04MybatisApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/SMSCodeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.2.6/druid-1.2.6.jar!/com/alibaba/druid/pool/DruidPooledPreparedStatement.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="452" selection-start-line="452" selection-end-line="452" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/9.0.65/tomcat-embed-core-9.0.65.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/BookService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/test/java/com/cuiwei/Springboot15JetcacheApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/Springboot15JetcacheApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/dao/BookDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/springboot_15_jetcache/src/main/java/com/cuiwei/service/impl/BookServiceimpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -906,9 +866,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/ehcache3.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/ehcache3.xml" />
     <entry file="file://$PROJECT_DIR$/springboot_16_jetcache2/src/main/resources/caffeine.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1084,6 +1042,146 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/TimeTaskApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#236#369#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_17_task/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context-support/5.2.12.RELEASE/spring-context-support-5.2.12.RELEASE.jar!/org/springframework/scheduling/quartz/QuartzJobBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/quartz/MyQuartz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" selection-start-line="6" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/config/QuartzConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#310#311#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/Springboot17TaskApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_17_task/src/main/java/com/cuiwei/quartz/MyBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" selection-start-line="6" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#74#75#0" expanded="true" />
+            <element signature="e#120#121#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-mail/2.7.4/spring-boot-starter-mail-2.7.4.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-840" />
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-parent/2.7.4/spring-boot-starter-parent-2.7.4.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5451" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_18_mail/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-411">
+          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/SendMailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/impl/SendMailServiceimpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_18_mail/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_18_mail/src/test/java/com/cuiwei/Springboot18MailApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding>
+            <element signature="e#333#334#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/Springboot18MailApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springboot_18_mail/src/main/java/com/cuiwei/impl/SendMailServiceimpl2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="50" column="1" lean-forward="true" selection-start-line="15" selection-end-line="50" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
@@ -1135,11 +1233,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>springboot_17_task</last-edited>
+          <last-edited>springboot_18_mail</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.41494253" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

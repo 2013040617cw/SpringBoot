@@ -1,4 +1,4 @@
-SpringBoot开发实用
+# SpringBoot开发实用
 
 ## 1.热部署
 
@@ -3281,22 +3281,20 @@ memcached.opTimeout = 100
 memcached.sanitizeKeys = false
 ```
 
+### 5-2.任务                                        
 
+#### Quartz
 
-### 5-2.任务
+​		Quartz技术是一个比较成熟的定时任务框架。
 
-​		springboot整合第三方技术第二部分我们来说说任务系统，其实这里说的任务系统指的是定时任务。定时任务是企业级开发中必不可少的组成部分，诸如长周期业务数据的计算，例如年度报表，诸如系统脏数据的处理，再比如系统性能监控报告，还有抢购类活动的商品上架，这些都离不开定时任务.
-
-#### Quart
-
-​		Quartz技术是一个比较成熟的定时任务框架，怎么说呢？有点繁琐，用过的都知道，配置略微复杂。springboot对其进行整合后，简化了一系列的配置，将很多配置采用默认设置，这样开发阶段就简化了很多。再学习springboot整合Quartz前先普及几个Quartz的概念。
+相关的概念：
 
 - 工作（Job）：用于定义具体执行的工作
 - 工作明细（JobDetail）：用于描述定时工作相关的信息
 - 触发器（Trigger）：描述了工作明细与调度器的对应关系
 - 调度器（Scheduler）：用于描述触发工作的执行规则，通常使用cron表达式定义规则
 
-​		简单说就是你定时干什么事情，这就是工作，工作不可能就是一个简单的方法，还要设置一些明细信息。工作啥时候执行，设置一个调度器，可以简单理解成设置一个工作执行的时间。工作和调度都是独立定义的，它们两个怎么配合到一起呢？用触发器。完了，就这么多。下面开始springboot整合Quartz。
+spring整合Quartz:
 
 **步骤①**：导入springboot整合Quartz的starter
 
@@ -3307,13 +3305,13 @@ memcached.sanitizeKeys = false
 </dependency>
 ```
 
-**步骤②**：定义任务Bean，按照Quartz的开发规范制作，继承QuartzJobBean
+**步骤②**：创建一个任务，并对其继承QuartzJobBean
 
 ```java
 public class MyQuartz extends QuartzJobBean {
     @Override
-    protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        System.out.println("quartz task run...");
+    protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+        System.out.println("quartz is run...");
     }
 }
 ```
@@ -3324,38 +3322,31 @@ public class MyQuartz extends QuartzJobBean {
 @Configuration
 public class QuartzConfig {
     @Bean
+    //定义工作明细   绑定具体的工作
+    //storeDurably这个东西是做持久化的，如果你没有运行这个工作是否进行持久化，否则就会被干掉
     public JobDetail printJobDetail(){
-        //绑定具体的工作
         return JobBuilder.newJob(MyQuartz.class).storeDurably().build();
     }
+
     @Bean
+    //定义触发器   绑定对应的工作明细
     public Trigger printJobTrigger(){
-        ScheduleBuilder schedBuilder = CronScheduleBuilder.cronSchedule("0/5 * * * * ?");
-        //绑定对应的工作明细
-        return TriggerBuilder.newTrigger().forJob(printJobDetail()).withSchedule(schedBuilder).build();
+        //定义工作运行的时间，意思是每2秒运行一次
+        ScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("0/2 * * * * ?");
+        //定义绑定哪个工作明细并且绑定其工作周期
+        return TriggerBuilder.newTrigger().forJob(printJobDetail()).withSchedule(scheduleBuilder).build();
     }
+
 }
 ```
 
-​		工作明细中要设置对应的具体工作，使用newJob()操作传入对应的工作任务类型即可。
+​		工作明细中要设置对应的具体工作，使用newJob()操作传入对应的工作任务类即可。
 
-​		触发器需要绑定任务，使用forJob()操作传入绑定的工作明细对象。此处可以为工作明细设置名称然后使用名称绑定，也可以直接调用对应方法绑定。触发器中最核心的规则是执行时间，此处使用调度器定义执行时间，执行时间描述方式使用的是cron表达式。有关cron表达式的规则，各位小伙伴可以去参看相关课程学习，略微复杂，而且格式不能乱设置，不是写个格式就能用的，写不好就会出现冲突问题。
-
-**总结**
-
-1. springboot整合Quartz就是将Quartz对应的核心对象交给spring容器管理，包含两个对象，JobDetail和Trigger对象
-2. JobDetail对象描述的是工作的执行信息，需要绑定一个QuartzJobBean类型的对象
-3. Trigger对象定义了一个触发器，需要为其指定绑定的JobDetail是哪个，同时要设置执行周期调度器
-
-**思考**
-
-​		上面的操作看上去不多，但是Quartz将其中的对象划分粒度过细，导致开发的时候有点繁琐，spring针对上述规则进行了简化，开发了自己的任务管理组件——Task，如何用呢？咱们下节再说。
-
-
+​		触发器需要绑定任务，使用forJob()操作传入绑定的工作明细对象。此处可以为工作明细设置名称然后使用名称绑定，也可以直接调用对应方法绑定。触发器中最核心的规则是执行时间，此处使用调度器定义执行时间。
 
 #### Task
 
-​		spring根据定时任务的特征，将定时任务的开发简化到了极致。怎么说呢？要做定时任务总要告诉容器有这功能吧，然后定时执行什么任务直接告诉对应的bean什么时间执行就行了，就这么简单，一起来看怎么做
+更简洁的方法：
 
 **步骤①**：开启定时任务功能，在引导类上开启定时任务功能的开关，使用注解@EnableScheduling
 
@@ -3375,16 +3366,12 @@ public class Springboot22TaskApplication {
 ```java
 @Component
 public class MyBean {
-    @Scheduled(cron = "0/1 * * * * ?")
-    public void print(){
-        System.out.println(Thread.currentThread().getName()+" :spring task run...");
+    @Scheduled(cron = "0/5 * * * * ?")
+    public void perint(){
+        System.out.println("小飞棍来咯...");
     }
 }
 ```
-
-​		完事，这就完成了定时任务的配置。总体感觉其实什么东西都没少，只不过没有将所有的信息都抽取成bean，而是直接使用注解绑定定时执行任务的事情而已。
-
-​		如何想对定时任务进行相关配置，可以通过配置文件进行
 
 ```yaml
 spring:
@@ -3398,27 +3385,15 @@ spring:
           await-termination-period: 10s	# 调度线程关闭前最大等待时间，确保最后一定关闭
 ```
 
-**总结**
-
-1. spring task需要使用注解@EnableScheduling开启定时任务功能
-
-2. 为定时执行的的任务设置执行周期，描述方式cron表达式
-
-   
-
 ### 5-3.邮件
 
-​		springboot整合第三方技术第三部分我们来说说邮件系统，发邮件是java程序的基本操作，springboot整合javamail其实就是简化开发。不熟悉邮件的小伙伴可以先学习完javamail的基础操作，再来看这一部分内容才能感触到springboot整合javamail究竟简化了哪些操作。简化的多码？其实不多，差别不大，只是还个格式而已。
-
-​		学习邮件发送之前先了解3个概念，这些概念规范了邮件操作过程中的标准。
+​		邮件概念：
 
 - SMTP（Simple Mail Transfer Protocol）：简单邮件传输协议，用于**发送**电子邮件的传输协议
 - POP3（Post Office Protocol - Version 3）：用于**接收**电子邮件的标准协议
 - IMAP（Internet Mail Access Protocol）：互联网消息协议，是POP3的替代协议
 
-​		简单说就是SMPT是发邮件的标准，POP3是收邮件的标准，IMAP是对POP3的升级。我们制作程序中操作邮件，通常是发邮件，所以SMTP是使用的重点，收邮件大部分都是通过邮件客户端完成，所以开发收邮件的代码极少。除非你要读取邮件内容，然后解析，做邮件功能的统一处理。例如HR的邮箱收到求职者的简历，可以读取后统一处理。但是为什么不制作独立的投递简历的系统呢？所以说，好奇怪的需求，因为要想收邮件就要规范发邮件的人的书写格式，这个未免有点强人所难，并且极易收到外部攻击，你不可能使用白名单来收邮件。如果能使用白名单来收邮件然后解析邮件，还不如开发个系统给白名单中的人专用呢，更安全，总之就是鸡肋了。下面就开始学习springboot如何整合javamail发送邮件。
-
-
+​		简单说就是SMPT是发邮件的标准，POP3是收邮件的标准，IMAP是对POP3的升级。
 
 #### 发送简单邮件
 
@@ -3436,40 +3411,46 @@ spring:
 ```yaml
 spring:
   mail:
-    host: smtp.126.com
-    username: test@126.com
-    password: test
+    host: smtp.qq.com
+    username: QQ号 + @qq.com
+    password: 
 ```
 
 ​		java程序仅用于发送邮件，邮件的功能还是邮件供应商提供的，所以这里是用别人的邮件服务，要配置对应信息。
 
 ​		host配置的是提供邮件服务的主机协议，当前程序仅用于发送邮件，因此配置的是smtp的协议。
 
-​		password并不是邮箱账号的登录密码，是邮件供应商提供的一个加密后的密码，也是为了保障系统安全性。不然外部人员通过地址访问下载了配置文件，直接获取到了邮件密码就会有极大的安全隐患。有关该密码的获取每个邮件供应商提供的方式都不一样，此处略过。可以到邮件供应商的设置页面找POP3或IMAP这些关键词找到对应的获取位置。下例仅供参考：
+​		password的获取方法如下：
 
-![image-20220228111251036](img\image-20220228111251036.png)
+打开邮箱，找到设置，并找到账户：
+
+![image-20220925160725395](SpringBoot开发实用.assets/image-20220925160725395.png)
+
+点击一个服务进行开启，然后进发短信来获取password。
 
 **步骤③**：使用JavaMailSender接口发送邮件
 
 ```java
 @Service
-public class SendMailServiceImpl implements SendMailService {
-    @Autowired
+public class SendMailServiceimpl implements com.cuiwei.SendMailService {
+
+    @Resource
     private JavaMailSender javaMailSender;
-
     //发送人
-    private String from = "test@qq.com";
-    //接收人
-    private String to = "test@126.com";
-    //标题
-    private String subject = "测试邮件";
-    //正文
-    private String context = "测试邮件正文内容";
+    private String from = " 1477367132@qq.com";
 
+    //接收人
+    private String to = "705040525@qq.com";
+
+    //标题
+    private String subject = "测试文件";
+    //正文
+
+    private String context = "我爱你，就像老鼠爱大米";
     @Override
-    public void sendMail() {
+    public void senMail() {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(from+"(小甜甜)");
+        message.setFrom(from);
         message.setTo(to);
         message.setSubject(subject);
         message.setText(context);
@@ -3478,9 +3459,7 @@ public class SendMailServiceImpl implements SendMailService {
 }
 ```
 
-​		将发送邮件的必要信息（发件人、收件人、标题、正文）封装到SimpleMailMessage对象中，可以根据规则设置发送人昵称等。
-
-
+​		  SimpleMailMessage对象只是发送简单邮件，并通过该对象将发件人，收件人，标题，正文等信息进行初始化，然后利用javaMailSender将信息传输进去并进行发送。
 
 #### 发送多组件邮件（附件、复杂正文）
 
@@ -3490,82 +3469,79 @@ public class SendMailServiceImpl implements SendMailService {
 
 ```JAVA
 @Service
-public class SendMailServiceImpl2 implements SendMailService {
-    @Autowired
+public class SendMailServiceimpl2 implements com.cuiwei.SendMailService {
+
+    @Resource
     private JavaMailSender javaMailSender;
-
     //发送人
-    private String from = "test@qq.com";
+    private String from = " 1477367132@qq.com";
+
     //接收人
-    private String to = "test@126.com";
+    private String to = "705040525@qq.com";
+
     //标题
-    private String subject = "测试邮件";
+    private String subject = "测试文件";
     //正文
-    private String context = "<img src='ABC.JPG'/><a href='https://www.itcast.cn'>点开有惊喜</a>";
 
-    public void sendMail() {
+    private String context = "<a href = 'http://www.itcast.cn'>点开有惊喜</a>";
+    @Override
+    public void senMail() {
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
         try {
-            MimeMessage message = javaMailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message);
-            helper.setFrom(to+"(小甜甜)");
-            helper.setTo(from);
+            helper.setFrom(from + "小崔崔");
+            helper.setTo(to);
             helper.setSubject(subject);
-            helper.setText(context,true);		//此处设置正文支持html解析
-
+            helper.setText(context,true);
             javaMailSender.send(message);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+
 ```
 
 **发送带有附件的邮件**
 
 ```JAVA
 @Service
-public class SendMailServiceImpl2 implements SendMailService {
-    @Autowired
+public class SendMailServiceimpl2 implements com.cuiwei.SendMailService {
+
+    @Resource
     private JavaMailSender javaMailSender;
-
     //发送人
-    private String from = "test@qq.com";
-    //接收人
-    private String to = "test@126.com";
-    //标题
-    private String subject = "测试邮件";
-    //正文
-    private String context = "测试邮件正文";
+    private String from = " 1477367132@qq.com";
 
-    public void sendMail() {
+    //接收人
+    private String to = "705040525@qq.com";
+
+    //标题
+    private String subject = "测试文件";
+    //正文
+
+    private String context = "<a href = 'http://www.itcast.cn'>点开有惊喜</a>";
+    @Override
+    public void senMail() {
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
         try {
-            MimeMessage message = javaMailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message,true);		//此处设置支持附件
-            helper.setFrom(to+"(小甜甜)");
-            helper.setTo(from);
+            helper.setFrom(from + "小崔崔");
+            helper.setTo(to);
             helper.setSubject(subject);
-            helper.setText(context);
+            helper.setText(context,true);
+            javaMailSender.send(message);
 
             //添加附件
-            File f1 = new File("springboot_23_mail-0.0.1-SNAPSHOT.jar");
-            File f2 = new File("resources\\logo.png");
-
+            File f1 = new File("D:\\SpringBootProject\\springboot_18_mail\\target\\springboot_18_mail-0.0.1-SNAPSHOT.jar");
+            
             helper.addAttachment(f1.getName(),f1);
-            helper.addAttachment("最靠谱的培训结构.png",f2);
-
-            javaMailSender.send(message);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
 ```
-
-**总结**
-
-1. springboot整合javamail其实就是简化了发送邮件的客户端对象JavaMailSender的初始化过程，通过配置的形式加载信息简化开发过程
-
-   
 
 ### 5-4.消息
 
